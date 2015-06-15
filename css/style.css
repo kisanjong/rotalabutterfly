@@ -4302,6 +4302,9 @@ tbody.collapse.in {
   text-transform: uppercase;
 }
 
+.navbar {
+  border-radius: 0;
+}
 .navbar-form input, .navbar-form .form-control {
   border: none;
 }
