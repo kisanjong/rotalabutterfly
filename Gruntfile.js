@@ -1,6 +1,15 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		browserify: {
+			build: {
+				src: 'js/app.js',
+				dest: 'build/app.js',
+				options: {
+		          transform: ["babelify"]
+		        }
+			}
+		},
 		sass: {
 			dist: {
 				options: { 
@@ -20,6 +29,7 @@ module.exports = function(grunt) {
 			}
 		}
 	});
+	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.registerTask('default',['watch']);
