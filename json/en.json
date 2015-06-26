@@ -11,15 +11,12 @@
     "pump_bottle": "pumps",
     "grams": "g",
     "milligrams": "mg"
-  },
-  "input": {
-    "aquarium": "My aquarium is",
-    "source": {
-      "text": "using",
-      "diy": "diy",
-      "commercial": "premixed",
-      "label": "fertilizers"
     },
+  "labels": {
+    "aquarium": "My aquarium is:",
+    "type_of": "My Fertilizers Are:",
+    "diy": "DIY",
+    "commercial": "Commercial",
     "diy": {
       "text": "I am dosing with",
       "method_text": "using",

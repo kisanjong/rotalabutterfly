@@ -8,7 +8,7 @@ var NutrientCalculator = React.createClass({
 	      dataType: 'json',
 	      cache: false,
 	      success: function(data) {
-	        this.setState({input: data.input});
+	        this.setState({labels: data.labels});
 	        this.setState({units: data.units});
 	      }.bind(this),
 	      error: function(xhr, status, err) {
@@ -18,7 +18,7 @@ var NutrientCalculator = React.createClass({
 	  },
 	getInitialState: function() {
 	    return {
-	      input : [],
+	      labels : [],
 	      units : []
 	    }
 	  },
@@ -28,7 +28,7 @@ var NutrientCalculator = React.createClass({
 	render: function() {
 		return (
 			<form className="form-horizontal">
-				<InputTankSize input={this.state.input} units={this.state.units} />
+				<InputTankSize input={this.state.labels} units={this.state.units} />
 				<RadioFertType />
 			</form>
 			);

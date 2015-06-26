@@ -2,7 +2,7 @@ var InputTankSize = React.createClass({
 	render: function() {
 		return (
 			<div className="form-group">
-				<label htmlFor="aquariumSize" className="col-xs-12 col-sm-4 control-label">{this.props.input.aquarium}</label>
+				<label htmlFor="aquariumSize" className="col-xs-12 col-sm-4 control-label">{this.props.labels.aquarium}</label>
 				<div className="col-xs-6 col-sm-3">
 					<input type="number" id="aquariumSize" className="form-control"></input>
 				</div>
