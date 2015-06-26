@@ -1,3 +1,6 @@
+import RadioFertType from '../view/RadioFertType';
+import InputTankSize from '../view/InputTankSize';
+
 var NutrientCalculator = React.createClass({
 
 	getInitialState: function() {
@@ -11,14 +14,9 @@ var NutrientCalculator = React.createClass({
 			<form className="form-horizontal">
 				<InputTankSize />
 				<RadioFertType />
-				<SelectFertType />
-				<RadioSolutionDry />
-				<InputDIYSolutionContainerDose />
-				<SelectCalcFor />
-				<InputDoseTarget />
-				<InputDoseCalc />
-				<SelectRounding />
-				<SubmitBtn />
+				
+				
+				
 			</form>
 			);
 	},

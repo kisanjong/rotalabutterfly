@@ -1,4 +1,6 @@
-// TO DO: Event Handler - Set State on rest of form based on selection 
+import SelectFertType from '../view/SelectFertType';
+import RadioSolutionDry from '../view/RadioSolutionDry';
+
 var RadioFertType = React.createClass({
 	getInitialState: function() {
 	    return {
@@ -6,46 +8,62 @@ var RadioFertType = React.createClass({
 	    }
 	  },
 	isChecked: function(event) {
-		
+		this.setState({fertType: event.target.value});
 	},
 	render: function() {
-		switch(this.state.step) {
-	      case null :
-	        return <div className="form-group">
+		if (this.state.fertType === null) {
+	      	return ( 
+        		<div className="form-group">
+			      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
+			      	<div className="col-sm-8">
+				        <label className="radio-inline">
+				          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> DIY
+				        </label>
+				        <label className="radio-inline">
+				          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> Premixed
+				        </label>
+			        </div>
+			    </div>
+			);
+	    } else if (this.state.fertType === 'DIY') {
+	      	return (
+	      		<div>
+		        	<div className="form-group">
 				      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
 				      	<div className="col-sm-8">
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="2" onChange={this.isChecked} /> DIY
+					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" checked="checked" onChange={this.isChecked} /> DIY
 					        </label>
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="3" onChange={this.isChecked} /> Premixed
+					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> Premixed
 					        </label>
 				        </div>
 				    </div>
-	      case 2:
-	        return <div className="form-group">
+				    <SelectFertType fertType={this.state.fertType} />
+				    <RadioSolutionDry />
+				</div>
+	        );
+	    } else if (this.state.fertType === 'Premixed') {
+	        return (
+	        	<div>
+		        	<div className="form-group">
 				      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
 				      	<div className="col-sm-8">
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="2" onChange={this.isChecked} /> DIY
+					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> DIY
 					        </label>
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="3" onChange={this.isChecked} /> Premixed
+					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" checked="checked" onChange={this.isChecked} /> Premixed
 					        </label>
 				        </div>
 				    </div>
-	      case 3:
-	        return <div className="form-group">
-				      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
-				      	<div className="col-sm-8">
-					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="2" onChange={this.isChecked} /> DIY
-					        </label>
-					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="3" onChange={this.isChecked} /> Premixed
-					        </label>
-				        </div>
-				    </div>
+				    <SelectFertType fertType={this.state.fertType} />
+				</div>
+			);
+	    } else {
+	    	return (
+	    			<div className="alert alert-danger">Something Done Broke!</div>
+	    		);
 	    }
 	}
 });
