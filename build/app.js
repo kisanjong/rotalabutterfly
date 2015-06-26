@@ -238,13 +238,15 @@ var InputTankSize = React.createClass({
 	displayName: "InputTankSize",
 
 	render: function render() {
+		console.log(this.props.input.aquarium);
+		console.log(this.props.units.element);
 		return React.createElement(
 			"div",
 			{ className: "form-group" },
 			React.createElement(
 				"label",
 				{ htmlFor: "aquariumSize", className: "col-xs-12 col-sm-4 control-label" },
-				"My Aquarium Is:"
+				this.props.input.aquarium
 			),
 			React.createElement(
 				"div",
@@ -258,13 +260,15 @@ var InputTankSize = React.createClass({
 					"label",
 					{ className: "radio-inline" },
 					React.createElement("input", { type: "radio", name: "RadioTankUnit", id: "RadioTankUnit1", defaultValue: "gallons" }),
-					" US gal"
+					" ",
+					this.props.units.us_gal
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
 					React.createElement("input", { type: "radio", name: "RadioTankUnit", id: "RadioTankUnit2", defaultValue: "litres" }),
-					" L"
+					" ",
+					this.props.units.Liter
 				)
 			)
 		);
@@ -289,17 +293,34 @@ var _viewInputTankSize2 = _interopRequireDefault(_viewInputTankSize);
 var NutrientCalculator = React.createClass({
 	displayName: 'NutrientCalculator',
 
+	loadCommentsFromServer: function loadCommentsFromServer() {
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			cache: false,
+			success: (function (data) {
+				this.setState({ input: data.input });
+				this.setState({ units: data.units });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}).bind(this)
+		});
+	},
 	getInitialState: function getInitialState() {
 		return {
-			step: 1
+			input: [],
+			units: []
 		};
 	},
-
+	componentDidMount: function componentDidMount() {
+		this.loadCommentsFromServer();
+	},
 	render: function render() {
 		return React.createElement(
 			'form',
 			{ className: 'form-horizontal' },
-			React.createElement(_viewInputTankSize2['default'], null),
+			React.createElement(_viewInputTankSize2['default'], { input: this.state.input, units: this.state.units }),
 			React.createElement(_viewRadioFertType2['default'], null)
 		);
 	}
