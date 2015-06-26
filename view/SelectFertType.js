@@ -13,7 +13,7 @@ var SelectFertType = React.createClass({
 			return (
 				<div>
 			      <div className="form-group">
-			        <label className="col-sm-4 control-label">I am dosing with:</label>
+			        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected} >
 				          <option>DIY 1</option>
@@ -31,7 +31,7 @@ var SelectFertType = React.createClass({
 				return (
 					<div>
 				      <div className="form-group">
-				        <label className="col-sm-4 control-label">I am dosing with:</label>
+				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" onChange={this.isSelected}>
 					          <option>Premixed 1</option>
@@ -42,14 +42,14 @@ var SelectFertType = React.createClass({
 					        </select>
 				        </div>
 				      </div>
-				      <SelectCalcFor />
+				      <SelectCalcFor fertType={this.state.fertType} labels={this.props.labels} units={this.props.units} />
 				    </div>
 			    );
 			} else {
 				return (
 					<div>
 				      <div className="form-group">
-				        <label className="col-sm-4 control-label">I am dosing with:</label>
+				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" onChange={this.isSelected}>
 					          <option>Premixed 1</option>

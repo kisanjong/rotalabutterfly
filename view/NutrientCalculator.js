@@ -28,8 +28,8 @@ var NutrientCalculator = React.createClass({
 	render: function() {
 		return (
 			<form className="form-horizontal">
-				<InputTankSize input={this.state.labels} units={this.state.units} />
-				<RadioFertType />
+				<InputTankSize labels={this.state.labels} units={this.state.units} />
+				<RadioFertType labels={this.state.labels} units={this.state.units} />
 			</form>
 			);
 	},

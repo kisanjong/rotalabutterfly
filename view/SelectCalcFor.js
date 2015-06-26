@@ -16,86 +16,86 @@ var SelectCalcFor = React.createClass({
 	  		return (
 		    	<div>
 			      <div className="form-group">
-			        <label className="col-sm-4 control-label">I am calculating for:</label>
+			        <label className="col-sm-4 control-label">{this.props.labels.method_label}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" value="Thing 3" onChange={this.isSelected}>
-				          <option value="target">Dose to reach a target</option>
-				          <option value="result">Result of my dose</option>
-				          <option value="Thing 3">Estimative Index</option>
-				          <option value="Thing 4">EI Daily</option>
-				          <option value="Thing 5">EI Low Light/Weekly</option>
-				          <option value="Thing 6">Perpetual Preservation System</option>
-				          <option value="Thing 7">PMDD</option>
+				          <option value="target">{this.props.labels.method_target}</option>
+				          <option value="result">{this.props.labels.method_dose}</option>
+				          <option value="Thing 3">{this.props.labels.method_ei}</option>
+				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
+				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
+				          <option value="Thing 6">{this.props.labels.method_pps}</option>
+				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
-			      <SelectRounding />
-			      <SubmitBtn />
+			      <SelectRounding labels={this.props.labels} />
+			      <SubmitBtn labels={this.props.labels} />
 			    </div>
 		    );
 	  	} else if (this.state.value === 'target') {
 	  		return (
 		    	<div>
 			      <div className="form-group">
-			        <label className="col-sm-4 control-label">I am calculating for:</label>
+			        <label className="col-sm-4 control-label">{this.props.labels.method_label}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
-				          <option value="target">Dose to reach a target</option>
-				          <option value="result">Result of my dose</option>
-				          <option value="Thing 3">Estimative Index</option>
-				          <option value="Thing 4">EI Daily</option>
-				          <option value="Thing 5">EI Low Light/Weekly</option>
-				          <option value="Thing 6">Perpetual Preservation System</option>
-				          <option value="Thing 7">PMDD</option>
+				          <option value="target">{this.props.labels.method_target}</option>
+				          <option value="result">{this.props.labels.method_dose}</option>
+				          <option value="Thing 3">{this.props.labels.method_ei}</option>
+				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
+				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
+				          <option value="Thing 6">{this.props.labels.method_pps}</option>
+				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
-			      <InputDoseTarget />
-			      <SelectRounding />
-			      <SubmitBtn />
+			      <InputDoseTarget labels={this.props.labels} units={this.props.units} />
+			      <SelectRounding labels={this.props.labels} />
+			      <SubmitBtn labels={this.props.labels} />
 			    </div>
 		    );
 	  	} else if (this.state.value === 'result') {
 			return (
 		    	<div>
 			      <div className="form-group">
-			        <label className="col-sm-4 control-label">I am calculating for:</label>
+			        <label className="col-sm-4 control-label">{this.props.labels.method_label}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
-				          <option value="target">Dose to reach a target</option>
-				          <option value="result">Result of my dose</option>
-				          <option value="Thing 3">Estimative Index</option>
-				          <option value="Thing 4">EI Daily</option>
-				          <option value="Thing 5">EI Low Light/Weekly</option>
-				          <option value="Thing 6">Perpetual Preservation System</option>
-				          <option value="Thing 7">PMDD</option>
+				          <option value="target">{this.props.labels.method_target}</option>
+				          <option value="result">{this.props.labels.method_dose}</option>
+				          <option value="Thing 3">{this.props.labels.method_ei}</option>
+				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
+				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
+				          <option value="Thing 6">{this.props.labels.method_pps}</option>
+				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
-			      <InputDoseCalc />
-			      <SelectRounding />
-			      <SubmitBtn />
+			      <InputDoseCalc labels={this.props.labels} units={this.props.units} />
+			      <SelectRounding labels={this.props.labels} />
+			      <SubmitBtn labels={this.props.labels} />
 			    </div>
 		    );
 	  	} else {
 		    return (
 		    	<div>
 			      <div className="form-group">
-			        <label className="col-sm-4 control-label">I am calculating for:</label>
+			        <label className="col-sm-4 control-label">{this.props.labels.method_label}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
-				          <option value="target">Dose to reach a target</option>
-				          <option value="result">Result of my dose</option>
-				          <option value="Thing 3">Estimative Index</option>
-				          <option value="Thing 4">EI Daily</option>
-				          <option value="Thing 5">EI Low Light/Weekly</option>
-				          <option value="Thing 6">Perpetual Preservation System</option>
-				          <option value="Thing 7">PMDD</option>
+				          <option value="target">{this.props.labels.method_target}</option>
+				          <option value="result">{this.props.labels.method_dose}</option>
+				          <option value="Thing 3">{this.props.labels.method_ei}</option>
+				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
+				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
+				          <option value="Thing 6">{this.props.labels.method_pps}</option>
+				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
-			      <SelectRounding />
-			      <SubmitBtn />
+			      <SelectRounding labels={this.props.labels} />
+			      <SubmitBtn labels={this.props.labels} />
 			    </div>
 		    );
 		}

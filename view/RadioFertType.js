@@ -14,13 +14,13 @@ var RadioFertType = React.createClass({
 		if (this.state.fertType === null) {
 	      	return ( 
         		<div className="form-group">
-			      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
+			      	<label className="col-sm-4 control-label">{this.props.labels.type_of}</label>
 			      	<div className="col-sm-8">
 				        <label className="radio-inline">
-				          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> DIY
+				          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> {this.props.labels.diy}
 				        </label>
 				        <label className="radio-inline">
-				          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> Premixed
+				          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> {this.props.labels.commercial}
 				        </label>
 			        </div>
 			    </div>
@@ -32,15 +32,15 @@ var RadioFertType = React.createClass({
 				      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
 				      	<div className="col-sm-8">
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" checked="checked" onChange={this.isChecked} /> DIY
+					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" checked="checked" onChange={this.isChecked} /> {this.props.labels.diy}
 					        </label>
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> Premixed
+					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" onChange={this.isChecked} /> {this.props.labels.commercial}
 					        </label>
 				        </div>
 				    </div>
-				    <SelectFertType fertType={this.state.fertType} />
-				    <RadioSolutionDry />
+				    <SelectFertType fertType={this.state.fertType} labels={this.props.labels} units={this.props.units} />
+				    <RadioSolutionDry labels={this.props.labels} units={this.props.units} />
 				</div>
 	        );
 	    } else if (this.state.fertType === 'Premixed') {
@@ -50,14 +50,14 @@ var RadioFertType = React.createClass({
 				      	<label className="col-sm-4 control-label">My Fertilizers Are:</label>
 				      	<div className="col-sm-8">
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> DIY
+					          <input type="radio" name="RadioFertType" id="RadioFertType1" value="DIY" onChange={this.isChecked} /> {this.props.labels.diy}
 					        </label>
 					        <label className="radio-inline">
-					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" checked="checked" onChange={this.isChecked} /> Premixed
+					          <input type="radio" name="RadioFertType" id="RadioFertType2" value="Premixed" checked="checked" onChange={this.isChecked} /> {this.props.labels.commercial}
 					        </label>
 				        </div>
 				    </div>
-				    <SelectFertType fertType={this.state.fertType} />
+				    <SelectFertType fertType={this.state.fertType} labels={this.props.labels} units={this.props.units} />
 				</div>
 			);
 	    } else {

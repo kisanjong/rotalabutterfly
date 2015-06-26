@@ -16,35 +16,27 @@
     "aquarium": "My aquarium is:",
     "type_of": "My Fertilizers Are:",
     "diy": "DIY",
-    "commercial": "Commercial",
-    "diy": {
-      "text": "I am dosing with",
-      "method_text": "using",
-      "solution": "a solution",
-      "dry": "dry dosing"
-    },
-    "solution": {
-      "text": "My solution container is",
-      "container": "container",
-      "dose": "and each dose is",
-      "tooltip": "if you choose the result of your dose below, that's the dose that goes into this solution."
-    },
-    "dosing_method": {
-      "text": "and I am calculating for",
-      "target": "what dose to reach a target",
-      "dose": "the result of my dose",
-      "ei": "The Estimative Index",
-      "ei_daily": "EI daily",
-      "ei_low": "EI low light/weekly",
-      "pps": "Perpetual Preservation System",
-      "pmdd": "PMDD"
-    },
-    "dose": {
-      "text": "I am adding",
-      "tooltip": "you can use numbers like<br/>\"1/8\", \"1.25\", \"2,50\", \"3\""
-    },
-    "target": "My target is",
-    "round_to": "Round to digits past the decimal"
+    "commercial": "Premixed",
+    "dose_with": "I am Dosing With:",
+    "using": "Using:",
+    "solution": "A Solution",
+    "solution_container": "Container Size:",
+    "solution_dose": "Dose Size:",
+    "solution_tooltip": "If you choose the result of your dose below, that's the dose that goes into this solution.",
+    "dry": "Dry Dosing",
+    "method_label": "I am Calculating For:",
+    "method_target": "Dose to reach a target",
+    "method_dose": "Result of my dose",
+    "method_ei": "Estimative Index",
+    "method_ei_daily": "EI daily",
+    "method_ei_low": "EI Low Light/Weekly",
+    "method_pps": "Perpetual Preservation System",
+    "method_pmdd": "PMDD",
+    "dose_calc_label": "I am Adding:",
+    "dose_calc_tooltip": "note: you can use numbers like<br/>\"1/8\", \"1.25\", \"2,50\", \"3\"",
+    "dose_target": "My Target Is:",
+    "round_to": "Round to digits past decimal:",
+    "submit_btn": "Calculate"
   },
   "output": {
     "dose": "Your addition of %1 to your %2 aquarium adds",

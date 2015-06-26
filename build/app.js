@@ -40,7 +40,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"label",
 						{ className: "col-sm-4 control-label", htmlFor: "solutionContainerSize" },
-						"Container Size:"
+						this.props.labels.solution_container
 					),
 					React.createElement(
 						"div",
@@ -52,7 +52,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
-								"mL"
+								this.props.units.milliliter
 							)
 						)
 					)
@@ -63,7 +63,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"label",
 						{ className: "col-sm-4 control-label", htmlFor: "solutionDoseSize" },
-						"Dose Size:"
+						this.props.labels.solution_dose
 					),
 					React.createElement(
 						"div",
@@ -75,12 +75,12 @@ var InputDIYSolutionContainerDose = React.createClass({
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
-								"mL"
+								this.props.units.milliliter
 							)
 						)
 					)
 				),
-				React.createElement(_viewSelectCalcFor2["default"], null)
+				React.createElement(_viewSelectCalcFor2["default"], { labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -92,7 +92,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"label",
 						{ className: "col-sm-4 control-label", htmlFor: "solutionContainerSize" },
-						"Container Size:"
+						this.props.labels.solution_container
 					),
 					React.createElement(
 						"div",
@@ -104,7 +104,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
-								"mL"
+								this.props.units.milliliter
 							)
 						)
 					)
@@ -115,7 +115,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"label",
 						{ className: "col-sm-4 control-label", htmlFor: "solutionDoseSize" },
-						"Dose Size:"
+						this.props.labels.solution_dose
 					),
 					React.createElement(
 						"div",
@@ -127,7 +127,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
-								"mL"
+								this.props.units.milliliter
 							)
 						)
 					)
@@ -152,7 +152,7 @@ var InputDoseCalc = React.createClass({
 			React.createElement(
 				"label",
 				{ htmlFor: "doseAmount", className: "col-xs-12 col-sm-4 control-label" },
-				"I Am Adding:"
+				this.props.labels.dose_calc_label
 			),
 			React.createElement(
 				"div",
@@ -166,25 +166,28 @@ var InputDoseCalc = React.createClass({
 					"label",
 					{ className: "radio-inline" },
 					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit1", defaultValue: "milliliter" }),
-					" mL"
+					" ",
+					this.props.units.milliliter
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
 					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit2", defaultValue: "tsp" }),
-					" tsp/caps"
+					" ",
+					this.props.units.five_milliliter
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
 					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit2", defaultValue: "pumps" }),
-					" pumps"
+					" ",
+					this.props.units.pump_bottle
 				)
 			),
 			React.createElement(
 				"p",
 				{ className: "help-block col-xs-12 col-sm-8 col-sm-offset-4" },
-				"note: you can use numbers like \"1/8\", \"1.25\", \"2,50\", \"3\""
+				this.props.labels.dose_calc_tooltip
 			)
 		);
 	}
@@ -196,37 +199,33 @@ module.exports = InputDoseCalc;
 "use strict";
 
 var InputDoseTarget = React.createClass({
-	displayName: "InputDoseTarget",
+  displayName: "InputDoseTarget",
 
-	render: function render() {
-		if (this.props.step === 1) {
-			return null;
-		} else {
-			return React.createElement(
-				"div",
-				{ className: "form-group" },
-				React.createElement(
-					"label",
-					{ className: "col-sm-4 control-label", htmlFor: "doseTarget" },
-					"My Target Is:"
-				),
-				React.createElement(
-					"div",
-					{ className: "col-sm-8" },
-					React.createElement(
-						"div",
-						{ className: "input-group" },
-						React.createElement("input", { type: "number", className: "form-control", id: "doseTarget" }),
-						React.createElement(
-							"div",
-							{ className: "input-group-addon" },
-							"ppm"
-						)
-					)
-				)
-			);
-		}
-	}
+  render: function render() {
+    return React.createElement(
+      "div",
+      { className: "form-group" },
+      React.createElement(
+        "label",
+        { className: "col-sm-4 control-label", htmlFor: "doseTarget" },
+        this.props.labels.dose_target
+      ),
+      React.createElement(
+        "div",
+        { className: "col-sm-8" },
+        React.createElement(
+          "div",
+          { className: "input-group" },
+          React.createElement("input", { type: "number", className: "form-control", id: "doseTarget" }),
+          React.createElement(
+            "div",
+            { className: "input-group-addon" },
+            this.props.units.ppm
+          )
+        )
+      )
+    );
+  }
 });
 
 module.exports = InputDoseTarget;
@@ -238,15 +237,13 @@ var InputTankSize = React.createClass({
 	displayName: "InputTankSize",
 
 	render: function render() {
-		console.log(this.props.input.aquarium);
-		console.log(this.props.units.element);
 		return React.createElement(
 			"div",
 			{ className: "form-group" },
 			React.createElement(
 				"label",
 				{ htmlFor: "aquariumSize", className: "col-xs-12 col-sm-4 control-label" },
-				this.props.input.aquarium
+				this.props.labels.aquarium
 			),
 			React.createElement(
 				"div",
@@ -299,7 +296,7 @@ var NutrientCalculator = React.createClass({
 			dataType: 'json',
 			cache: false,
 			success: (function (data) {
-				this.setState({ input: data.input });
+				this.setState({ labels: data.labels });
 				this.setState({ units: data.units });
 			}).bind(this),
 			error: (function (xhr, status, err) {
@@ -309,7 +306,7 @@ var NutrientCalculator = React.createClass({
 	},
 	getInitialState: function getInitialState() {
 		return {
-			input: [],
+			labels: [],
 			units: []
 		};
 	},
@@ -320,8 +317,8 @@ var NutrientCalculator = React.createClass({
 		return React.createElement(
 			'form',
 			{ className: 'form-horizontal' },
-			React.createElement(_viewInputTankSize2['default'], { input: this.state.input, units: this.state.units }),
-			React.createElement(_viewRadioFertType2['default'], null)
+			React.createElement(_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
+			React.createElement(_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
 		);
 	}
 });
@@ -360,7 +357,7 @@ var RadioFertType = React.createClass({
 				React.createElement(
 					'label',
 					{ className: 'col-sm-4 control-label' },
-					'My Fertilizers Are:'
+					this.props.labels.type_of
 				),
 				React.createElement(
 					'div',
@@ -369,13 +366,15 @@ var RadioFertType = React.createClass({
 						'label',
 						{ className: 'radio-inline' },
 						React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', onChange: this.isChecked }),
-						' DIY'
+						' ',
+						this.props.labels.diy
 					),
 					React.createElement(
 						'label',
 						{ className: 'radio-inline' },
 						React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', onChange: this.isChecked }),
-						' Premixed'
+						' ',
+						this.props.labels.commercial
 					)
 				)
 			);
@@ -398,18 +397,20 @@ var RadioFertType = React.createClass({
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', checked: 'checked', onChange: this.isChecked }),
-							' DIY'
+							' ',
+							this.props.labels.diy
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', onChange: this.isChecked }),
-							' Premixed'
+							' ',
+							this.props.labels.commercial
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType }),
-				React.createElement(_viewRadioSolutionDry2['default'], null)
+				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
+				React.createElement(_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
 			);
 		} else if (this.state.fertType === 'Premixed') {
 			return React.createElement(
@@ -430,17 +431,19 @@ var RadioFertType = React.createClass({
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', onChange: this.isChecked }),
-							' DIY'
+							' ',
+							this.props.labels.diy
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', checked: 'checked', onChange: this.isChecked }),
-							' Premixed'
+							' ',
+							this.props.labels.commercial
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType })
+				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -489,7 +492,7 @@ var RadioSolutionDry = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'Using:'
+						this.props.labels.using
 					),
 					React.createElement(
 						'div',
@@ -498,13 +501,15 @@ var RadioSolutionDry = React.createClass({
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
-							' A Solution'
+							' ',
+							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
-							' Dry Dosing'
+							' ',
+							this.props.labels.dry
 						)
 					)
 				)
@@ -519,7 +524,7 @@ var RadioSolutionDry = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'Using:'
+						this.props.labels.using
 					),
 					React.createElement(
 						'div',
@@ -528,17 +533,19 @@ var RadioSolutionDry = React.createClass({
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
-							' A Solution'
+							' ',
+							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
-							' Dry Dosing'
+							' ',
+							this.props.labels.dry
 						)
 					)
 				),
-				React.createElement(_viewInputDIYSolutionContainerDose2['default'], null)
+				React.createElement(_viewInputDIYSolutionContainerDose2['default'], { labels: this.props.labels, units: this.props.units })
 			);
 		} else if (this.state.type === 'dry') {
 			return React.createElement(
@@ -550,7 +557,7 @@ var RadioSolutionDry = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'Using:'
+						this.props.labels.using
 					),
 					React.createElement(
 						'div',
@@ -559,17 +566,19 @@ var RadioSolutionDry = React.createClass({
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
-							' A Solution'
+							' ',
+							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
 							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
-							' Dry Dosing'
+							' ',
+							this.props.labels.dry
 						)
 					)
 				),
-				React.createElement(_viewSelectCalcFor2['default'], null)
+				React.createElement(_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -626,7 +635,7 @@ var SelectCalcFor = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'I am calculating for:'
+						this.props.labels.method_label
 					),
 					React.createElement(
 						'div',
@@ -637,43 +646,43 @@ var SelectCalcFor = React.createClass({
 							React.createElement(
 								'option',
 								{ value: 'target' },
-								'Dose to reach a target'
+								this.props.labels.method_target
 							),
 							React.createElement(
 								'option',
 								{ value: 'result' },
-								'Result of my dose'
+								this.props.labels.method_dose
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 3' },
-								'Estimative Index'
+								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 4' },
-								'EI Daily'
+								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 5' },
-								'EI Low Light/Weekly'
+								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 6' },
-								'Perpetual Preservation System'
+								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 7' },
-								'PMDD'
+								this.props.labels.method_pmdd
 							)
 						)
 					)
 				),
-				React.createElement(_viewSelectRounding2['default'], null),
-				React.createElement(_viewSubmitBtn2['default'], null)
+				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else if (this.state.value === 'target') {
 			return React.createElement(
@@ -685,7 +694,7 @@ var SelectCalcFor = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'I am calculating for:'
+						this.props.labels.method_label
 					),
 					React.createElement(
 						'div',
@@ -696,44 +705,44 @@ var SelectCalcFor = React.createClass({
 							React.createElement(
 								'option',
 								{ value: 'target' },
-								'Dose to reach a target'
+								this.props.labels.method_target
 							),
 							React.createElement(
 								'option',
 								{ value: 'result' },
-								'Result of my dose'
+								this.props.labels.method_dose
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 3' },
-								'Estimative Index'
+								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 4' },
-								'EI Daily'
+								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 5' },
-								'EI Low Light/Weekly'
+								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 6' },
-								'Perpetual Preservation System'
+								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 7' },
-								'PMDD'
+								this.props.labels.method_pmdd
 							)
 						)
 					)
 				),
-				React.createElement(_viewInputDoseTarget2['default'], null),
-				React.createElement(_viewSelectRounding2['default'], null),
-				React.createElement(_viewSubmitBtn2['default'], null)
+				React.createElement(_viewInputDoseTarget2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else if (this.state.value === 'result') {
 			return React.createElement(
@@ -745,7 +754,7 @@ var SelectCalcFor = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'I am calculating for:'
+						this.props.labels.method_label
 					),
 					React.createElement(
 						'div',
@@ -756,44 +765,44 @@ var SelectCalcFor = React.createClass({
 							React.createElement(
 								'option',
 								{ value: 'target' },
-								'Dose to reach a target'
+								this.props.labels.method_target
 							),
 							React.createElement(
 								'option',
 								{ value: 'result' },
-								'Result of my dose'
+								this.props.labels.method_dose
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 3' },
-								'Estimative Index'
+								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 4' },
-								'EI Daily'
+								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 5' },
-								'EI Low Light/Weekly'
+								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 6' },
-								'Perpetual Preservation System'
+								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 7' },
-								'PMDD'
+								this.props.labels.method_pmdd
 							)
 						)
 					)
 				),
-				React.createElement(_viewInputDoseCalc2['default'], null),
-				React.createElement(_viewSelectRounding2['default'], null),
-				React.createElement(_viewSubmitBtn2['default'], null)
+				React.createElement(_viewInputDoseCalc2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else {
 			return React.createElement(
@@ -805,7 +814,7 @@ var SelectCalcFor = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'I am calculating for:'
+						this.props.labels.method_label
 					),
 					React.createElement(
 						'div',
@@ -816,43 +825,43 @@ var SelectCalcFor = React.createClass({
 							React.createElement(
 								'option',
 								{ value: 'target' },
-								'Dose to reach a target'
+								this.props.labels.method_target
 							),
 							React.createElement(
 								'option',
 								{ value: 'result' },
-								'Result of my dose'
+								this.props.labels.method_dose
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 3' },
-								'Estimative Index'
+								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 4' },
-								'EI Daily'
+								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 5' },
-								'EI Low Light/Weekly'
+								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 6' },
-								'Perpetual Preservation System'
+								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
 								{ value: 'Thing 7' },
-								'PMDD'
+								this.props.labels.method_pmdd
 							)
 						)
 					)
 				),
-				React.createElement(_viewSelectRounding2['default'], null),
-				React.createElement(_viewSubmitBtn2['default'], null)
+				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		}
 	}
@@ -891,7 +900,7 @@ var SelectFertType = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'col-sm-4 control-label' },
-						'I am dosing with:'
+						this.props.labels.dose_with
 					),
 					React.createElement(
 						'div',
@@ -939,7 +948,7 @@ var SelectFertType = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'col-sm-4 control-label' },
-							'I am dosing with:'
+							this.props.labels.dose_with
 						),
 						React.createElement(
 							'div',
@@ -975,7 +984,7 @@ var SelectFertType = React.createClass({
 							)
 						)
 					),
-					React.createElement(_viewSelectCalcFor2['default'], null)
+					React.createElement(_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 				);
 			} else {
 				return React.createElement(
@@ -987,7 +996,7 @@ var SelectFertType = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'col-sm-4 control-label' },
-							'I am dosing with:'
+							this.props.labels.dose_with
 						),
 						React.createElement(
 							'div',
@@ -1041,71 +1050,67 @@ module.exports = SelectFertType;
 "use strict";
 
 var SelectRounding = React.createClass({
-	displayName: "SelectRounding",
+		displayName: "SelectRounding",
 
-	render: function render() {
-		if (this.props.step === 1) {
-			return null;
-		} else {
-			return React.createElement(
-				"div",
-				{ className: "form-group" },
-				React.createElement(
-					"label",
-					{ className: "col-sm-4 control-label" },
-					"Round to digits past decimal:"
-				),
-				React.createElement(
-					"div",
-					{ className: "col-sm-8" },
-					React.createElement(
-						"select",
-						{ className: "form-control" },
+		render: function render() {
+				return React.createElement(
+						"div",
+						{ className: "form-group" },
 						React.createElement(
-							"option",
-							null,
-							"1"
+								"label",
+								{ className: "col-sm-4 control-label" },
+								this.props.labels.round_to
 						),
 						React.createElement(
-							"option",
-							null,
-							"2"
-						),
-						React.createElement(
-							"option",
-							null,
-							"3"
-						),
-						React.createElement(
-							"option",
-							null,
-							"4"
-						),
-						React.createElement(
-							"option",
-							null,
-							"5"
-						),
-						React.createElement(
-							"option",
-							null,
-							"6"
-						),
-						React.createElement(
-							"option",
-							null,
-							"7"
-						),
-						React.createElement(
-							"option",
-							null,
-							"8"
+								"div",
+								{ className: "col-sm-8" },
+								React.createElement(
+										"select",
+										{ className: "form-control" },
+										React.createElement(
+												"option",
+												null,
+												"1"
+										),
+										React.createElement(
+												"option",
+												null,
+												"2"
+										),
+										React.createElement(
+												"option",
+												null,
+												"3"
+										),
+										React.createElement(
+												"option",
+												null,
+												"4"
+										),
+										React.createElement(
+												"option",
+												null,
+												"5"
+										),
+										React.createElement(
+												"option",
+												null,
+												"6"
+										),
+										React.createElement(
+												"option",
+												null,
+												"7"
+										),
+										React.createElement(
+												"option",
+												null,
+												"8"
+										)
+								)
 						)
-					)
-				)
-			);
+				);
 		}
-	}
 });
 
 module.exports = SelectRounding;
@@ -1117,15 +1122,11 @@ var SubmitBtn = React.createClass({
   displayName: "SubmitBtn",
 
   render: function render() {
-    if (this.props.step === 1) {
-      return null;
-    } else {
-      return React.createElement(
-        "button",
-        { type: "submit", className: "btn btn-primary btn-block" },
-        "Calculate"
-      );
-    }
+    return React.createElement(
+      "button",
+      { type: "submit", className: "btn btn-primary btn-block" },
+      this.props.labels.submit_btn
+    );
   }
 });
 

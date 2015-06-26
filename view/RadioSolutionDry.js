@@ -15,13 +15,13 @@ var RadioSolutionDry = React.createClass({
 	  	return (
 		  	<div>
 		      <div className="form-group">
-		      	<label className="col-sm-4 control-label">Using:</label>
+		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> A Solution
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> Dry Dosing
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>
@@ -31,34 +31,34 @@ var RadioSolutionDry = React.createClass({
   		return (
 			<div>
 		      <div className="form-group">
-		      	<label className="col-sm-4 control-label">Using:</label>
+		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> A Solution
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> Dry Dosing
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>
-		      <InputDIYSolutionContainerDose />
+		      <InputDIYSolutionContainerDose labels={this.props.labels} units={this.props.units} />
 			</div>
 		);
 	} else if (this.state.type === 'dry') {
 		return (
 		  	<div>
 		      <div className="form-group">
-		      	<label className="col-sm-4 control-label">Using:</label>
+		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> A Solution
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> Dry Dosing
+			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>
-		      <SelectCalcFor />
+		      <SelectCalcFor fertType={this.state.fertType} labels={this.props.labels} units={this.props.units} />
 		    </div>
 	    );
 	} else {
