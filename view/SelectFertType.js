@@ -9,7 +9,7 @@ var SelectFertType = React.createClass({
 		this.setState({selected: true});
 	},
 	render: function() {
-		if (this.props.fertType === 'DIY') {
+		if (this.props.fertType === 'diy') {
 			return (
 				<div>
 			      <div className="form-group">
@@ -26,7 +26,7 @@ var SelectFertType = React.createClass({
 			      </div>
 			    </div>
 		    );	
-		} else if (this.props.fertType === 'Premixed') {
+		} else if (this.props.fertType === 'premixed') {
 			if (this.state.selected === true) {
 				return (
 					<div>

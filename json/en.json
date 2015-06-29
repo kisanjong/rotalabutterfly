@@ -33,7 +33,7 @@
     "method_pps": "Perpetual Preservation System",
     "method_pmdd": "PMDD",
     "dose_calc_label": "I am Adding:",
-    "dose_calc_tooltip": "note: you can use numbers like<br/>\"1/8\", \"1.25\", \"2,50\", \"3\"",
+    "dose_calc_tooltip": "note: you can use numbers like \"1/8\", \"1.25\", \"2,50\", \"3\"",
     "dose_target": "My Target Is:",
     "round_to": "Round to digits past decimal:",
     "submit_btn": "Calculate"

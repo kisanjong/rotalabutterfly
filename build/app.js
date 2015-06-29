@@ -242,13 +242,13 @@ var InputTankSize = React.createClass({
 			{ className: "form-group" },
 			React.createElement(
 				"label",
-				{ htmlFor: "aquariumSize", className: "col-xs-12 col-sm-4 control-label" },
+				{ htmlFor: "tank_vol", className: "col-xs-12 col-sm-4 control-label" },
 				this.props.labels.aquarium
 			),
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", id: "aquariumSize", className: "form-control" })
+				React.createElement("input", { type: "number", name: "tank_vol", id: "tank_vol", className: "form-control" })
 			),
 			React.createElement(
 				"div",
@@ -256,14 +256,14 @@ var InputTankSize = React.createClass({
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
-					React.createElement("input", { type: "radio", name: "RadioTankUnit", id: "RadioTankUnit1", defaultValue: "gallons" }),
+					React.createElement("input", { type: "radio", name: "tank_units", id: "tank_units", defaultValue: "gal" }),
 					" ",
 					this.props.units.us_gal
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
-					React.createElement("input", { type: "radio", name: "RadioTankUnit", id: "RadioTankUnit2", defaultValue: "litres" }),
+					React.createElement("input", { type: "radio", name: "tank_units", id: "tank_units", defaultValue: "L" }),
 					" ",
 					this.props.units.Liter
 				)
@@ -338,16 +338,39 @@ var _viewRadioSolutionDry = require('../view/RadioSolutionDry');
 
 var _viewRadioSolutionDry2 = _interopRequireDefault(_viewRadioSolutionDry);
 
-var RadioFertType = React.createClass({
-	displayName: 'RadioFertType',
+var source = React.createClass({
+	displayName: 'source',
 
+	loadOptionsFromServer: function loadOptionsFromServer() {
+		console.log(this.state.fertType);
+		var url = '';
+		if (this.state.fertType === 'diy') {
+			url = 'http://rotala.dev/json/compounds.json';
+		} else if (this.state.fertType === 'premixed') {
+			url = 'http://rotala.dev/json/commercial-products.json';
+		}
+		$.ajax({
+			url: url,
+			dataType: 'json',
+			cache: false,
+			success: (function (data) {
+				this.setState({ options: data });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}).bind(this)
+		});
+	},
 	getInitialState: function getInitialState() {
 		return {
-			fertType: null
+			fertType: null,
+			options: []
 		};
 	},
 	isChecked: function isChecked(event) {
-		this.setState({ fertType: event.target.value });
+		this.setState({ fertType: event.target.value }, function () {
+			this.loadOptionsFromServer();
+		});
 	},
 	render: function render() {
 		if (this.state.fertType === null) {
@@ -356,7 +379,7 @@ var RadioFertType = React.createClass({
 				{ className: 'form-group' },
 				React.createElement(
 					'label',
-					{ className: 'col-sm-4 control-label' },
+					{ className: 'col-sm-4 control-label', htmlFor: 'source' },
 					this.props.labels.type_of
 				),
 				React.createElement(
@@ -365,20 +388,20 @@ var RadioFertType = React.createClass({
 					React.createElement(
 						'label',
 						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', onChange: this.isChecked }),
+						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
 						' ',
 						this.props.labels.diy
 					),
 					React.createElement(
 						'label',
 						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', onChange: this.isChecked }),
+						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
 						' ',
 						this.props.labels.commercial
 					)
 				)
 			);
-		} else if (this.state.fertType === 'DIY') {
+		} else if (this.state.fertType === 'diy') {
 			return React.createElement(
 				'div',
 				null,
@@ -387,8 +410,8 @@ var RadioFertType = React.createClass({
 					{ className: 'form-group' },
 					React.createElement(
 						'label',
-						{ className: 'col-sm-4 control-label' },
-						'My Fertilizers Are:'
+						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
+						this.props.labels.type_of
 					),
 					React.createElement(
 						'div',
@@ -396,23 +419,23 @@ var RadioFertType = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', checked: 'checked', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', checked: 'checked', onChange: this.isChecked }),
 							' ',
 							this.props.labels.diy
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
 							' ',
 							this.props.labels.commercial
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
+				React.createElement(_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
 				React.createElement(_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
 			);
-		} else if (this.state.fertType === 'Premixed') {
+		} else if (this.state.fertType === 'premixed') {
 			return React.createElement(
 				'div',
 				null,
@@ -421,8 +444,8 @@ var RadioFertType = React.createClass({
 					{ className: 'form-group' },
 					React.createElement(
 						'label',
-						{ className: 'col-sm-4 control-label' },
-						'My Fertilizers Are:'
+						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
+						this.props.labels.type_of
 					),
 					React.createElement(
 						'div',
@@ -430,20 +453,20 @@ var RadioFertType = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType1', value: 'DIY', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
 							' ',
 							this.props.labels.diy
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioFertType', id: 'RadioFertType2', value: 'Premixed', checked: 'checked', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', checked: 'checked', onChange: this.isChecked }),
 							' ',
 							this.props.labels.commercial
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
+				React.createElement(_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -455,7 +478,7 @@ var RadioFertType = React.createClass({
 	}
 });
 
-module.exports = RadioFertType;
+module.exports = source;
 
 },{"../view/RadioSolutionDry":8,"../view/SelectFertType":10}],8:[function(require,module,exports){
 'use strict';
@@ -890,7 +913,7 @@ var SelectFertType = React.createClass({
 		this.setState({ selected: true });
 	},
 	render: function render() {
-		if (this.props.fertType === 'DIY') {
+		if (this.props.fertType === 'diy') {
 			return React.createElement(
 				'div',
 				null,
@@ -937,7 +960,7 @@ var SelectFertType = React.createClass({
 					)
 				)
 			);
-		} else if (this.props.fertType === 'Premixed') {
+		} else if (this.props.fertType === 'premixed') {
 			if (this.state.selected === true) {
 				return React.createElement(
 					'div',
