@@ -1,5 +1,5 @@
-import InputDIYSolutionContainerDose from '../view/InputDIYSolutionContainerDose';
-import SelectCalcFor from '../view/SelectCalcFor';
+import InputDIYSolutionContainerDose from '../js_view/InputDIYSolutionContainerDose';
+import SelectCalcFor from '../js_view/SelectCalcFor';
 
 var RadioSolutionDry = React.createClass({
 	getInitialState: function() {

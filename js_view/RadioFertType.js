@@ -1,5 +1,5 @@
-import SelectFertType from '../view/SelectFertType';
-import RadioSolutionDry from '../view/RadioSolutionDry';
+import SelectFertType from '../js_view/SelectFertType';
+import RadioSolutionDry from '../js_view/RadioSolutionDry';
 
 var source = React.createClass({
 	loadOptionsFromServer: function() {

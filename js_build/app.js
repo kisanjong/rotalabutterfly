@@ -3,20 +3,20 @@
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewNutrientCalculator = require('../view/NutrientCalculator');
+var _js_viewNutrientCalculator = require('../js_view/NutrientCalculator');
 
-var _viewNutrientCalculator2 = _interopRequireDefault(_viewNutrientCalculator);
+var _js_viewNutrientCalculator2 = _interopRequireDefault(_js_viewNutrientCalculator);
 
-React.render(React.createElement(_viewNutrientCalculator2['default'], { url: 'http://rotala.dev/json/en.json' }), document.getElementById('calculator'));
+React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'http://rotala.dev/json/en.json' }), document.getElementById('calculator'));
 
-},{"../view/NutrientCalculator":6}],2:[function(require,module,exports){
+},{"../js_view/NutrientCalculator":6}],2:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _viewSelectCalcFor = require("../view/SelectCalcFor");
+var _js_viewSelectCalcFor = require("../js_view/SelectCalcFor");
 
-var _viewSelectCalcFor2 = _interopRequireDefault(_viewSelectCalcFor);
+var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 
 var InputDIYSolutionContainerDose = React.createClass({
 	displayName: "InputDIYSolutionContainerDose",
@@ -80,7 +80,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectCalcFor2["default"], { labels: this.props.labels, units: this.props.units })
+				React.createElement(_js_viewSelectCalcFor2["default"], { labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -139,7 +139,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 
 module.exports = InputDIYSolutionContainerDose;
 
-},{"../view/SelectCalcFor":9}],3:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":9}],3:[function(require,module,exports){
 "use strict";
 
 var InputDoseCalc = React.createClass({
@@ -279,13 +279,13 @@ module.exports = InputTankSize;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewRadioFertType = require('../view/RadioFertType');
+var _js_viewRadioFertType = require('../js_view/RadioFertType');
 
-var _viewRadioFertType2 = _interopRequireDefault(_viewRadioFertType);
+var _js_viewRadioFertType2 = _interopRequireDefault(_js_viewRadioFertType);
 
-var _viewInputTankSize = require('../view/InputTankSize');
+var _js_viewInputTankSize = require('../js_view/InputTankSize');
 
-var _viewInputTankSize2 = _interopRequireDefault(_viewInputTankSize);
+var _js_viewInputTankSize2 = _interopRequireDefault(_js_viewInputTankSize);
 
 var NutrientCalculator = React.createClass({
 	displayName: 'NutrientCalculator',
@@ -317,26 +317,26 @@ var NutrientCalculator = React.createClass({
 		return React.createElement(
 			'form',
 			{ className: 'form-horizontal' },
-			React.createElement(_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
-			React.createElement(_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
+			React.createElement(_js_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
+			React.createElement(_js_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
 		);
 	}
 });
 
 module.exports = NutrientCalculator;
 
-},{"../view/InputTankSize":5,"../view/RadioFertType":7}],7:[function(require,module,exports){
+},{"../js_view/InputTankSize":5,"../js_view/RadioFertType":7}],7:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewSelectFertType = require('../view/SelectFertType');
+var _js_viewSelectFertType = require('../js_view/SelectFertType');
 
-var _viewSelectFertType2 = _interopRequireDefault(_viewSelectFertType);
+var _js_viewSelectFertType2 = _interopRequireDefault(_js_viewSelectFertType);
 
-var _viewRadioSolutionDry = require('../view/RadioSolutionDry');
+var _js_viewRadioSolutionDry = require('../js_view/RadioSolutionDry');
 
-var _viewRadioSolutionDry2 = _interopRequireDefault(_viewRadioSolutionDry);
+var _js_viewRadioSolutionDry2 = _interopRequireDefault(_js_viewRadioSolutionDry);
 
 var source = React.createClass({
 	displayName: 'source',
@@ -432,8 +432,8 @@ var source = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
-				React.createElement(_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
+				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
+				React.createElement(_js_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
 			);
 		} else if (this.state.fertType === 'premixed') {
 			return React.createElement(
@@ -466,7 +466,7 @@ var source = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
+				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -482,18 +482,18 @@ module.exports = source;
 
 //console.log(Array.isArray(this.props.children));
 
-},{"../view/RadioSolutionDry":8,"../view/SelectFertType":10}],8:[function(require,module,exports){
+},{"../js_view/RadioSolutionDry":8,"../js_view/SelectFertType":10}],8:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewInputDIYSolutionContainerDose = require('../view/InputDIYSolutionContainerDose');
+var _js_viewInputDIYSolutionContainerDose = require('../js_view/InputDIYSolutionContainerDose');
 
-var _viewInputDIYSolutionContainerDose2 = _interopRequireDefault(_viewInputDIYSolutionContainerDose);
+var _js_viewInputDIYSolutionContainerDose2 = _interopRequireDefault(_js_viewInputDIYSolutionContainerDose);
 
-var _viewSelectCalcFor = require('../view/SelectCalcFor');
+var _js_viewSelectCalcFor = require('../js_view/SelectCalcFor');
 
-var _viewSelectCalcFor2 = _interopRequireDefault(_viewSelectCalcFor);
+var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 
 var RadioSolutionDry = React.createClass({
 	displayName: 'RadioSolutionDry',
@@ -570,7 +570,7 @@ var RadioSolutionDry = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewInputDIYSolutionContainerDose2['default'], { labels: this.props.labels, units: this.props.units })
+				React.createElement(_js_viewInputDIYSolutionContainerDose2['default'], { labels: this.props.labels, units: this.props.units })
 			);
 		} else if (this.state.type === 'dry') {
 			return React.createElement(
@@ -603,7 +603,7 @@ var RadioSolutionDry = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
+				React.createElement(_js_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
@@ -617,26 +617,26 @@ var RadioSolutionDry = React.createClass({
 
 module.exports = RadioSolutionDry;
 
-},{"../view/InputDIYSolutionContainerDose":2,"../view/SelectCalcFor":9}],9:[function(require,module,exports){
+},{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":9}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewSubmitBtn = require('../view/SubmitBtn');
+var _js_viewSubmitBtn = require('../js_view/SubmitBtn');
 
-var _viewSubmitBtn2 = _interopRequireDefault(_viewSubmitBtn);
+var _js_viewSubmitBtn2 = _interopRequireDefault(_js_viewSubmitBtn);
 
-var _viewSelectRounding = require('../view/SelectRounding');
+var _js_viewSelectRounding = require('../js_view/SelectRounding');
 
-var _viewSelectRounding2 = _interopRequireDefault(_viewSelectRounding);
+var _js_viewSelectRounding2 = _interopRequireDefault(_js_viewSelectRounding);
 
-var _viewInputDoseCalc = require('../view/InputDoseCalc');
+var _js_viewInputDoseCalc = require('../js_view/InputDoseCalc');
 
-var _viewInputDoseCalc2 = _interopRequireDefault(_viewInputDoseCalc);
+var _js_viewInputDoseCalc2 = _interopRequireDefault(_js_viewInputDoseCalc);
 
-var _viewInputDoseTarget = require('../view/InputDoseTarget');
+var _js_viewInputDoseTarget = require('../js_view/InputDoseTarget');
 
-var _viewInputDoseTarget2 = _interopRequireDefault(_viewInputDoseTarget);
+var _js_viewInputDoseTarget2 = _interopRequireDefault(_js_viewInputDoseTarget);
 
 var SelectCalcFor = React.createClass({
 	displayName: 'SelectCalcFor',
@@ -706,8 +706,8 @@ var SelectCalcFor = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
-				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
+				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else if (this.state.value === 'target') {
 			return React.createElement(
@@ -765,9 +765,9 @@ var SelectCalcFor = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewInputDoseTarget2['default'], { labels: this.props.labels, units: this.props.units }),
-				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
-				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
+				React.createElement(_js_viewInputDoseTarget2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else if (this.state.value === 'result') {
 			return React.createElement(
@@ -825,9 +825,9 @@ var SelectCalcFor = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewInputDoseCalc2['default'], { labels: this.props.labels, units: this.props.units }),
-				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
-				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
+				React.createElement(_js_viewInputDoseCalc2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		} else {
 			return React.createElement(
@@ -885,8 +885,8 @@ var SelectCalcFor = React.createClass({
 						)
 					)
 				),
-				React.createElement(_viewSelectRounding2['default'], { labels: this.props.labels }),
-				React.createElement(_viewSubmitBtn2['default'], { labels: this.props.labels })
+				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
+				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
 		}
 	}
@@ -894,14 +894,14 @@ var SelectCalcFor = React.createClass({
 
 module.exports = SelectCalcFor;
 
-},{"../view/InputDoseCalc":3,"../view/InputDoseTarget":4,"../view/SelectRounding":11,"../view/SubmitBtn":12}],10:[function(require,module,exports){
+},{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":11,"../js_view/SubmitBtn":12}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _viewSelectCalcFor = require('../view/SelectCalcFor');
+var _js_viewSelectCalcFor = require('../js_view/SelectCalcFor');
 
-var _viewSelectCalcFor2 = _interopRequireDefault(_viewSelectCalcFor);
+var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 
 var SelectFertType = React.createClass({
 	displayName: 'SelectFertType',
@@ -974,7 +974,7 @@ var SelectFertType = React.createClass({
 							)
 						)
 					),
-					React.createElement(_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
+					React.createElement(_js_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 				);
 			} else {
 				return React.createElement(
@@ -1014,7 +1014,7 @@ module.exports = SelectFertType;
 
 //console.log(Array.isArray(this.props.children));
 
-},{"../view/SelectCalcFor":9}],11:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":9}],11:[function(require,module,exports){
 "use strict";
 
 var SelectRounding = React.createClass({

@@ -1,5 +1,5 @@
-import RadioFertType from '../view/RadioFertType';
-import InputTankSize from '../view/InputTankSize';
+import RadioFertType from '../js_view/RadioFertType';
+import InputTankSize from '../js_view/InputTankSize';
 
 var NutrientCalculator = React.createClass({
 	loadCommentsFromServer: function() {

@@ -1,4 +1,4 @@
-import NutrientCalculator from '../view/NutrientCalculator';
+import NutrientCalculator from '../js_view/NutrientCalculator';
 
 React.render(
 	<NutrientCalculator url="http://rotala.dev/json/en.json" />,

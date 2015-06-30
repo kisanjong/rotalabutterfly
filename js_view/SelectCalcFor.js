@@ -1,7 +1,7 @@
-import SubmitBtn from '../view/SubmitBtn';
-import SelectRounding from '../view/SelectRounding';
-import InputDoseCalc from '../view/InputDoseCalc';
-import InputDoseTarget from '../view/InputDoseTarget';
+import SubmitBtn from '../js_view/SubmitBtn';
+import SelectRounding from '../js_view/SelectRounding';
+import InputDoseCalc from '../js_view/InputDoseCalc';
+import InputDoseTarget from '../js_view/InputDoseTarget';
 var SelectCalcFor = React.createClass({
 	getInitialState: function() {
 	    return {

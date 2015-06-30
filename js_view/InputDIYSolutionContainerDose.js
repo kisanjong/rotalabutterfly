@@ -1,4 +1,4 @@
-import SelectCalcFor from '../view/SelectCalcFor';
+import SelectCalcFor from '../js_view/SelectCalcFor';
 var InputDIYSolutionContainerDose = React.createClass({
 	getInitialState: function() {
 	    return {

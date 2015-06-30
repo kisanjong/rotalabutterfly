@@ -1,4 +1,4 @@
-import SelectCalcFor from '../view/SelectCalcFor';
+import SelectCalcFor from '../js_view/SelectCalcFor';
 var SelectFertType = React.createClass({
 	isSelected: function(event) {
 		this.setState({selected: true});
