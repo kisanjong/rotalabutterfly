@@ -1,7 +1,5 @@
 *.DS_Store
 .DS_Store
-/bower_components/*
-/node_modules/*
 .sass-cache
 .sass-cache/*
 notes.txt
