@@ -342,7 +342,6 @@ var source = React.createClass({
 	displayName: 'source',
 
 	loadOptionsFromServer: function loadOptionsFromServer() {
-		console.log(this.state.fertType);
 		var url = '';
 		if (this.state.fertType === 'diy') {
 			url = 'http://rotala.dev/json/compounds.json';
@@ -361,17 +360,18 @@ var source = React.createClass({
 			}).bind(this)
 		});
 	},
+	isChecked: function isChecked(event) {
+		this.setState({ fertType: event.target.value }, function () {
+			this.loadOptionsFromServer();
+		});
+	},
 	getInitialState: function getInitialState() {
 		return {
 			fertType: null,
 			options: []
 		};
 	},
-	isChecked: function isChecked(event) {
-		this.setState({ fertType: event.target.value }, function () {
-			this.loadOptionsFromServer();
-		});
-	},
+	componentDidMount: function componentDidMount() {},
 	render: function render() {
 		if (this.state.fertType === null) {
 			return React.createElement(
@@ -479,6 +479,8 @@ var source = React.createClass({
 });
 
 module.exports = source;
+
+//console.log(Array.isArray(this.props.children));
 
 },{"../view/RadioSolutionDry":8,"../view/SelectFertType":10}],8:[function(require,module,exports){
 'use strict';
@@ -904,15 +906,28 @@ var _viewSelectCalcFor2 = _interopRequireDefault(_viewSelectCalcFor);
 var SelectFertType = React.createClass({
 	displayName: 'SelectFertType',
 
+	isSelected: function isSelected(event) {
+		this.setState({ selected: true });
+	},
 	getInitialState: function getInitialState() {
 		return {
 			selected: null
 		};
 	},
-	isSelected: function isSelected(event) {
-		this.setState({ selected: true });
-	},
+	componentDidMount: function componentDidMount() {},
 	render: function render() {
+		console.log(this.props.options);
+		var obj = this.props.options;
+		var arr = Object.keys(obj).sort();
+		console.log(arr);
+		var selectOptions = arr.map(function (option, index) {
+			return React.createElement(
+				'option',
+				{ value: option, key: index },
+				option
+			);
+		});
+
 		if (this.props.fertType === 'diy') {
 			return React.createElement(
 				'div',
@@ -931,31 +946,7 @@ var SelectFertType = React.createClass({
 						React.createElement(
 							'select',
 							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								null,
-								'DIY 1'
-							),
-							React.createElement(
-								'option',
-								null,
-								'DIY 2'
-							),
-							React.createElement(
-								'option',
-								null,
-								'DIY 3'
-							),
-							React.createElement(
-								'option',
-								null,
-								'DIY 4'
-							),
-							React.createElement(
-								'option',
-								null,
-								'DIY 5'
-							)
+							selectOptions
 						)
 					)
 				)
@@ -979,31 +970,7 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', onChange: this.isSelected },
-								React.createElement(
-									'option',
-									null,
-									'Premixed 1'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 2'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 3'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 4'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 5'
-								)
+								selectOptions
 							)
 						)
 					),
@@ -1027,31 +994,7 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', onChange: this.isSelected },
-								React.createElement(
-									'option',
-									null,
-									'Premixed 1'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 2'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 3'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 4'
-								),
-								React.createElement(
-									'option',
-									null,
-									'Premixed 5'
-								)
+								selectOptions
 							)
 						)
 					)
@@ -1068,6 +1011,8 @@ var SelectFertType = React.createClass({
 });
 
 module.exports = SelectFertType;
+
+//console.log(Array.isArray(this.props.children));
 
 },{"../view/SelectCalcFor":9}],11:[function(require,module,exports){
 "use strict";

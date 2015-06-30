@@ -3,7 +3,6 @@ import RadioSolutionDry from '../view/RadioSolutionDry';
 
 var source = React.createClass({
 	loadOptionsFromServer: function() {
-		console.log(this.state.fertType);
 		var url = '';
 		if (this.state.fertType === 'diy') {
 			url = 'http://rotala.dev/json/compounds.json';
@@ -22,16 +21,19 @@ var source = React.createClass({
 	      }.bind(this)
 	    });
 	  },
+	isChecked: function(event) {
+		this.setState({fertType: event.target.value}, function(){
+			this.loadOptionsFromServer();
+		});
+	},
 	getInitialState: function() {
 	    return {
 	      fertType : null,
 	      options: []
 	    }
 	  },
-	isChecked: function(event) {
-		this.setState({fertType: event.target.value}, function(){
-			this.loadOptionsFromServer();
-		});
+	componentDidMount: function() {
+		//console.log(Array.isArray(this.props.children));
 	},
 	render: function() {
 		if (this.state.fertType === null) {

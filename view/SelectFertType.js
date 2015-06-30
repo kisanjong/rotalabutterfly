@@ -1,14 +1,29 @@
 import SelectCalcFor from '../view/SelectCalcFor';
 var SelectFertType = React.createClass({
+	isSelected: function(event) {
+		this.setState({selected: true});
+	},
 	getInitialState: function() {
 	    return {
 	      selected : null
 	    }
 	  },
-	isSelected: function(event) {
-		this.setState({selected: true});
+	componentDidMount: function() {
+		//console.log(Array.isArray(this.props.children));
 	},
 	render: function() {
+		
+		var obj = this.props.options;
+		var arr = Object.keys(obj).sort();
+		
+		var selectOptions = arr.map(function(option, index) {
+	      return (
+	        <option value={option} key={index}>
+	          {option}
+	        </option>
+	      );
+	    });
+
 		if (this.props.fertType === 'diy') {
 			return (
 				<div>
@@ -16,11 +31,7 @@ var SelectFertType = React.createClass({
 			        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected} >
-				          <option>DIY 1</option>
-				          <option>DIY 2</option>
-				          <option>DIY 3</option>
-				          <option>DIY 4</option>
-				          <option>DIY 5</option>
+				          { selectOptions }
 				        </select>
 			        </div>
 			      </div>
@@ -34,11 +45,7 @@ var SelectFertType = React.createClass({
 				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" onChange={this.isSelected}>
-					          <option>Premixed 1</option>
-					          <option>Premixed 2</option>
-					          <option>Premixed 3</option>
-					          <option>Premixed 4</option>
-					          <option>Premixed 5</option>
+					          { selectOptions }
 					        </select>
 				        </div>
 				      </div>
@@ -52,11 +59,7 @@ var SelectFertType = React.createClass({
 				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" onChange={this.isSelected}>
-					          <option>Premixed 1</option>
-					          <option>Premixed 2</option>
-					          <option>Premixed 3</option>
-					          <option>Premixed 4</option>
-					          <option>Premixed 5</option>
+					          { selectOptions }
 					        </select>
 				        </div>
 				      </div>
