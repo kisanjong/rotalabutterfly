@@ -1,0 +1,400 @@
+{
+  "Easy Life ProFito": {
+    "Fe": 0.24,
+    "K": 0.48,
+    "Mg": 0.09,
+    "dGH": 0.0206606943,
+    "Mn": 0.04,
+    "I": 0.02,
+    "B": 0.008,
+    "Cu": 0.0002,
+    "Mo": 0.002,
+    "Zn": 0.002,
+    "Li": 0.002,
+    "Ni": 0.001,
+    "Al": 0.001,
+    "Co": 0.001,
+    "Sn": 0.001,
+    "F": 0.001,
+    "target": "Fe"
+  },
+  "Easy Life Ferro": {
+    "Fe": 1,
+    "target": "Fe"
+  },
+  "Easy Life Potassium": {
+    "K": 4,
+    "target": "K"
+  },
+  "Easy Life Nitro": {
+    "NO3": 10.004,
+    "N": 2.26,
+    "K": 6.316,
+    "target": "NO3"
+  },
+  "Easy Life Fosfo": {
+    "PO4": 0.502,
+    "P": 0.164,
+    "K": 0.207,
+    "target": "PO4"
+  },
+  "Sera Florena": {
+    "Fe": 0.306,
+    "Mn": 0.0017,
+    "target": "Fe"
+  },
+  "API Leaf Zone": {
+    "K2O": 3,
+    "K": 2.49,
+    "Fe": 0.1,
+    "target": "Fe"
+  },
+  "VIMI All In One": {
+    "K": 2.7,
+    "NO3": 4.906,
+    "N": 1.112,
+    "P": 0.1,
+    "PO4": 0.305,
+    "Fe": 0.075,
+    "dGH": 0.0143,
+    "Mg": 0.0625,
+    "Mn": 0.01875,
+    "B": 0.00875,
+    "Zn": 0.001875,
+    "Cu": 0.001875,
+    "Mo": 0.000625,
+    "Co": 0.0001875,
+    "Ni": 0.0000625,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "VIMI Micro": {
+    "K": 1,
+    "Fe": 0.15,
+    "Mg": 0.125,
+    "dGH": 0.0286,
+    "Mn": 0.0375,
+    "B": 0.0125,
+    "Zn": 0.00375,
+    "Cu": 0.00375,
+    "Mo": 0.00125,
+    "Co": 0.000375,
+    "Ni": 0.000125,
+    "target": "Fe"
+  },
+  "Hagen Plant Gro NPK": {
+    "NO3": 0.6,
+    "N": 0.136,
+    "P2O5": 0.3,
+    "P": 0.131,
+    "PO4": 0.4,
+    "K2O": 2.4,
+    "K": 1.99,
+    "Cu": 0.01,
+    "target": "K"
+  },
+  "Nutrafin Plant Gro": {
+    "N": 0.15,
+    "NO3": 0.66,
+    "Cu": 0.0005,
+    "Fe": 0.26,
+    "Mn": 0.05,
+    "target": "Fe"
+  },
+  "Aqua Rebell Spezial N": {
+    "NO3": 5,
+    "N": 1.136,
+    "K": 1,
+    "Ca": 0.5,
+    "Mg": 0.165,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "Tropica Plant Nutrition +": {
+    "N": 1.34,
+    "NO3": 5.9,
+    "P": 0.1,
+    "PO4": 0.3065,
+    "K": 1.03,
+    "Mg": 0.39,
+    "S": 0.91,
+    "B": 0.004,
+    "Cu": 0.006,
+    "Fe": 0.07,
+    "Mn": 0.04,
+    "Mo": 0.002,
+    "Zn": 0.002,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "Tropica Plant Nutrition": {
+    "K": 0.79,
+    "Mg": 0.39,
+    "S": 1.01,
+    "Fe": 0.07,
+    "Mn": 0.04,
+    "B": 0.004,
+    "Cu": 0.006,
+    "Mo": 0.002,
+    "Zn": 0.002,
+    "target": "Fe"
+  },
+  "Flourish Comprehensive": {
+    "N": 0.07,
+    "NO3": 0.308,
+    "P2O5": 0.01,
+    "P": 0.0044,
+    "PO4": 0.013,
+    "K2O": 0.37,
+    "K": 0.307,
+    "Ca": 0.14,
+    "Mg": 0.11,
+    "S": 0.2773,
+    "B": 0.009,
+    "Cl": 1.15,
+    "Co": 0.004,
+    "Cu": 0.0001,
+    "Fe": 0.32,
+    "Mn": 0.0118,
+    "Mo": 0.0009,
+    "Na": 0.13,
+    "Zn": 0.0007,
+    "target": "Fe"
+  },
+  "Flourish Iron": {
+    "Fe": 1,
+    "target": "Fe"
+  },
+  "Flourish Potassium": {
+    "K2O": 5.8,
+    "K": 4.8,
+    "target": "K"
+  },
+  "Flourish Phosphorus": {
+    "K2O": 0.2,
+    "K": 0.166,
+    "P2O5": 0.3,
+    "P": 0.1304,
+    "PO4": 0.4004,
+    "target": "PO4"
+  },
+  "Flourish Nitrogen": {
+    "N": 1.5,
+    "NO3": 6.6,
+    "K2O": 2,
+    "K": 1.66,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "AquaVitro Propel": {
+    "Fe": 1,
+    "target": "Fe"
+  },
+  "AquaVitro Synthesis": {
+    "N": 3.2,
+    "NO3": 14.08,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "AquaVitro Activate": {
+    "P": 0.6,
+    "PO4": 1.84,
+    "target": "PO4"
+  },
+  "AquaVitro Carbonate": {
+    "K": 7.83,
+    "dKH": 0.56,
+    "target": "K"
+  },
+  "ADA Green Brighty lights": {
+    "K": 0.24,
+    "N": 0.166,
+    "NO3": 0.434,
+    "NH4": 0.0865,
+    "PO4": 0.39,
+    "P": 0.127,
+    "target": "PO4"
+  },
+  "ADA Green Brighty shade": {
+    "K": 0.31,
+    "N": 0.108,
+    "NO3": 0.4385,
+    "NH4": 0.0108,
+    "PO4": 0.24,
+    "P": 0.0784,
+    "target": "NO3"
+  },
+  "ADA Green Brighty step 1": {
+    "K": 0.0084,
+    "Fe": 0.019,
+    "target": "Fe"
+  },
+  "ADA Green Brighty step 2": {
+    "K": 0.0081,
+    "Fe": 0.031,
+    "target": "Fe"
+  },
+  "ADA Green Brighty step 3": {
+    "K": 0.097,
+    "Fe": 0.034,
+    "target": "Fe"
+  },
+  "ADA Bright K": {
+    "K": 6.8,
+    "target": "K"
+  },
+  "RootMedic oneSTEP": {
+    "N": 1.3,
+    "NO3": 5.7,
+    "P": 0.1,
+    "PO4": 0.3,
+    "K": 1.3,
+    "Mg": 0.39,
+    "S": 0.82,
+    "B": 0.01,
+    "Cu": 0.003,
+    "Fe": 1.16,
+    "Mn": 0.03,
+    "Mo": 0.002,
+    "Zn": 0.01,
+    "target": "NO3"
+  },
+  "RootMedic Macro": {
+    "N": 2,
+    "NO3": 8.8,
+    "P": 0.17,
+    "P2O5": 0.4,
+    "PO4": 0.52,
+    "K2O": 11,
+    "K": 9.1,
+    "urea": "yes",
+    "pump": 0.5,
+    "target": "NO3"
+  },
+  "Green Thumb Good S. Macro": {
+    "K": 3.804726,
+    "NO3": 4.088667,
+    "N": 0.929243,
+    "PO4": 1.163167,
+    "P": 0.380214,
+    "Mg": 0.109569,
+    "dGH": 0.025097,
+    "S": 0.144557,
+    "Glutaraldehyde": 0.26,
+    "target": "NO3"
+  },
+  "Green Thumb Good S. Micro": {
+    "B": 0.012465,
+    "Co": 0.000305,
+    "Cu": 0.009715,
+    "Fe": 0.131548,
+    "Mo": 0.000915,
+    "Mg": 0.041731,
+    "dGH": 0.009558,
+    "Mn": 0.049106,
+    "S": 0.007728,
+    "Zn": 0.010815,
+    "Glutaraldehyde": 0.26,
+    "target": "Fe"
+  },
+  "RootMedic Micro": {
+    "Fe": 1.16,
+    "Mn": 0.06,
+    "Cu": 0.001,
+    "Zn": 0.004,
+    "B": 0.014,
+    "Mo": 0.0006,
+    "Mg": 0.017,
+    "Ca": 0.14,
+    "Cl": 1.1,
+    "pump": 0.5,
+    "target": "Fe"
+  },
+  "Pfertz K": {
+    "K2O": 5.1,
+    "K": 4.2,
+    "target": "K"
+  },
+  "Pfertz N": {
+    "N": 1.75,
+    "NO3": 7.67,
+    "K2O": 5,
+    "K": 4.15,
+    "urea": "yes",
+    "target": "NO3"
+  },
+  "Pfertz P": {
+    "P2O5": 0.3,
+    "P": 0.13,
+    "PO4": 0.39,
+    "K2O": 0.25,
+    "K": 0.21,
+    "target": "PO4"
+  },
+  "Pfertz Micros": {
+    "B": 0.0051,
+    "Co": 0.002,
+    "Cu": 0.00005,
+    "Fe": 0.054,
+    "Mn": 0.0068,
+    "Mo": 0.0008,
+    "Ni": 0.00005,
+    "S": 0.0043,
+    "Zn": 0.00044,
+    "target": "Fe"
+  },
+  "INTERMAG Floramix Rośliny Wodne": {
+    "B": 0.027,
+    "Cu": 0.014,
+    "Fe": 0.23,
+    "Mn": 0.095,
+    "Mo": 0.005,
+    "Zn": 0.033,
+    "MgO": 0.95,
+    "Mg": 0.57,
+    "dGH": 0.13,
+    "target": "Fe"
+  },
+  "INTERMAG Mikro": {
+    "B": 0.2,
+    "Cu": 0.1,
+    "Fe": 1.5,
+    "Mn": 0.54,
+    "Mo": 0.03,
+    "Zn": 0.1,
+    "target": "Fe"
+  },
+  "INTERMAG Mikro Plus": {
+    "B": 0.28,
+    "Cu": 0.15,
+    "Fe": 2.45,
+    "Mn": 1.01,
+    "Mo": 0.06,
+    "Zn": 0.35,
+    "target": "Fe"
+  },
+  "Tetra Florapride": {
+    "K2O": 3,
+    "K": 2.49,
+    "Fe": 0.15,
+    "target": "Fe"
+  },
+  "MiPlus": {
+    "Fe": 2,
+    "Mn": 1,
+    "Cu": 0.052,
+    "Zn": 0.29,
+    "B": 0.4,
+    "Mo": 0.075,
+    "target": "Fe"
+  },
+  "MiPlus Pro": {
+    "Fe": 3.8,
+    "Mn": 0.96,
+    "Cu": 0.048,
+    "Zn": 0.24,
+    "B": 0.35,
+    "Mo": 0.07,
+    "target": "Fe"
+  }
+}
