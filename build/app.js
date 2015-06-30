@@ -39,7 +39,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					{ className: "form-group" },
 					React.createElement(
 						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "solutionContainerSize" },
+						{ className: "col-sm-4 control-label", htmlFor: "sol_volume" },
 						this.props.labels.solution_container
 					),
 					React.createElement(
@@ -48,7 +48,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 						React.createElement(
 							"div",
 							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "solutionContainerSize" }),
+							React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
@@ -62,7 +62,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					{ className: "form-group" },
 					React.createElement(
 						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "solutionDoseSize" },
+						{ className: "col-sm-4 control-label", htmlFor: "sol_dose" },
 						this.props.labels.solution_dose
 					),
 					React.createElement(
@@ -71,7 +71,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 						React.createElement(
 							"div",
 							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "solutionDoseSize" }),
+							React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose" }),
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
@@ -91,7 +91,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					{ className: "form-group" },
 					React.createElement(
 						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "solutionContainerSize" },
+						{ className: "col-sm-4 control-label", htmlFor: "sol_volume" },
 						this.props.labels.solution_container
 					),
 					React.createElement(
@@ -100,7 +100,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 						React.createElement(
 							"div",
 							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "solutionContainerSize" }),
+							React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
@@ -114,7 +114,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					{ className: "form-group" },
 					React.createElement(
 						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "solutionDoseSize" },
+						{ className: "col-sm-4 control-label", htmlFor: "sol_dose" },
 						this.props.labels.solution_dose
 					),
 					React.createElement(
@@ -123,7 +123,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 						React.createElement(
 							"div",
 							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "solutionDoseSize", onChange: this.hasValue }),
+							React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
 							React.createElement(
 								"div",
 								{ className: "input-group-addon" },
@@ -151,13 +151,13 @@ var InputDoseCalc = React.createClass({
 			{ className: "form-group" },
 			React.createElement(
 				"label",
-				{ htmlFor: "doseAmount", className: "col-xs-12 col-sm-4 control-label" },
+				{ htmlFor: "dose_amount", className: "col-xs-12 col-sm-4 control-label" },
 				this.props.labels.dose_calc_label
 			),
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", id: "doseAmount", className: "form-control" })
+				React.createElement("input", { type: "number", name: "dose_amount", id: "dose_amount", className: "form-control" })
 			),
 			React.createElement(
 				"div",
@@ -165,21 +165,21 @@ var InputDoseCalc = React.createClass({
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
-					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit1", defaultValue: "milliliter" }),
+					React.createElement("input", { type: "radio", name: "dose_units", id: "dose_amount", defaultValue: "milliliter" }),
 					" ",
 					this.props.units.milliliter
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
-					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit2", defaultValue: "tsp" }),
+					React.createElement("input", { type: "radio", name: "dose_units", id: "dose_amount", defaultValue: "tsp" }),
 					" ",
 					this.props.units.five_milliliter
 				),
 				React.createElement(
 					"label",
 					{ className: "radio-inline" },
-					React.createElement("input", { type: "radio", name: "RadioDoseUnit", id: "RadioDoseUnit2", defaultValue: "pumps" }),
+					React.createElement("input", { type: "radio", name: "dose_units", id: "dose_amount", defaultValue: "pumps" }),
 					" ",
 					this.props.units.pump_bottle
 				)
@@ -207,7 +207,7 @@ var InputDoseTarget = React.createClass({
       { className: "form-group" },
       React.createElement(
         "label",
-        { className: "col-sm-4 control-label", htmlFor: "doseTarget" },
+        { className: "col-sm-4 control-label", htmlFor: "target_amount" },
         this.props.labels.dose_target
       ),
       React.createElement(
@@ -216,7 +216,7 @@ var InputDoseTarget = React.createClass({
         React.createElement(
           "div",
           { className: "input-group" },
-          React.createElement("input", { type: "number", className: "form-control", id: "doseTarget" }),
+          React.createElement("input", { type: "number", className: "form-control", name: "target_amount", id: "target_amount" }),
           React.createElement(
             "div",
             { className: "input-group-addon" },
@@ -525,14 +525,14 @@ var RadioSolutionDry = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
 							' ',
 							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
 							' ',
 							this.props.labels.dry
 						)
@@ -557,14 +557,14 @@ var RadioSolutionDry = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
 							' ',
 							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
 							' ',
 							this.props.labels.dry
 						)
@@ -590,14 +590,14 @@ var RadioSolutionDry = React.createClass({
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry1', value: 'solution', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
 							' ',
 							this.props.labels.solution
 						),
 						React.createElement(
 							'label',
 							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'RadioSolutionDry', id: 'RadioSolutionDry2', value: 'dry', onChange: this.isChecked }),
+							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
 							' ',
 							this.props.labels.dry
 						)
@@ -667,7 +667,7 @@ var SelectCalcFor = React.createClass({
 						{ className: 'col-sm-8' },
 						React.createElement(
 							'select',
-							{ className: 'form-control', value: 'Thing 3', onChange: this.isSelected },
+							{ className: 'form-control', value: 'ei', onChange: this.isSelected },
 							React.createElement(
 								'option',
 								{ value: 'target' },
@@ -680,27 +680,27 @@ var SelectCalcFor = React.createClass({
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 3' },
+								{ value: 'ei' },
 								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 4' },
+								{ value: 'ei_daily' },
 								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 5' },
+								{ value: 'ei_low' },
 								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 6' },
+								{ value: 'pps' },
 								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 7' },
+								{ value: 'pmdd' },
 								this.props.labels.method_pmdd
 							)
 						)
@@ -739,27 +739,27 @@ var SelectCalcFor = React.createClass({
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 3' },
+								{ value: 'ei' },
 								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 4' },
+								{ value: 'ei_daily' },
 								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 5' },
+								{ value: 'ei_low' },
 								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 6' },
+								{ value: 'pps' },
 								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 7' },
+								{ value: 'pmdd' },
 								this.props.labels.method_pmdd
 							)
 						)
@@ -799,27 +799,27 @@ var SelectCalcFor = React.createClass({
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 3' },
+								{ value: 'ei' },
 								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 4' },
+								{ value: 'ei_daily' },
 								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 5' },
+								{ value: 'ei_low' },
 								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 6' },
+								{ value: 'pps' },
 								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 7' },
+								{ value: 'pmdd' },
 								this.props.labels.method_pmdd
 							)
 						)
@@ -859,27 +859,27 @@ var SelectCalcFor = React.createClass({
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 3' },
+								{ value: 'ei' },
 								this.props.labels.method_ei
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 4' },
+								{ value: 'ei_daily' },
 								this.props.labels.method_ei_daily
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 5' },
+								{ value: 'ei_low' },
 								this.props.labels.method_ei_low
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 6' },
+								{ value: 'pps' },
 								this.props.labels.method_pps
 							),
 							React.createElement(
 								'option',
-								{ value: 'Thing 7' },
+								{ value: 'pmdd' },
 								this.props.labels.method_pmdd
 							)
 						)
@@ -916,10 +916,10 @@ var SelectFertType = React.createClass({
 	},
 	componentDidMount: function componentDidMount() {},
 	render: function render() {
-		console.log(this.props.options);
+
 		var obj = this.props.options;
 		var arr = Object.keys(obj).sort();
-		console.log(arr);
+
 		var selectOptions = arr.map(function (option, index) {
 			return React.createElement(
 				'option',
@@ -1026,7 +1026,7 @@ var SelectRounding = React.createClass({
 						{ className: "form-group" },
 						React.createElement(
 								"label",
-								{ className: "col-sm-4 control-label" },
+								{ className: "col-sm-4 control-label", htmlFor: "round_to" },
 								this.props.labels.round_to
 						),
 						React.createElement(
@@ -1034,45 +1034,50 @@ var SelectRounding = React.createClass({
 								{ className: "col-sm-8" },
 								React.createElement(
 										"select",
-										{ className: "form-control" },
+										{ className: "form-control", id: "round_to", name: "round_to" },
 										React.createElement(
 												"option",
-												null,
+												{ value: "0" },
+												"0"
+										),
+										React.createElement(
+												"option",
+												{ value: "1" },
 												"1"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "2" },
 												"2"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "3" },
 												"3"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "4" },
 												"4"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "5" },
 												"5"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "6" },
 												"6"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "7" },
 												"7"
 										),
 										React.createElement(
 												"option",
-												null,
+												{ value: "8" },
 												"8"
 										)
 								)
