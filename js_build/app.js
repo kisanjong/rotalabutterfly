@@ -290,7 +290,23 @@ var _js_viewInputTankSize2 = _interopRequireDefault(_js_viewInputTankSize);
 var NutrientCalculator = React.createClass({
 	displayName: 'NutrientCalculator',
 
-	loadCommentsFromServer: function loadCommentsFromServer() {
+	handleSubmit: function handleSubmit(formData) {
+		console.log(formData);
+		return;
+		// $.ajax({
+		//   url: 'http://rotala.dev/json/test.json',
+		//   dataType: 'json',
+		//   type: 'POST',
+		//   data: formData,
+		//   success: function(data) {
+		//     this.setState({returnData: data});
+		//   }.bind(this),
+		//   error: function(xhr, status, err) {
+		//     console.error(this.props.url, status, err.toString());
+		//   }.bind(this)
+		// });
+	},
+	loadLabelsFromServer: function loadLabelsFromServer() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
@@ -307,16 +323,17 @@ var NutrientCalculator = React.createClass({
 	getInitialState: function getInitialState() {
 		return {
 			labels: [],
-			units: []
+			units: [],
+			returnData: []
 		};
 	},
 	componentDidMount: function componentDidMount() {
-		this.loadCommentsFromServer();
+		this.loadLabelsFromServer();
 	},
 	render: function render() {
 		return React.createElement(
 			'form',
-			{ className: 'form-horizontal' },
+			{ className: 'form-horizontal', onSubmit: this.handleSubmit },
 			React.createElement(_js_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
 			React.createElement(_js_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
 		);
@@ -1097,7 +1114,7 @@ var SubmitBtn = React.createClass({
   render: function render() {
     return React.createElement(
       "button",
-      { type: "submit", className: "btn btn-primary btn-block" },
+      { type: "submit", value: "Post", className: "btn btn-primary btn-block" },
       this.props.labels.submit_btn
     );
   }
