@@ -1,0 +1,69 @@
+B: Boron
+https://en.wikipedia.org/wiki/Boron
+
+CO(NH2)2: Urea or carbamide
+https://en.wikipedia.org/wiki/Urea
+
+Ca: Calcium
+https://en.wikipedia.org/wiki/Calcium
+
+Cl: Chlorine
+https://en.wikipedia.org/wiki/Chlorine
+
+Co: Cobalt
+https://en.wikipedia.org/wiki/Cobalt
+
+Cu: Copper
+https://en.wikipedia.org/wiki/Copper
+
+dGH: Degrees of general hardness
+https://en.wikipedia.org/wiki/DGH
+
+Fe:  Iron
+https://en.wikipedia.org/wiki/Iron
+
+K2O: Potassium oxide
+https://en.wikipedia.org/wiki/Potassium_oxide
+
+K: Potassium
+https://en.wikipedia.org/wiki/Potassium
+
+Mg: Magnesium
+https://en.wikipedia.org/wiki/Magnesium
+
+MgO: Magnesium oxide
+https://en.wikipedia.org/wiki/Magnesium_oxide
+
+Mn: Manganese
+https://en.wikipedia.org/wiki/Manganese
+
+Mo: Molybdenum
+https://en.wikipedia.org/wiki/Molybdenum
+
+N: Nitrogen
+https://en.wikipedia.org/wiki/Nitrogen
+
+NO3: Nitrate
+https://en.wikipedia.org/wiki/Nitrate
+
+Na: Sodium
+https://en.wikipedia.org/wiki/Sodium
+
+Ni: Nickel
+https://en.wikipedia.org/wiki/Nickel
+
+P2O5: Phosphorus pentoxide
+https://en.wikipedia.org/wiki/Phosphorus_pentoxide
+
+P: Phosphorus
+https://en.wikipedia.org/wiki/Phosphorus
+
+PO4: Phosphate
+https://en.wikipedia.org/wiki/Phosphate
+
+S: Sulfur
+https://en.wikipedia.org/wiki/Sulfur
+
+Zn: Zinc
+https://en.wikipedia.org/wiki/Zinc
+
