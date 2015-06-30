@@ -18,10 +18,10 @@ var RadioSolutionDry = React.createClass({
 		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
+			          <input type="radio" name="method" id="method" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
+			          <input type="radio" name="method" id="method" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>
@@ -34,10 +34,10 @@ var RadioSolutionDry = React.createClass({
 		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
+			          <input type="radio" name="method" id="method" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
+			          <input type="radio" name="method" id="method" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>
@@ -51,10 +51,10 @@ var RadioSolutionDry = React.createClass({
 		      	<label className="col-sm-4 control-label">{this.props.labels.using}</label>
 		      	<div className="col-sm-8">
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry1" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
+			          <input type="radio" name="method" id="method" value="solution" onChange={this.isChecked} /> {this.props.labels.solution}
 			        </label>
 			        <label className="radio-inline">
-			          <input type="radio" name="RadioSolutionDry" id="RadioSolutionDry2" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
+			          <input type="radio" name="method" id="method" value="dry" onChange={this.isChecked} /> {this.props.labels.dry}
 			        </label>
 		        </div>
 		      </div>

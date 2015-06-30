@@ -13,19 +13,19 @@ var InputDIYSolutionContainerDose = React.createClass({
 			return (
 		      <div>
 		        <div className="form-group">
-		          <label className="col-sm-4 control-label" htmlFor="solutionContainerSize">{this.props.labels.solution_container}</label>
+		          <label className="col-sm-4 control-label" htmlFor="sol_volume">{this.props.labels.solution_container}</label>
 		          <div className="col-sm-8">
 			          <div className="input-group">
-			            <input type="number" className="form-control" id="solutionContainerSize" />
+			            <input type="number" className="form-control" id="sol_volume" name="sol_volume" />
 			            <div className="input-group-addon">{this.props.units.milliliter}</div>
 			          </div>
 		          </div>
 		        </div>
 		        <div className="form-group">
-		          <label className="col-sm-4 control-label" htmlFor="solutionDoseSize">{this.props.labels.solution_dose}</label>
+		          <label className="col-sm-4 control-label" htmlFor="sol_dose">{this.props.labels.solution_dose}</label>
 		          <div className="col-sm-8">
 			          <div className="input-group">
-			            <input type="number" className="form-control" id="solutionDoseSize" />
+			            <input type="number" className="form-control" id="sol_dose" name="sol_dose" />
 			            <div className="input-group-addon">{this.props.units.milliliter}</div>
 			          </div>
 			       </div>
@@ -37,19 +37,19 @@ var InputDIYSolutionContainerDose = React.createClass({
 		    return (
 		      <div>
 		        <div className="form-group">
-		          <label className="col-sm-4 control-label" htmlFor="solutionContainerSize">{this.props.labels.solution_container}</label>
+		          <label className="col-sm-4 control-label" htmlFor="sol_volume">{this.props.labels.solution_container}</label>
 		          <div className="col-sm-8">
 			          <div className="input-group">
-			            <input type="number" className="form-control" id="solutionContainerSize" />
+			            <input type="number" className="form-control" id="sol_volume" name="sol_volume" />
 			            <div className="input-group-addon">{this.props.units.milliliter}</div>
 			          </div>
 		          </div>
 		        </div>
 		        <div className="form-group">
-		          <label className="col-sm-4 control-label" htmlFor="solutionDoseSize">{this.props.labels.solution_dose}</label>
+		          <label className="col-sm-4 control-label" htmlFor="sol_dose">{this.props.labels.solution_dose}</label>
 		          <div className="col-sm-8">
 			          <div className="input-group">
-			            <input type="number" className="form-control" id="solutionDoseSize" onChange={this.hasValue}/>
+			            <input type="number" className="form-control" id="sol_dose" name="sol_dose" onChange={this.hasValue}/>
 			            <div className="input-group-addon">{this.props.units.milliliter}</div>
 			          </div>
 			       </div>

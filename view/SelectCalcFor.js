@@ -20,12 +20,12 @@ var SelectCalcFor = React.createClass({
 				    <div className="col-sm-8">
 				        <select className="form-control" value="Thing 3" onChange={this.isSelected}>
 				          <option value="target">{this.props.labels.method_target}</option>
-				          <option value="result">{this.props.labels.method_dose}</option>
-				          <option value="Thing 3">{this.props.labels.method_ei}</option>
-				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
-				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
-				          <option value="Thing 6">{this.props.labels.method_pps}</option>
-				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
+				          <option value="dump">{this.props.labels.method_dose}</option>
+				          <option value="ei">{this.props.labels.method_ei}</option>
+				          <option value="ei_daily">{this.props.labels.method_ei_daily}</option>
+				          <option value="ei_low">{this.props.labels.method_ei_low}</option>
+				          <option value="pps">{this.props.labels.method_pps}</option>
+				          <option value="pmdd">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
@@ -41,12 +41,12 @@ var SelectCalcFor = React.createClass({
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
 				          <option value="target">{this.props.labels.method_target}</option>
-				          <option value="result">{this.props.labels.method_dose}</option>
-				          <option value="Thing 3">{this.props.labels.method_ei}</option>
-				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
-				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
-				          <option value="Thing 6">{this.props.labels.method_pps}</option>
-				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
+				          <option value="dump">{this.props.labels.method_dose}</option>
+				          <option value="ei">{this.props.labels.method_ei}</option>
+				          <option value="ei_daily">{this.props.labels.method_ei_daily}</option>
+				          <option value="ei_low">{this.props.labels.method_ei_low}</option>
+				          <option value="pps">{this.props.labels.method_pps}</option>
+				          <option value="pmdd">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
@@ -63,12 +63,12 @@ var SelectCalcFor = React.createClass({
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
 				          <option value="target">{this.props.labels.method_target}</option>
-				          <option value="result">{this.props.labels.method_dose}</option>
-				          <option value="Thing 3">{this.props.labels.method_ei}</option>
-				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
-				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
-				          <option value="Thing 6">{this.props.labels.method_pps}</option>
-				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
+				          <option value="dump">{this.props.labels.method_dose}</option>
+				          <option value="ei">{this.props.labels.method_ei}</option>
+				          <option value="ei_daily">{this.props.labels.method_ei_daily}</option>
+				          <option value="ei_low">{this.props.labels.method_ei_low}</option>
+				          <option value="pps">{this.props.labels.method_pps}</option>
+				          <option value="pmdd">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
@@ -85,12 +85,12 @@ var SelectCalcFor = React.createClass({
 				    <div className="col-sm-8">
 				        <select className="form-control" onChange={this.isSelected}>
 				          <option value="target">{this.props.labels.method_target}</option>
-				          <option value="result">{this.props.labels.method_dose}</option>
-				          <option value="Thing 3">{this.props.labels.method_ei}</option>
-				          <option value="Thing 4">{this.props.labels.method_ei_daily}</option>
-				          <option value="Thing 5">{this.props.labels.method_ei_low}</option>
-				          <option value="Thing 6">{this.props.labels.method_pps}</option>
-				          <option value="Thing 7">{this.props.labels.method_pmdd}</option>
+				          <option value="dump">{this.props.labels.method_dose}</option>
+				          <option value="ei">{this.props.labels.method_ei}</option>
+				          <option value="ei_daily">{this.props.labels.method_ei_daily}</option>
+				          <option value="ei_low">{this.props.labels.method_ei_low}</option>
+				          <option value="pps">{this.props.labels.method_pps}</option>
+				          <option value="pmdd">{this.props.labels.method_pmdd}</option>
 				        </select>
 			        </div>
 			      </div>
