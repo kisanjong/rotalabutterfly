@@ -355,8 +355,45 @@ var _js_viewRadioSolutionDry = require('../js_view/RadioSolutionDry');
 
 var _js_viewRadioSolutionDry2 = _interopRequireDefault(_js_viewRadioSolutionDry);
 
-var source = React.createClass({
-	displayName: 'source',
+var RadioDIYPremixed = React.createClass({
+	displayName: 'RadioDIYPremixed',
+
+	isChecked: function isChecked(event) {
+		this.props.onTypeSelected(event);
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			{ className: 'form-group' },
+			React.createElement(
+				'label',
+				{ className: 'col-sm-4 control-label', htmlFor: 'source' },
+				this.props.labels.type_of
+			),
+			React.createElement(
+				'div',
+				{ className: 'col-sm-8' },
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
+					' ',
+					this.props.labels.diy
+				),
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
+					' ',
+					this.props.labels.commercial
+				)
+			)
+		);
+	}
+});
+
+var Source = React.createClass({
+	displayName: 'Source',
 
 	loadOptionsFromServer: function loadOptionsFromServer() {
 		var url = '';
@@ -377,7 +414,7 @@ var source = React.createClass({
 			}).bind(this)
 		});
 	},
-	isChecked: function isChecked(event) {
+	handleSelection: function handleSelection(event) {
 		this.setState({ fertType: event.target.value }, function () {
 			this.loadOptionsFromServer();
 		});
@@ -393,62 +430,14 @@ var source = React.createClass({
 		if (this.state.fertType === null) {
 			return React.createElement(
 				'div',
-				{ className: 'form-group' },
-				React.createElement(
-					'label',
-					{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-					this.props.labels.type_of
-				),
-				React.createElement(
-					'div',
-					{ className: 'col-sm-8' },
-					React.createElement(
-						'label',
-						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
-						' ',
-						this.props.labels.diy
-					),
-					React.createElement(
-						'label',
-						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
-						' ',
-						this.props.labels.commercial
-					)
-				)
+				null,
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection })
 			);
 		} else if (this.state.fertType === 'diy') {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-						this.props.labels.type_of
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', checked: 'checked', onChange: this.isChecked }),
-							' ',
-							this.props.labels.diy
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
-							' ',
-							this.props.labels.commercial
-						)
-					)
-				),
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
 			);
@@ -456,33 +445,7 @@ var source = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-						this.props.labels.type_of
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
-							' ',
-							this.props.labels.diy
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', checked: 'checked', onChange: this.isChecked }),
-							' ',
-							this.props.labels.commercial
-						)
-					)
-				),
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
@@ -495,7 +458,7 @@ var source = React.createClass({
 	}
 });
 
-module.exports = source;
+module.exports = Source;
 
 //console.log(Array.isArray(this.props.children));
 
