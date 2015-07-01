@@ -550,12 +550,74 @@ var _js_viewInputDoseTarget2 = _interopRequireDefault(_js_viewInputDoseTarget);
 var SelectCalcFor = React.createClass({
 	displayName: 'SelectCalcFor',
 
+	isSelected: function isSelected(event) {
+		this.props.onSelection(event);
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			{ className: 'form-group' },
+			React.createElement(
+				'label',
+				{ className: 'col-sm-4 control-label' },
+				this.props.labels.method_label
+			),
+			React.createElement(
+				'div',
+				{ className: 'col-sm-8' },
+				React.createElement(
+					'select',
+					{ className: 'form-control', defaultValue: 'ei', onChange: this.isSelected },
+					React.createElement(
+						'option',
+						{ value: 'target' },
+						this.props.labels.method_target
+					),
+					React.createElement(
+						'option',
+						{ value: 'result' },
+						this.props.labels.method_dose
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei' },
+						this.props.labels.method_ei
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei_daily' },
+						this.props.labels.method_ei_daily
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei_low' },
+						this.props.labels.method_ei_low
+					),
+					React.createElement(
+						'option',
+						{ value: 'pps' },
+						this.props.labels.method_pps
+					),
+					React.createElement(
+						'option',
+						{ value: 'pmdd' },
+						this.props.labels.method_pmdd
+					)
+				)
+			)
+		);
+	}
+});
+
+var SelectCalcForContainer = React.createClass({
+	displayName: 'SelectCalcForContainer',
+
 	getInitialState: function getInitialState() {
 		return {
 			value: null
 		};
 	},
-	isSelected: function isSelected(event) {
+	handleSelection: function handleSelection(event) {
 		this.setState({ value: event.target.value });
 	},
 	render: function render() {
@@ -563,58 +625,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', value: 'ei', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
@@ -622,58 +633,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewInputDoseTarget2['default'], { labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
@@ -682,58 +642,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewInputDoseCalc2['default'], { labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
@@ -742,58 +651,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
@@ -801,7 +659,7 @@ var SelectCalcFor = React.createClass({
 	}
 });
 
-module.exports = SelectCalcFor;
+module.exports = SelectCalcForContainer;
 
 },{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":11,"../js_view/SubmitBtn":12}],10:[function(require,module,exports){
 'use strict';
