@@ -60,7 +60,7 @@ var Source = React.createClass({
 		if (this.state.fertType === null) {
 	      	return ( 
 	      		<div>
-	        		<RadioDIYPremixed labels={this.props.labels} units={this.props.units} onTypeSelected={this.handleSelection}/>
+	        		<RadioDIYPremixed labels={this.props.labels} units={this.props.units} onTypeSelected={this.handleSelection} />
 				</div>
 			);
 	    } else if (this.state.fertType === 'diy') {
