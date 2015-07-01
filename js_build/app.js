@@ -21,12 +21,72 @@ var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 var InputDIYSolutionContainerDose = React.createClass({
 	displayName: "InputDIYSolutionContainerDose",
 
+	hasValue: function hasValue(event) {
+		this.props.onValueEntered(event);
+	},
+	render: function render() {
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"div",
+				{ className: "form-group" },
+				React.createElement(
+					"label",
+					{ className: "col-sm-4 control-label", htmlFor: "sol_volume" },
+					this.props.labels.solution_container
+				),
+				React.createElement(
+					"div",
+					{ className: "col-sm-8" },
+					React.createElement(
+						"div",
+						{ className: "input-group" },
+						React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
+						React.createElement(
+							"div",
+							{ className: "input-group-addon" },
+							this.props.units.milliliter
+						)
+					)
+				)
+			),
+			React.createElement(
+				"div",
+				{ className: "form-group" },
+				React.createElement(
+					"label",
+					{ className: "col-sm-4 control-label", htmlFor: "sol_dose" },
+					this.props.labels.solution_dose
+				),
+				React.createElement(
+					"div",
+					{ className: "col-sm-8" },
+					React.createElement(
+						"div",
+						{ className: "input-group" },
+						React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
+						React.createElement(
+							"div",
+							{ className: "input-group-addon" },
+							this.props.units.milliliter
+						)
+					)
+				)
+			)
+		);
+	}
+});
+
+var InputDIYSolutionContainerDoseContainer = React.createClass({
+	displayName: "InputDIYSolutionContainerDoseContainer",
+
 	getInitialState: function getInitialState() {
 		return {
 			value: null
 		};
 	},
-	hasValue: function hasValue(event) {
+	handleValue: function handleValue(event) {
 		this.setState({ value: true });
 	},
 	render: function render() {
@@ -34,110 +94,20 @@ var InputDIYSolutionContainerDose = React.createClass({
 			return React.createElement(
 				"div",
 				null,
-				React.createElement(
-					"div",
-					{ className: "form-group" },
-					React.createElement(
-						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "sol_volume" },
-						this.props.labels.solution_container
-					),
-					React.createElement(
-						"div",
-						{ className: "col-sm-8" },
-						React.createElement(
-							"div",
-							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
-							React.createElement(
-								"div",
-								{ className: "input-group-addon" },
-								this.props.units.milliliter
-							)
-						)
-					)
-				),
-				React.createElement(
-					"div",
-					{ className: "form-group" },
-					React.createElement(
-						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "sol_dose" },
-						this.props.labels.solution_dose
-					),
-					React.createElement(
-						"div",
-						{ className: "col-sm-8" },
-						React.createElement(
-							"div",
-							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose" }),
-							React.createElement(
-								"div",
-								{ className: "input-group-addon" },
-								this.props.units.milliliter
-							)
-						)
-					)
-				),
+				React.createElement(InputDIYSolutionContainerDose, { labels: this.props.labels, units: this.props.units, onValueEntered: this.handleValue }),
 				React.createElement(_js_viewSelectCalcFor2["default"], { labels: this.props.labels, units: this.props.units })
 			);
 		} else {
 			return React.createElement(
 				"div",
 				null,
-				React.createElement(
-					"div",
-					{ className: "form-group" },
-					React.createElement(
-						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "sol_volume" },
-						this.props.labels.solution_container
-					),
-					React.createElement(
-						"div",
-						{ className: "col-sm-8" },
-						React.createElement(
-							"div",
-							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
-							React.createElement(
-								"div",
-								{ className: "input-group-addon" },
-								this.props.units.milliliter
-							)
-						)
-					)
-				),
-				React.createElement(
-					"div",
-					{ className: "form-group" },
-					React.createElement(
-						"label",
-						{ className: "col-sm-4 control-label", htmlFor: "sol_dose" },
-						this.props.labels.solution_dose
-					),
-					React.createElement(
-						"div",
-						{ className: "col-sm-8" },
-						React.createElement(
-							"div",
-							{ className: "input-group" },
-							React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
-							React.createElement(
-								"div",
-								{ className: "input-group-addon" },
-								this.props.units.milliliter
-							)
-						)
-					)
-				)
+				React.createElement(InputDIYSolutionContainerDose, { labels: this.props.labels, units: this.props.units, onValueEntered: this.handleValue })
 			);
 		}
 	}
 });
 
-module.exports = InputDIYSolutionContainerDose;
+module.exports = InputDIYSolutionContainerDoseContainer;
 
 },{"../js_view/SelectCalcFor":9}],3:[function(require,module,exports){
 "use strict";
@@ -355,8 +325,45 @@ var _js_viewRadioSolutionDry = require('../js_view/RadioSolutionDry');
 
 var _js_viewRadioSolutionDry2 = _interopRequireDefault(_js_viewRadioSolutionDry);
 
-var source = React.createClass({
-	displayName: 'source',
+var RadioDIYPremixed = React.createClass({
+	displayName: 'RadioDIYPremixed',
+
+	isChecked: function isChecked(event) {
+		this.props.onTypeSelected(event);
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			{ className: 'form-group' },
+			React.createElement(
+				'label',
+				{ className: 'col-sm-4 control-label', htmlFor: 'source' },
+				this.props.labels.type_of
+			),
+			React.createElement(
+				'div',
+				{ className: 'col-sm-8' },
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
+					' ',
+					this.props.labels.diy
+				),
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
+					' ',
+					this.props.labels.commercial
+				)
+			)
+		);
+	}
+});
+
+var Source = React.createClass({
+	displayName: 'Source',
 
 	loadOptionsFromServer: function loadOptionsFromServer() {
 		var url = '';
@@ -377,7 +384,7 @@ var source = React.createClass({
 			}).bind(this)
 		});
 	},
-	isChecked: function isChecked(event) {
+	handleSelection: function handleSelection(event) {
 		this.setState({ fertType: event.target.value }, function () {
 			this.loadOptionsFromServer();
 		});
@@ -393,62 +400,14 @@ var source = React.createClass({
 		if (this.state.fertType === null) {
 			return React.createElement(
 				'div',
-				{ className: 'form-group' },
-				React.createElement(
-					'label',
-					{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-					this.props.labels.type_of
-				),
-				React.createElement(
-					'div',
-					{ className: 'col-sm-8' },
-					React.createElement(
-						'label',
-						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
-						' ',
-						this.props.labels.diy
-					),
-					React.createElement(
-						'label',
-						{ className: 'radio-inline' },
-						React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
-						' ',
-						this.props.labels.commercial
-					)
-				)
+				null,
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection })
 			);
 		} else if (this.state.fertType === 'diy') {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-						this.props.labels.type_of
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', checked: 'checked', onChange: this.isChecked }),
-							' ',
-							this.props.labels.diy
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', onChange: this.isChecked }),
-							' ',
-							this.props.labels.commercial
-						)
-					)
-				),
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewRadioSolutionDry2['default'], { labels: this.props.labels, units: this.props.units })
 			);
@@ -456,33 +415,7 @@ var source = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label', htmlFor: 'source' },
-						this.props.labels.type_of
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'diy', onChange: this.isChecked }),
-							' ',
-							this.props.labels.diy
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'source', id: 'source', value: 'premixed', checked: 'checked', onChange: this.isChecked }),
-							' ',
-							this.props.labels.commercial
-						)
-					)
-				),
+				React.createElement(RadioDIYPremixed, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewSelectFertType2['default'], { options: this.state.options, fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
@@ -495,7 +428,7 @@ var source = React.createClass({
 	}
 });
 
-module.exports = source;
+module.exports = Source;
 
 //console.log(Array.isArray(this.props.children));
 
@@ -515,12 +448,49 @@ var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 var RadioSolutionDry = React.createClass({
 	displayName: 'RadioSolutionDry',
 
+	isChecked: function isChecked(event) {
+		this.props.onTypeSelected(event);
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			{ className: 'form-group' },
+			React.createElement(
+				'label',
+				{ className: 'col-sm-4 control-label' },
+				this.props.labels.using
+			),
+			React.createElement(
+				'div',
+				{ className: 'col-sm-8' },
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
+					' ',
+					this.props.labels.solution
+				),
+				React.createElement(
+					'label',
+					{ className: 'radio-inline' },
+					React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
+					' ',
+					this.props.labels.dry
+				)
+			)
+		);
+	}
+});
+
+var RadioSolutionDryContainer = React.createClass({
+	displayName: 'RadioSolutionDryContainer',
+
 	getInitialState: function getInitialState() {
 		return {
 			type: null
 		};
 	},
-	isChecked: function isChecked(event) {
+	handleSelection: function handleSelection(event) {
 		this.setState({ type: event.target.value });
 	},
 	render: function render() {
@@ -528,98 +498,20 @@ var RadioSolutionDry = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.using
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
-							' ',
-							this.props.labels.solution
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
-							' ',
-							this.props.labels.dry
-						)
-					)
-				)
+				React.createElement(RadioSolutionDry, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection })
 			);
 		} else if (this.state.type === 'solution') {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.using
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
-							' ',
-							this.props.labels.solution
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
-							' ',
-							this.props.labels.dry
-						)
-					)
-				),
+				React.createElement(RadioSolutionDry, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewInputDIYSolutionContainerDose2['default'], { labels: this.props.labels, units: this.props.units })
 			);
 		} else if (this.state.type === 'dry') {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.using
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'solution', onChange: this.isChecked }),
-							' ',
-							this.props.labels.solution
-						),
-						React.createElement(
-							'label',
-							{ className: 'radio-inline' },
-							React.createElement('input', { type: 'radio', name: 'method', id: 'method', value: 'dry', onChange: this.isChecked }),
-							' ',
-							this.props.labels.dry
-						)
-					)
-				),
+				React.createElement(RadioSolutionDry, { labels: this.props.labels, units: this.props.units, onTypeSelected: this.handleSelection }),
 				React.createElement(_js_viewSelectCalcFor2['default'], { fertType: this.state.fertType, labels: this.props.labels, units: this.props.units })
 			);
 		} else {
@@ -632,7 +524,7 @@ var RadioSolutionDry = React.createClass({
 	}
 });
 
-module.exports = RadioSolutionDry;
+module.exports = RadioSolutionDryContainer;
 
 },{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":9}],9:[function(require,module,exports){
 'use strict';
@@ -658,12 +550,74 @@ var _js_viewInputDoseTarget2 = _interopRequireDefault(_js_viewInputDoseTarget);
 var SelectCalcFor = React.createClass({
 	displayName: 'SelectCalcFor',
 
+	isSelected: function isSelected(event) {
+		this.props.onSelection(event);
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			{ className: 'form-group' },
+			React.createElement(
+				'label',
+				{ className: 'col-sm-4 control-label' },
+				this.props.labels.method_label
+			),
+			React.createElement(
+				'div',
+				{ className: 'col-sm-8' },
+				React.createElement(
+					'select',
+					{ className: 'form-control', defaultValue: 'ei', onChange: this.isSelected },
+					React.createElement(
+						'option',
+						{ value: 'target' },
+						this.props.labels.method_target
+					),
+					React.createElement(
+						'option',
+						{ value: 'result' },
+						this.props.labels.method_dose
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei' },
+						this.props.labels.method_ei
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei_daily' },
+						this.props.labels.method_ei_daily
+					),
+					React.createElement(
+						'option',
+						{ value: 'ei_low' },
+						this.props.labels.method_ei_low
+					),
+					React.createElement(
+						'option',
+						{ value: 'pps' },
+						this.props.labels.method_pps
+					),
+					React.createElement(
+						'option',
+						{ value: 'pmdd' },
+						this.props.labels.method_pmdd
+					)
+				)
+			)
+		);
+	}
+});
+
+var SelectCalcForContainer = React.createClass({
+	displayName: 'SelectCalcForContainer',
+
 	getInitialState: function getInitialState() {
 		return {
 			value: null
 		};
 	},
-	isSelected: function isSelected(event) {
+	handleSelection: function handleSelection(event) {
 		this.setState({ value: event.target.value });
 	},
 	render: function render() {
@@ -671,58 +625,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', value: 'ei', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
@@ -730,58 +633,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewInputDoseTarget2['default'], { labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
@@ -790,58 +642,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewInputDoseCalc2['default'], { labels: this.props.labels, units: this.props.units }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
@@ -850,58 +651,7 @@ var SelectCalcFor = React.createClass({
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'form-group' },
-					React.createElement(
-						'label',
-						{ className: 'col-sm-4 control-label' },
-						this.props.labels.method_label
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-8' },
-						React.createElement(
-							'select',
-							{ className: 'form-control', onChange: this.isSelected },
-							React.createElement(
-								'option',
-								{ value: 'target' },
-								this.props.labels.method_target
-							),
-							React.createElement(
-								'option',
-								{ value: 'result' },
-								this.props.labels.method_dose
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei' },
-								this.props.labels.method_ei
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_daily' },
-								this.props.labels.method_ei_daily
-							),
-							React.createElement(
-								'option',
-								{ value: 'ei_low' },
-								this.props.labels.method_ei_low
-							),
-							React.createElement(
-								'option',
-								{ value: 'pps' },
-								this.props.labels.method_pps
-							),
-							React.createElement(
-								'option',
-								{ value: 'pmdd' },
-								this.props.labels.method_pmdd
-							)
-						)
-					)
-				),
+				React.createElement(SelectCalcFor, { labels: this.props.labels, onSelection: this.handleSelection }),
 				React.createElement(_js_viewSelectRounding2['default'], { labels: this.props.labels }),
 				React.createElement(_js_viewSubmitBtn2['default'], { labels: this.props.labels })
 			);
@@ -909,7 +659,7 @@ var SelectCalcFor = React.createClass({
 	}
 });
 
-module.exports = SelectCalcFor;
+module.exports = SelectCalcForContainer;
 
 },{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":11,"../js_view/SubmitBtn":12}],10:[function(require,module,exports){
 'use strict';
