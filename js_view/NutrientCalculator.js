@@ -5,18 +5,18 @@ var NutrientCalculator = React.createClass({
 	handleSubmit: function(formData) {
 	    console.log(formData);
 	    return;
-	    // $.ajax({
-	    //   url: 'http://rotala.dev/json/test.json',
-	    //   dataType: 'json',
-	    //   type: 'POST',
-	    //   data: formData,
-	    //   success: function(data) {
-	    //     this.setState({returnData: data});
-	    //   }.bind(this),
-	    //   error: function(xhr, status, err) {
-	    //     console.error(this.props.url, status, err.toString());
-	    //   }.bind(this)
-	    // });
+	    $.ajax({
+	      url: 'http://rotala.dev/php/main.php',
+	      dataType: 'json',
+	      type: 'POST',
+	      data: formData,
+	      success: function(data) {
+	        this.setState({returnData: data});
+	      }.bind(this),
+	      error: function(xhr, status, err) {
+	        console.error(this.props.url, status, err.toString());
+	      }.bind(this)
+	    });
 	  },
 	loadLabelsFromServer: function() {
 	    $.ajax({
