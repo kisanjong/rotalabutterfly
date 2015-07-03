@@ -12,7 +12,7 @@ var SelectCalcFor = React.createClass({
 			<div className="form-group">
 		        <label className="col-sm-4 control-label">{this.props.labels.method_label}</label>
 			    <div className="col-sm-8">
-			        <select className="form-control" defaultValue="ei" onChange={this.isSelected}>
+			        <select className="form-control" defaultValue="ei" id="calc_for" name="calc_for" onChange={this.isSelected}>
 			          <option value="target">{this.props.labels.method_target}</option>
 			          <option value="result">{this.props.labels.method_dose}</option>
 			          <option value="ei">{this.props.labels.method_ei}</option>
