@@ -20,7 +20,7 @@ var NutrientCalculator = React.createClass({
         };
         console.log(formData); //for testing
 	    $.ajax({
-	      url: 'http://rotala.dev/php/main.php',
+	      url: 'php/main.php',
 	      dataType: 'json',
 	      type: 'POST',
 	      data: formData,

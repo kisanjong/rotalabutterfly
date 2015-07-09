@@ -7,7 +7,7 @@ var _js_viewNutrientCalculator = require('../js_view/NutrientCalculator');
 
 var _js_viewNutrientCalculator2 = _interopRequireDefault(_js_viewNutrientCalculator);
 
-React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'http://rotala.dev/json/en.json' }), document.getElementById('calculator'));
+React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'json/en.json' }), document.getElementById('calculator'));
 
 },{"../js_view/NutrientCalculator":6}],2:[function(require,module,exports){
 "use strict";
@@ -278,7 +278,7 @@ var NutrientCalculator = React.createClass({
 		};
 		console.log(formData); //for testing
 		$.ajax({
-			url: 'http://rotala.dev/php/main.php',
+			url: 'php/main.php',
 			dataType: 'json',
 			type: 'POST',
 			data: formData,
