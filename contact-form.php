@@ -97,13 +97,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
             <div class="form-group">
-                <label for="subject" class="col-lg-2 control-label">subject</label>
+                <label for="subject" class="col-lg-2 control-label">Subject</label>
                 <div class="col-lg-10">
                     <input type="text" class="form-control" id="form-subject" name="form-subject" placeholder="subject" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="message" class="col-lg-2 control-label">message</label>
+                <label for="message" class="col-lg-2 control-label">Message</label>
                 <div class="col-lg-10">
                     <textarea class="form-control" rows="3" id="form-message" name="form-message" placeholder="message" required></textarea>
                 </div>
