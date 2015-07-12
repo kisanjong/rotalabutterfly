@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           </ul> -->
           <ul class="nav navbar-nav navbar-right">
             <li><a href="glossary.html">Glossary</a></li>
-			<li><a href="contact-form.php">Contact</a></li>
+	    <li class="active"><a href="contact-form.php">Contact</a></li>
           </ul>
          
         </div>
