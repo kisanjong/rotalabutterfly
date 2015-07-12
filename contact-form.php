@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
       <div class="row">
         <div class="page-header">
-          <h1>Nutrient Calculator</h1>
+          <h1>Contact Us</h1>
         </div>
       </div>
       <?php if(!empty($emailSent)): ?>
