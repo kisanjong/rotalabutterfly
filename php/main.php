@@ -1,9 +1,9 @@
 <?
 
 include_once "config.php";
-include_once $path."/lib/setup_vars.php";
-include_once $path."/lib/load_constants.php";
-include_once $path."/lib/conversions.php";
+
+include_once $path."/php/lib/load_constants.php";
+include_once $path."/php/lib/conversions.php";
 
 
 //Gets input...
