@@ -278,16 +278,18 @@ var NutrientCalculator = React.createClass({
 		};
 		console.log(formData); //for testing
 		$.ajax({
-			url: 'php/main.php',
-			dataType: 'json',
 			type: 'POST',
+			url: 'php/main.php',
+			contentType: 'application/json; charset=utf-8',
 			data: formData,
+			dataType: 'json',
 			success: (function (data) {
 				console.log(data); //for testing
 				//this.setState({returnData: data});
 			}).bind(this),
 			error: (function (xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
+				console.error(xhr.status, status);
+				console.log(err);
 			}).bind(this)
 		});
 		event.preventDefault();

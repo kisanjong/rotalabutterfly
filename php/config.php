@@ -1,11 +1,11 @@
-<?
+<?php
 ////Configuration include...
 
 //Path to the main/root rotala dir...
 
-$path = "/my/path/to/rotala";
+$path = "/Users/jennifer/Sites/rotalabutterfly";
 
 //Domain URL...
-$domain = "mywebsitedomain.com";
+$domain = "rotala.dev";
 
 ?>

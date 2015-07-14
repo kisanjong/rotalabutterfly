@@ -1,4 +1,4 @@
-<?
+<?php
 
 //Loads libraries (constants)...
 

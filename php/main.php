@@ -1,46 +1,30 @@
-<?
+<?php
 
 include_once "config.php";
-
 include_once $path."/php/lib/load_constants.php";
 include_once $path."/php/lib/conversions.php";
-
-
 //Gets input...
-
-
 //Converts input to object...
 $params = new stdClass();
 foreach($_POST as $key => $value)
 {
 	$params->{$key} = $value;
 }
-
-
 // create response object
 $json = array();
 $json['success'] = false;
-
-
-
 ///////////////////////
-
-
 $results = array();
-
 # the Stuff while trying to limit what's global
 $tank_vol_calc = unfractionify($params->{"tank_vol"});
 $tank_units = $params->{"tank_units"};
 $source = $params->{"source"};
-
 $round_to = $params->{"round_to"};
 $urea = "";
 $pump = "";
-
 $tank_vol_orig  = $tank_vol_calc;
 $tank_vol = to_Liters($tank_vol_calc,$tank_units);
 $cons = array();
-
 if ($source == "diy") {
 	$concentrations = $COMPOUNDS;
 	$comp = $params->{"compound"};
@@ -62,13 +46,8 @@ else {
 	
 	
 }
-
 # we'll populate everything from the constants hash [ cons ]
-
 $pop=$concentrations[$comp];
-
-
-
 foreach($pop as $junk => $value) {
 	
 	if (!$junk) {
@@ -93,16 +72,11 @@ foreach($pop as $junk => $value) {
 	else {	
 		$cons[$junk] = (float)$value;//Float...
 	}
-
 }
-
-
 $dose_freq = 3;
 $pwc = 50;
 $pwc_freq = "every week";
-
 # calculations on the onClick optional menu
-
 if ($calc_for == 'dump') {
 	$dose_amount = unfractionify($dose_amount);
 }
@@ -147,9 +121,6 @@ else {
 	}
 	$dose_amount = 0;
 }
-
-
-
 if ($dose_method == 'solution' && $source == 'diy') {
 	$sol_vol = unfractionify((float)$params->{"sol_volume"});//Float...
 	$sol_dose = unfractionify((float)$params->{"sol_dose"});//Float...
@@ -162,10 +133,6 @@ else {
 	$sol_dose = 0;
 	$dose_calc = $dose_amount;
 }
-
-
-
-
 if ($dose_units == 'tsp') {
 	$sol_check = $dose_amount * $concentrations[$comp]['tsp'];
 }
@@ -175,16 +142,12 @@ elseif ($dose_units == 'g') {
 else {
 	$sol_check = 0;
 }
-
 if (preg_match('/RootMedic/', $comp) && preg_match('/pump/', $dose_units)) {
 	$dose_calc = $dose_calc * 5;
 }
 else {
 	$dose_calc = to_mg($dose_calc,$dose_units);
 }
-
-
-
 if ($calc_for == 'dump') {
 	foreach ($cons as $conc => $value) {
 		$value = (float)$value;
@@ -255,7 +218,6 @@ elseif (preg_match('/target|ei|pps|pmdd|wet|daily|low/', $calc_for)) {
 	
 		
 		$dose_amount = round($dose_amount);//FF to round!
-
 		$dose_amount = (int)$dose_amount;
 		
 		
@@ -269,7 +231,6 @@ elseif (preg_match('/target|ei|pps|pmdd|wet|daily|low/', $calc_for)) {
 	}
 	
 }
-
 #check solubility
 if ($concentrations[$comp]['sol'] && ($sol_vol > 1)) {
   $sol_ref = $concentrations[$comp]['sol'] * 0.8;
@@ -278,12 +239,10 @@ if ($concentrations[$comp]['sol'] && ($sol_vol > 1)) {
 	$sol_error = $concentrations[$comp]['sol'];
   }
 }
-
 #K3PO4 is tricky
 if (preg_match('/K3PO4/', $comp)) {
   $toxic = 'k3po4';
 }
-
 #copper toxicity
 $cu_toxicity = 0.072;
 if ($concentrations[$comp]['Cu']) {
@@ -301,25 +260,17 @@ if ($concentrations[$comp]['Cu']) {
 	$toxic = 'cu,'.$percent_toxic.",".$comp.",".number_format($less_dose, $round_to).",".$dose_units;
   }
 }
-
 if ($urea == "yes") {
   $toxic = 'urea';
 }
-
 # EDDHA tints the water red
 if (preg_match('/EDDHA/', $comp)) {
   if ((float)$results['Fe'] > 0.002) {
   	$toxic = 'eddha';
   }
 }
-
-
-
 //Outputs results...
-
 $json['success'] = true;
-
-
 if (is_decimal($dose_amount)) {
 	$json['dose_amount'] = number_format($dose_amount, $round_to);
 }
@@ -327,7 +278,6 @@ else {
 	$json['dose_amount'] = $dose_amount;
 }
 $json['dose_units'] = $dose_units;
-
 foreach ($results as $key => $value) {
 	if (is_decimal($value)) {
 		$json[$key] = number_format($value, $round_to);
@@ -336,27 +286,19 @@ foreach ($results as $key => $value) {
 		$json[$key] = $value;
 	}
 }
-
 //$json['debug'] = $debug;
-
 if ($sol_error) {
 	$json['sol_error'] = $sol_error;
 }
-
 if ($toxic) {
 	$json['toxic'] = $toxic;
 }
-
 //Target method...
 $json['target_ppm'] =  $target_amount;
-
 //Target element...
 $json['target_element'] = $concentrations[$comp]['target'];
-
-
 // encode array $json to JSON string
-$encoded = json_encode($json);
+header('Content-Type: application/json');
+echo json_encode($json);
 die($encoded);
-
-
 ?>
