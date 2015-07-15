@@ -304,14 +304,9 @@ if (is_ajax()) {
 	$json['target_ppm'] =  $target_amount;
 	//Target element...
 	$json['target_element'] = $concentrations[$comp]['target'];
-	// encode array $json to JSON string
+	// encode array $json to JSON string and return
 	header('Content-Type: application/json');
-	// $encoded = json_encode($json);
-	// die($encoded);
-	// header('Content-Type: application/json');
-	// echo json_encode($json);
-	// exit;
-	// $return["json"] = json_encode($json);
 	echo json_encode($json); 
+	exit;
 }
 ?>
