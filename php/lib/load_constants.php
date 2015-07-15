@@ -11,5 +11,4 @@ $COMPOUNDS = yaml_parse($yaml);
 $yaml = file_get_contents($path."/constants/dosingmethods.yml");
 $METHODS = yaml_parse($yaml);
 
-
 ?>

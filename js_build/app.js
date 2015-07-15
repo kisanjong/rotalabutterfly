@@ -276,14 +276,15 @@ var NutrientCalculator = React.createClass({
 			'dose_units': $('input[name=dose_units]:checked').val(),
 			'round_to': $('#round_to').val()
 		};
+		console.log('INPUT');
 		console.log(formData); //for testing
 		$.ajax({
 			type: 'POST',
 			url: 'php/main.php',
-			contentType: 'application/json; charset=utf-8',
 			data: formData,
 			dataType: 'json',
 			success: (function (data) {
+				console.log('OUTPUT');
 				console.log(data); //for testing
 				//this.setState({returnData: data});
 			}).bind(this),
