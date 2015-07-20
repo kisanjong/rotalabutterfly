@@ -39,7 +39,7 @@
     "submit_btn": "Calculate"
   },
   "output": {
-    "dose": "Your addition of %1 to your %2 aquarium adds",
+    "dose": "`Your addition of ${dose_amount} to your ${tank_size} aquarium adds`",
     "dose_solution": "Your addition of %1 to your %2 container, with doses of %3 to your %4 aquarium adds",
     "target": "To reach your target of %1 you will need to add %2 to your %3 aquarium to yield",
     "target_solution": "To reach your target of %1 you will need to add %2 to your %3 dosing container.  Add %4 of that mix to your %5 aquarium to yield"

@@ -276,8 +276,8 @@ var NutrientCalculator = React.createClass({
 			'dose_units': $('input[name=dose_units]:checked').val(),
 			'round_to': $('#round_to').val()
 		};
-		// console.log("INPUT");
-		// console.log(formData); //for testing
+		console.log('INPUT');
+		console.log(formData); //for testing
 		$.ajax({
 			type: 'POST',
 			url: 'php/main.php',
@@ -287,15 +287,49 @@ var NutrientCalculator = React.createClass({
 				// console.log("OUTPUT");
 				// console.log(data); //for testing
 				var resultContainer = $('#result');
-				var result = '<dl class="dl-horizontal">';
+				resultContainer.empty();
 
+				// create results message
+				var resultMessage = '<h3>Results:</h3>';
+				if (formData['calc_for'] === 'result') {
+					resultMessage += 'Your addition of ' + formData['dose_amount'] + ' ' + formData['dose_units'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium adds:';
+				} else if (formData['calc_for'] === 'target') {
+					resultMessage += 'To reach your target of ' + data['target_ppm'] + ' ' + data['target_element'] + ' you will need to add ' + data['dose_amount'] + data['dose_units'] + formData['compound'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+				} else {
+					resultMessage += 'To reach your target of ' + data['target_ppm'] + ' ' + data['target_element'] + ' you will need to add ' + data['dose_amount'] + data['dose_units'] + formData['compound'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+				}
+
+				// create results table
+				var resultTable = '<table class="table"><thead><tr><th>Element</th><th>ppm/degree</th></tr></thead><tbody>';
 				for (var key in data) {
-					if (data.hasOwnProperty(key) && key !== 'success') {
-						result += '<dt>' + key + '</dt><dd>' + data[key] + '</dd>';
+					switch (key) {
+						case 'success':
+						case 'dose_amount':
+						case 'dose_units':
+						case 'target_element':
+						case 'target_ppm':
+						case 'dose_element':
+							break;
+						default:
+							resultTable += '<tr><td>' + key + '</td><td>' + data[key] + '</td></tr>';
+							break;
 					}
 				}
-				result += '</dl>';
-				resultContainer.append(result);
+				resultTable += '</tbody></table>';
+
+				// dump raw JSON results
+				var rawResult = '<h3>Raw Results <small>(for testing):</small></h3><dl class="dl-horizontal">';
+				for (var key in data) {
+					if (data.hasOwnProperty(key) && key !== 'success') {
+						rawResult += '<dt>' + key + '</dt><dd>' + data[key] + '</dd>';
+					}
+				}
+				rawResult += '</dl>';
+
+				// output results
+				resultContainer.append(resultMessage);
+				resultContainer.append(resultTable);
+				resultContainer.append(rawResult);
 			}).bind(this),
 			error: (function (xhr, status, err) {
 				console.error(xhr.status, status);
@@ -396,9 +430,9 @@ var Source = React.createClass({
 	loadOptionsFromServer: function loadOptionsFromServer() {
 		var url = '';
 		if (this.state.fertType === 'diy') {
-			url = 'http://rotala.dev/json/compounds.json';
+			url = 'json/compounds.json';
 		} else if (this.state.fertType === 'premixed') {
-			url = 'http://rotala.dev/json/commercial-products.json';
+			url = 'json/commercial-products.json';
 		}
 		$.ajax({
 			url: url,
