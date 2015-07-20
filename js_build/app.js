@@ -7,7 +7,7 @@ var _js_viewNutrientCalculator = require('../js_view/NutrientCalculator');
 
 var _js_viewNutrientCalculator2 = _interopRequireDefault(_js_viewNutrientCalculator);
 
-React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'http://rotala.dev/json/en.json' }), document.getElementById('calculator'));
+React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'json/en.json' }), document.getElementById('calculator'));
 
 },{"../js_view/NutrientCalculator":6}],2:[function(require,module,exports){
 "use strict";
@@ -276,18 +276,30 @@ var NutrientCalculator = React.createClass({
 			'dose_units': $('input[name=dose_units]:checked').val(),
 			'round_to': $('#round_to').val()
 		};
-		console.log(formData); //for testing
+		// console.log("INPUT");
+		// console.log(formData); //for testing
 		$.ajax({
-			url: 'http://rotala.dev/php/main.php',
-			dataType: 'json',
 			type: 'POST',
+			url: 'php/main.php',
 			data: formData,
+			dataType: 'json',
 			success: (function (data) {
-				console.log(data); //for testing
-				//this.setState({returnData: data});
+				// console.log("OUTPUT");
+				// console.log(data); //for testing
+				var resultContainer = $('#result');
+				var result = '<dl class="dl-horizontal">';
+
+				for (var key in data) {
+					if (data.hasOwnProperty(key) && key !== 'success') {
+						result += '<dt>' + key + '</dt><dd>' + data[key] + '</dd>';
+					}
+				}
+				result += '</dl>';
+				resultContainer.append(result);
 			}).bind(this),
 			error: (function (xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
+				console.error(xhr.status, status);
+				console.log(err);
 			}).bind(this)
 		});
 		event.preventDefault();
