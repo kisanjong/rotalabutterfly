@@ -284,19 +284,34 @@ var NutrientCalculator = React.createClass({
 			data: formData,
 			dataType: 'json',
 			success: (function (data) {
-				// console.log("OUTPUT");
-				// console.log(data); //for testing
+				console.log('OUTPUT');
+				console.log(data); //for testing
 				var resultContainer = $('#result');
 				resultContainer.empty();
 
 				// create results message
 				var resultMessage = '<h3>Results:</h3>';
 				if (formData['calc_for'] === 'result') {
-					resultMessage += 'Your addition of ' + formData['dose_amount'] + ' ' + formData['dose_units'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium adds:';
+
+					resultMessage += 'Your addition of <strong>' + formData['dose_amount'] + ' ' + formData['dose_units'] + '</strong> to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium adds:';
 				} else if (formData['calc_for'] === 'target') {
-					resultMessage += 'To reach your target of ' + data['target_ppm'] + ' ' + data['target_element'] + ' you will need to add ' + data['dose_amount'] + data['dose_units'] + formData['compound'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+
+					resultMessage += 'To reach your target of <strong>' + data['target_ppm'] + ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ';
+					if (formData['compound'] !== undefined) {
+						resultMessage += formData['compound'];
+					} else {
+						resultMessage += formData['premix'];
+					}
+					resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
 				} else {
-					resultMessage += 'To reach your target of ' + data['target_ppm'] + ' ' + data['target_element'] + ' you will need to add ' + data['dose_amount'] + data['dose_units'] + formData['compound'] + ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+
+					resultMessage += 'To reach your target of <strong>' + data['target_ppm'] + ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ';
+					if (formData['compound'] !== undefined) {
+						resultMessage += formData['compound'];
+					} else {
+						resultMessage += formData['premix'];
+					}
+					resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
 				}
 
 				// create results table
@@ -317,6 +332,33 @@ var NutrientCalculator = React.createClass({
 				}
 				resultTable += '</tbody></table>';
 
+				// create addtl info message
+				var resultInfo = '';
+				if (formData['calc_for'] !== 'result' && formData['calc_for'] !== 'target') {
+					switch (formData['calc_for']) {
+						case 'ei':
+							resultInfo = 'Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.';
+							break;
+						case 'ei_daily':
+							resultInfo = 'This is traditional EI reduced to daily dosing levels.';
+							break;
+						case 'ei_low':
+							resultInfo = 'This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.';
+							break;
+						case 'pps':
+							resultInfo = 'We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.';
+							break;
+						case 'pmdd':
+							resultInfo = 'PMDD does not dose %1. But maybe you should.';
+							break;
+						case 'ada':
+							resultInfo = 'The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href=\'http://barrreport.com\' target=\'_blank\'>The Barr Report</a>';
+							break;
+						default:
+							break;
+					}
+				}
+
 				// dump raw JSON results
 				var rawResult = '<h3>Raw Results <small>(for testing):</small></h3><dl class="dl-horizontal">';
 				for (var key in data) {
@@ -329,6 +371,7 @@ var NutrientCalculator = React.createClass({
 				// output results
 				resultContainer.append(resultMessage);
 				resultContainer.append(resultTable);
+				resultContainer.append(resultInfo);
 				resultContainer.append(rawResult);
 			}).bind(this),
 			error: (function (xhr, status, err) {
@@ -863,7 +906,7 @@ var SelectRounding = React.createClass({
 								{ className: "col-sm-8" },
 								React.createElement(
 										"select",
-										{ className: "form-control", id: "round_to", name: "round_to" },
+										{ className: "form-control", defaultValue: "2", id: "round_to", name: "round_to" },
 										React.createElement(
 												"option",
 												{ value: "0" },
