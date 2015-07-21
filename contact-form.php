@@ -43,12 +43,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button> -->
+          </button>
           <a class="navbar-brand" href="index.html">Rotala Butterfly</a>
         </div>
 
@@ -123,6 +123,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!--[if gte IE 9]><!-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!--<![endif]-->
+    <script src="js_build/bootstrap.js"></script>
     <script type="text/javascript" src="js_build/contact-form.js"></script>
   </body>
 </html>
