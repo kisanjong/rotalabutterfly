@@ -2,9 +2,11 @@
 ////Configuration include...
 
 //Path to the main/root rotala dir...
-$path = "/my/path/to/rotala";
+
+$path = "/your/path/to/rotala";
 
 //Domain URL...
 $domain = "yourdomain.com";
+
 
 ?>

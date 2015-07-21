@@ -26,9 +26,9 @@ var Source = React.createClass({
 	loadOptionsFromServer: function() {
 		var url = '';
 		if (this.state.fertType === 'diy') {
-			url = 'http://rotala.dev/json/compounds.json';
+			url = 'json/compounds.json';
 		} else if (this.state.fertType === 'premixed') {
-			url = 'http://rotala.dev/json/commercial-products.json';
+			url = 'json/commercial-products.json';
 		}
 	    $.ajax({
 	      url: url,

@@ -2,13 +2,18 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		browserify: {
-			build: {
-				src: 'js_dev/app.js',
-				dest: 'js_build/app.js',
-				options: {
+			dist: {
+		        options: {
 		          transform: ["babelify"]
+		        },
+		        files: {
+		           "js_build/app.js": "js_dev/app.js",
+		           "js_build/bootstrap.js": [
+		           	"bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
+		           	"bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"
+		           	]
 		        }
-			}
+		    }
 		},
 		sass: {
 			dist: {

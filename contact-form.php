@@ -43,20 +43,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button> -->
+          </button>
           <a class="navbar-brand" href="index.html">Rotala Butterfly</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <!-- <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-          </ul> -->
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Nutrient Calculator</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="glossary.html">Glossary</a></li>
 	    <li class="active"><a href="contact-form.php">Contact</a></li>
@@ -67,8 +66,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
     <div class="container">
       <div class="row">
-        <div class="page-header">
-          <h1>Contact Us</h1>
+        <div class="col-xs-12">
+            <div class="page-header">
+              <h1>Contact Us</h1>
+            </div>
         </div>
       </div>
       <?php if(!empty($emailSent)): ?>
@@ -123,6 +124,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!--[if gte IE 9]><!-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!--<![endif]-->
+    <script src="js_build/bootstrap.js"></script>
     <script type="text/javascript" src="js_build/contact-form.js"></script>
   </body>
 </html>

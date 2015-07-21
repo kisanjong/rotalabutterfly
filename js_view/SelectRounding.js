@@ -4,7 +4,7 @@ var SelectRounding = React.createClass({
       <div className="form-group">
         <label className="col-sm-4 control-label" htmlFor="round_to">{this.props.labels.round_to}</label>
 	    <div className="col-sm-8">
-	        <select className="form-control" id="round_to" name="round_to">
+	        <select className="form-control" defaultValue="2" id="round_to" name="round_to">
 	          <option value="0">0</option>
 	          <option value="1">1</option>
 	          <option value="2">2</option>
