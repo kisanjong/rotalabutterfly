@@ -66,8 +66,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
     <div class="container">
       <div class="row">
-        <div class="page-header">
-          <h1>Contact Us</h1>
+        <div class="col-xs-12">
+            <div class="page-header">
+              <h1>Contact Us</h1>
+            </div>
         </div>
       </div>
       <?php if(!empty($emailSent)): ?>
