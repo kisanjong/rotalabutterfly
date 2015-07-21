@@ -53,10 +53,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <!-- <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-          </ul> -->
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Nutrient Calculator</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="glossary.html">Glossary</a></li>
 	    <li class="active"><a href="contact-form.php">Contact</a></li>
