@@ -3,13 +3,59 @@
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+var _js_viewLangSelect = require('../js_view/LangSelect');
+
+var _js_viewLangSelect2 = _interopRequireDefault(_js_viewLangSelect);
+
 var _js_viewNutrientCalculator = require('../js_view/NutrientCalculator');
 
 var _js_viewNutrientCalculator2 = _interopRequireDefault(_js_viewNutrientCalculator);
 
-React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'json/en.json' }), document.getElementById('calculator'));
+var Container = React.createClass({
+	displayName: 'Container',
 
-},{"../js_view/NutrientCalculator":6}],2:[function(require,module,exports){
+	handleSelection: function handleSelection() {
+		var newURL = 'json/' + event.target.value + '.json';
+		this.setState({ url: newURL });
+		this.loadLabelsFromServer();
+	},
+	loadLabelsFromServer: function loadLabelsFromServer() {
+		$.ajax({
+			url: this.state.url,
+			dataType: 'json',
+			cache: false,
+			success: (function (data) {
+				this.setState({ labels: data.labels });
+				this.setState({ units: data.units });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.state.url, status, err.toString());
+			}).bind(this)
+		});
+	},
+	getInitialState: function getInitialState() {
+		return {
+			labels: [],
+			units: [],
+			url: 'json/en.json'
+		};
+	},
+	componentDidMount: function componentDidMount() {
+		this.loadLabelsFromServer();
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(_js_viewLangSelect2['default'], { onSelection: this.handleSelection }),
+			React.createElement(_js_viewNutrientCalculator2['default'], { labels: this.state.labels, units: this.state.units })
+		);
+	}
+});
+
+React.render(React.createElement(Container, null), document.getElementById('calculator'));
+
+},{"../js_view/LangSelect":6,"../js_view/NutrientCalculator":7}],2:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -109,7 +155,7 @@ var InputDIYSolutionContainerDoseContainer = React.createClass({
 
 module.exports = InputDIYSolutionContainerDoseContainer;
 
-},{"../js_view/SelectCalcFor":9}],3:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":10}],3:[function(require,module,exports){
 "use strict";
 
 var InputDoseCalc = React.createClass({
@@ -245,6 +291,102 @@ var InputTankSize = React.createClass({
 module.exports = InputTankSize;
 
 },{}],6:[function(require,module,exports){
+"use strict";
+
+var LangSelect = React.createClass({
+	displayName: "LangSelect",
+
+	isSelected: function isSelected(event) {
+		this.props.onSelection(event);
+	},
+	getInitialState: function getInitialState() {
+		return {
+			lang: "en"
+		};
+	},
+	render: function render() {
+		return React.createElement(
+			"form",
+			{ className: "form-horizontal" },
+			React.createElement(
+				"div",
+				{ className: "form-group" },
+				React.createElement(
+					"label",
+					{ htmlFor: "lang", className: "col-xs-12 col-sm-4 control-label" },
+					"Current Language:"
+				),
+				React.createElement(
+					"div",
+					{ className: "col-xs-12 col-sm-8" },
+					React.createElement(
+						"select",
+						{ defaultValue: "en", name: "lang", className: "form-control", onChange: this.isSelected },
+						React.createElement(
+							"option",
+							{ value: "cs" },
+							"Czech"
+						),
+						React.createElement(
+							"option",
+							{ value: "de" },
+							"Deutsch"
+						),
+						React.createElement(
+							"option",
+							{ value: "en" },
+							"English"
+						),
+						React.createElement(
+							"option",
+							{ value: "es" },
+							"Español"
+						),
+						React.createElement(
+							"option",
+							{ value: "it" },
+							"Italiano"
+						),
+						React.createElement(
+							"option",
+							{ value: "jp" },
+							"日本語"
+						),
+						React.createElement(
+							"option",
+							{ value: "lt" },
+							"Lietuvių kalba"
+						),
+						React.createElement(
+							"option",
+							{ value: "nl" },
+							"Nederlands"
+						),
+						React.createElement(
+							"option",
+							{ value: "pl" },
+							"Polski"
+						),
+						React.createElement(
+							"option",
+							{ value: "ptbr" },
+							"Português do Brasil"
+						),
+						React.createElement(
+							"option",
+							{ value: "ro" },
+							"Română"
+						)
+					)
+				)
+			)
+		);
+	}
+});
+
+module.exports = LangSelect;
+
+},{}],7:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -381,43 +523,33 @@ var NutrientCalculator = React.createClass({
 		});
 		event.preventDefault();
 	},
-	loadLabelsFromServer: function loadLabelsFromServer() {
-		$.ajax({
-			url: this.props.url,
-			dataType: 'json',
-			cache: false,
-			success: (function (data) {
-				this.setState({ labels: data.labels });
-				this.setState({ units: data.units });
-			}).bind(this),
-			error: (function (xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}).bind(this)
-		});
-	},
 	getInitialState: function getInitialState() {
 		return {
-			labels: [],
-			units: [],
 			returnData: []
 		};
 	},
-	componentDidMount: function componentDidMount() {
-		this.loadLabelsFromServer();
-	},
 	render: function render() {
 		return React.createElement(
-			'form',
-			{ className: 'form-horizontal', onSubmit: this.handleSubmit },
-			React.createElement(_js_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
-			React.createElement(_js_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
+			'div',
+			{ className: 'well' },
+			React.createElement(
+				'form',
+				{ className: 'form-horizontal', onSubmit: this.handleSubmit },
+				React.createElement(
+					'legend',
+					null,
+					'Your Information:'
+				),
+				React.createElement(_js_viewInputTankSize2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_js_viewRadioFertType2['default'], { labels: this.props.labels, units: this.props.units })
+			)
 		);
 	}
 });
 
 module.exports = NutrientCalculator;
 
-},{"../js_view/InputTankSize":5,"../js_view/RadioFertType":7}],7:[function(require,module,exports){
+},{"../js_view/InputTankSize":5,"../js_view/RadioFertType":8}],8:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -537,7 +669,7 @@ module.exports = Source;
 
 //console.log(Array.isArray(this.props.children));
 
-},{"../js_view/RadioSolutionDry":8,"../js_view/SelectFertType":10}],8:[function(require,module,exports){
+},{"../js_view/RadioSolutionDry":9,"../js_view/SelectFertType":11}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -631,7 +763,7 @@ var RadioSolutionDryContainer = React.createClass({
 
 module.exports = RadioSolutionDryContainer;
 
-},{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":9}],9:[function(require,module,exports){
+},{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":10}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -766,7 +898,7 @@ var SelectCalcForContainer = React.createClass({
 
 module.exports = SelectCalcForContainer;
 
-},{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":11,"../js_view/SubmitBtn":12}],10:[function(require,module,exports){
+},{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":12,"../js_view/SubmitBtn":13}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -886,7 +1018,7 @@ module.exports = SelectFertType;
 
 //console.log(Array.isArray(this.props.children));
 
-},{"../js_view/SelectCalcFor":9}],11:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":10}],12:[function(require,module,exports){
 "use strict";
 
 var SelectRounding = React.createClass({
@@ -960,7 +1092,7 @@ var SelectRounding = React.createClass({
 
 module.exports = SelectRounding;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 var SubmitBtn = React.createClass({

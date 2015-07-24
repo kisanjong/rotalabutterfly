@@ -126,36 +126,20 @@ var NutrientCalculator = React.createClass({
 	    });
 	    event.preventDefault();
 	  },
-	loadLabelsFromServer: function() {
-	    $.ajax({
-	      url: this.props.url,
-	      dataType: 'json',
-	      cache: false,
-	      success: function(data) {
-	        this.setState({labels: data.labels});
-	        this.setState({units: data.units});
-	      }.bind(this),
-	      error: function(xhr, status, err) {
-	        console.error(this.props.url, status, err.toString());
-	      }.bind(this)
-	    });
-	  },
 	getInitialState: function() {
 	    return {
-	      labels : [],
-	      units : [],
 	      returnData: []
 	    }
 	  },
-	componentDidMount: function() {
-	    this.loadLabelsFromServer();
-	  },
 	render: function() {
 		return (
-			<form className="form-horizontal" onSubmit={this.handleSubmit}>
-				<InputTankSize labels={this.state.labels} units={this.state.units} />
-				<RadioFertType labels={this.state.labels} units={this.state.units} />
-			</form>
+			<div className="well">
+				<form className="form-horizontal" onSubmit={this.handleSubmit}>
+					<legend>Your Information:</legend>
+					<InputTankSize labels={this.props.labels} units={this.props.units} />
+					<RadioFertType labels={this.props.labels} units={this.props.units} />
+				</form>
+			</div>
 			);
 	},
 });

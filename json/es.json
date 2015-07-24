@@ -1,0 +1,81 @@
+{
+  "units": {
+    "element": "Elemento/Compuesto",
+    "ppm": "ppm",
+    "degree": "grado",
+    "us_gal": "galones internacionales (USA)",
+    "imp_gal": "galones imperiales (UK)",
+    "Liter": "L",
+    "milliliter": "mL",
+    "five_milliliter": "cucharilla de té/tapón/5 ml",
+    "pump_bottle": "pumps",
+    "grams": "g",
+    "milligrams": "mg"
+  },
+  "labels": {
+    "aquarium": "Mi acuario es:",
+    "type_of": "Mis abonos:",
+    "diy": "DIY",
+    "commercial": "Premezclado",
+    "dose_with": "Soy Dosificación Con:",
+    "using": "Utilizando:",
+    "solution": "Una Solución",
+    "solution_container": "Tamaño del envase:",
+    "solution_dose": "Dosis Tamaño:",
+    "solution_tooltip": "Si elige el resultado de su dosis por debajo, esa es la dosis que se dedica a esta solución.",
+    "dry": "La dosificación en seco",
+    "method_label": "Estoy de cálculo para:",
+    "method_target": "Dosis para llegar a un objetivo",
+    "method_dose": "Resultado de mi dosis",
+    "method_ei": "Estimative Index",
+    "method_ei_daily": "EI daily",
+    "method_ei_low": "EI Low Light/Weekly",
+    "method_pps": "Perpetual Preservation System",
+    "method_pmdd": "PMDD",
+    "dose_calc_label": "Estoy añadiendo:",
+    "dose_calc_tooltip": "Nota: Puede usar números como \"1/8\", \"1.25\", \"2,50\", \"3\"",
+    "dose_target": "Mi objetivo es:",
+    "round_to": "Ronda de dígitos decimales pasado:",
+    "submit_btn": "Calcular"
+  },
+  "output": {
+    "dose": "Tu agregado de %1 para tu %2 acuario agregando",
+    "dose_solution": "Tu agregado de %1 para tu %2 contenedor, con dosis de %3 para tu %4 acuario agregando",
+    "target": "Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente/acuario de",
+    "target_solution": "Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente. Agregar %4 de esa mezcla en tu acuario de %5"
+  },
+  "warnings": {
+    "solubility": "La solubilidad de %1 a temperature ambiente es %2.  Deberas ajustar tu dosis.",
+    "k3po4": "El K3PO4 disuelto en una solución tiende a incrementar el pH debido a la naturaleza del KOH, que es una base fuerte. ray-the-pilot explica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>",
+    "eddha": "Ten presente que el EDDHA puede tenir el agua de rojo incluso usando dosis moderadas.  Puede ver este video de una dosis de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.",
+    "urea": "Este producto tiene un porcentage desconocido de N como Urea y NO3.  El calculo y la tabla  de abajo funciona con equivalentes a NO3.",
+    "cu": "Tu dosis de Cu es %1 % de la recomendada para peces sensibles e invertebrados. Puedes considerar reducir tu dosis de %2 por una de %3 <a href='http://y.petalphile.com/cu' target='_blank'>Mas información acerca de la toxicidad del Cu aqui</a>"
+  },
+  "chart": {
+    "text": "Concentraciones relativas %1 para los métodos",
+    "pmdd": "PMDD",
+    "walstad": "Walstad",
+    "pps": "PPS-Pro",
+    "ei": "El Indice Estimativo",
+    "user": "y tu dosificación",
+    "long_term_chart": "Quieres modelar los efectos a largo plazo de tus dosis de %1? Haz Clic %2 aqui!"
+  },
+  "methods_text": {
+    "ei": "El éxito del método EI depende de un buen nivel de CO2, buena circulacion, y cambios regulares de agua. La cantidad de luz pasado un cierto nivel moderado no es tan importantes.",
+    "ei_daily": "Este es el método EI tradicional reducido a dosis diarias.",
+    "ei_low": "Es es el método EI para acuarios con poca luz y dosificación semanal. Para la mayor parte de los tanques, los rangos de EI abajo son a lo largo del tiempo.",
+    "pps": "Hemos calculado para una dosis diaria de PPS-Pro. El rango recomendado más abajo es para tanques maduros y estables.",
+    "pmdd": "El método PMDD no dosifica %1. Sin embargo, quizás deberías considerar hacerlo tu.",
+    "ada": "La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos añaden un suplemento a la columna de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>"
+  },
+  "misc": {
+    "calc": "Una Calculadora de Nutrientes Mas",
+    "restart": "Comenzar de nuevo",
+    "submit_button": "Calcular",
+    "translations": "Traducciones",
+    "contribute": "Contribuye a las traducciones",
+    "mobile_link": "Sitio Web para Móviles",
+    "noscript": "Para el funcionamiento correcto de esta Calculadora web se require que Javascript este habilitado.",
+    "error": "Hubo un error! Por favor solo use los numeros (3, 3.0, 3/4, 0,75, etc) y asegurese que todas la informacion requerida ha sido ingresada correctamente."
+  }
+}
