@@ -36,7 +36,7 @@
     "dose_calc_tooltip": "všimnout si: ůžete použít čísla<br/>\"1/8\", \"1.25\", \"2,50\", \"3\"",
     "dose_target": "Můj cíl je:",
     "round_to": "Kolo se číslic kolem desetinná:",
-    "submit_button": "Vypočítat"
+    "submit_btn": "Vypočítat"
   },
   "output": {
     "dose": "Vaše přidání %1 do Vaší %2 nádrže dodá",

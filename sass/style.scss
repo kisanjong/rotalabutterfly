@@ -51,3 +51,9 @@
 
 // Bootswatch
 @import "bootswatch";
+h1 {
+	small {
+		display: block;
+		line-height: 1.25;
+	}
+}

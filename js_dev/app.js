@@ -4,16 +4,17 @@ import NutrientCalculator from '../js_view/NutrientCalculator';
 var Container = React.createClass({
 	handleSelection: function() {
 		var newURL = "json/" + event.target.value + ".json";
-		this.setState({url: newURL});
-		this.loadLabelsFromServer();
+		this.setState({url: newURL}, function() {
+			this.loadLabelsFromServer();
+		});
 	},
 	loadLabelsFromServer: function() {
-	    $.ajax({
+		$.ajax({
 	      url: this.state.url,
 	      dataType: 'json',
 	      cache: false,
 	      success: function(data) {
-	        this.setState({labels: data.labels});
+	      	this.setState({labels: data.labels});
 	        this.setState({units: data.units});
 	      }.bind(this),
 	      error: function(xhr, status, err) {
