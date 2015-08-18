@@ -4623,3 +4623,8 @@ input:focus,
 .panel-default .panel-footer {
   color: #98978B;
 }
+
+h1 small {
+  display: block;
+  line-height: 1.25;
+}

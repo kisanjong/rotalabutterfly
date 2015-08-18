@@ -31,9 +31,9 @@
     "method_ei_daily": "metody EI (Estimative Index - dozowanie codzienne)",
     "method_ei_low": "metody EI (Estimative Index - dozowanie raz w tygodniu)",
     "method_pps": "metody PPS (Perpetual Preservation System)",
-    "method_pmdd": "metody PMDD"
+    "method_pmdd": "metody PMDD",
     "dose_calc_label": "Jestem Dodawanie:",
-    "dose_calc_tooltip": "Uwaga: Możesz używać liczb, jak \"1/8\", \"1.25\", \"2,50\", \"3\"",
+    "dose_calc_tooltip": "Uwaga: Możesz używać liczb, jak \"1/8\", \"1.25\", \"2,50\", \"3\" ",
     "dose_target": "Mój cel jest:",
     "round_to": "Okrągły z cyfr dziesiętnych przeszłości:",
     "submit_btn": "Obliczać"

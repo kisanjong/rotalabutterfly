@@ -16,8 +16,9 @@ var Container = React.createClass({
 
 	handleSelection: function handleSelection() {
 		var newURL = 'json/' + event.target.value + '.json';
-		this.setState({ url: newURL });
-		this.loadLabelsFromServer();
+		this.setState({ url: newURL }, function () {
+			this.loadLabelsFromServer();
+		});
 	},
 	loadLabelsFromServer: function loadLabelsFromServer() {
 		$.ajax({
