@@ -15,7 +15,7 @@ var Container = React.createClass({
 	displayName: 'Container',
 
 	handleSelection: function handleSelection() {
-		var newURL = 'json/' + event.target.value + '.json';
+		var newURL = "json/" + event.target.value + ".json";
 		this.setState({ url: newURL }, function () {
 			this.loadLabelsFromServer();
 		});
@@ -38,7 +38,7 @@ var Container = React.createClass({
 		return {
 			labels: [],
 			units: [],
-			url: 'json/en.json'
+			url: "json/en.json"
 		};
 	},
 	componentDidMount: function componentDidMount() {
@@ -61,7 +61,7 @@ React.render(React.createElement(Container, null), document.getElementById('calc
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _js_viewSelectCalcFor = require("../js_view/SelectCalcFor");
+var _js_viewSelectCalcFor = require('../js_view/SelectCalcFor');
 
 var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 
@@ -302,7 +302,7 @@ var LangSelect = React.createClass({
 	},
 	getInitialState: function getInitialState() {
 		return {
-			lang: "en"
+			lang: 'en'
 		};
 	},
 	render: function render() {
@@ -419,7 +419,7 @@ var NutrientCalculator = React.createClass({
 			'dose_units': $('input[name=dose_units]:checked').val(),
 			'round_to': $('#round_to').val()
 		};
-		console.log('INPUT');
+		console.log("INPUT");
 		console.log(formData); //for testing
 		$.ajax({
 			type: 'POST',
@@ -427,7 +427,7 @@ var NutrientCalculator = React.createClass({
 			data: formData,
 			dataType: 'json',
 			success: (function (data) {
-				console.log('OUTPUT');
+				console.log("OUTPUT");
 				console.log(data); //for testing
 				var resultContainer = $('#result');
 				resultContainer.empty();
@@ -480,22 +480,22 @@ var NutrientCalculator = React.createClass({
 				if (formData['calc_for'] !== 'result' && formData['calc_for'] !== 'target') {
 					switch (formData['calc_for']) {
 						case 'ei':
-							resultInfo = 'Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.';
+							resultInfo = "Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.";
 							break;
 						case 'ei_daily':
-							resultInfo = 'This is traditional EI reduced to daily dosing levels.';
+							resultInfo = "This is traditional EI reduced to daily dosing levels.";
 							break;
 						case 'ei_low':
-							resultInfo = 'This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.';
+							resultInfo = "This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.";
 							break;
 						case 'pps':
-							resultInfo = 'We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.';
+							resultInfo = "We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.";
 							break;
 						case 'pmdd':
-							resultInfo = 'PMDD does not dose %1. But maybe you should.';
+							resultInfo = "PMDD does not dose %1. But maybe you should.";
 							break;
 						case 'ada':
-							resultInfo = 'The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href=\'http://barrreport.com\' target=\'_blank\'>The Barr Report</a>';
+							resultInfo = "The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>";
 							break;
 						default:
 							break;
@@ -633,7 +633,9 @@ var Source = React.createClass({
 			options: []
 		};
 	},
-	componentDidMount: function componentDidMount() {},
+	componentDidMount: function componentDidMount() {
+		//console.log(Array.isArray(this.props.children));
+	},
 	render: function render() {
 		if (this.state.fertType === null) {
 			return React.createElement(
@@ -667,8 +669,6 @@ var Source = React.createClass({
 });
 
 module.exports = Source;
-
-//console.log(Array.isArray(this.props.children));
 
 },{"../js_view/RadioSolutionDry":9,"../js_view/SelectFertType":11}],9:[function(require,module,exports){
 'use strict';
@@ -919,7 +919,9 @@ var SelectFertType = React.createClass({
 			selected: null
 		};
 	},
-	componentDidMount: function componentDidMount() {},
+	componentDidMount: function componentDidMount() {
+		//console.log(Array.isArray(this.props.children));
+	},
 	render: function render() {
 
 		var obj = this.props.options;
@@ -951,6 +953,11 @@ var SelectFertType = React.createClass({
 						React.createElement(
 							'select',
 							{ className: 'form-control', id: 'compound', name: 'compound', onChange: this.isSelected },
+							React.createElement(
+								'option',
+								{ value: 'null' },
+								'Select Your Compound'
+							),
 							selectOptions
 						)
 					)
@@ -975,6 +982,11 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', id: 'premix', name: 'premix', onChange: this.isSelected },
+								React.createElement(
+									'option',
+									{ value: 'null' },
+									'Select Your Product'
+								),
 								selectOptions
 							)
 						)
@@ -999,6 +1011,11 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', id: 'premix', name: 'premix', onChange: this.isSelected },
+								React.createElement(
+									'option',
+									{ value: 'null' },
+									'Select Your Product'
+								),
 								selectOptions
 							)
 						)
@@ -1016,8 +1033,6 @@ var SelectFertType = React.createClass({
 });
 
 module.exports = SelectFertType;
-
-//console.log(Array.isArray(this.props.children));
 
 },{"../js_view/SelectCalcFor":10}],12:[function(require,module,exports){
 "use strict";
