@@ -89,7 +89,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"div",
 						{ className: "input-group" },
-						React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
+						React.createElement("input", { type: "number", step: "0.01", className: "form-control", id: "sol_volume", name: "sol_volume" }),
 						React.createElement(
 							"div",
 							{ className: "input-group-addon" },
@@ -112,7 +112,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"div",
 						{ className: "input-group" },
-						React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
+						React.createElement("input", { type: "number", step: "0.01", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
 						React.createElement(
 							"div",
 							{ className: "input-group-addon" },
@@ -174,7 +174,7 @@ var InputDoseCalc = React.createClass({
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", name: "dose_amount", id: "dose_amount", className: "form-control" })
+				React.createElement("input", { type: "number", step: "0.01", name: "dose_amount", id: "dose_amount", className: "form-control" })
 			),
 			React.createElement(
 				"div",
@@ -233,7 +233,7 @@ var InputDoseTarget = React.createClass({
         React.createElement(
           "div",
           { className: "input-group" },
-          React.createElement("input", { type: "number", className: "form-control", name: "target_amount", id: "target_amount" }),
+          React.createElement("input", { type: "number", step: "0.01", className: "form-control", name: "target_amount", id: "target_amount" }),
           React.createElement(
             "div",
             { className: "input-group-addon" },
@@ -265,7 +265,7 @@ var InputTankSize = React.createClass({
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", name: "tank_vol", id: "tank_vol", className: "form-control" })
+				React.createElement("input", { type: "number", step: "0.01", name: "tank_vol", id: "tank_vol", className: "form-control" })
 			),
 			React.createElement(
 				"div",
