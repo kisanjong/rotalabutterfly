@@ -39,33 +39,33 @@
     "submit_btn": "Calcola"
   },
   "output": {
-    "dose": "Aggiungendo ${dose_amount} al tuo acquario di ${tank_size} ti dà",
-    "dose_solution": "Aggiungendo %1 al tuo contenitore da %2 , con dosi da %3 al tuo acquario da %4 ti dà",
-    "target": "Per ottenere il tuo obiettivo di %1 dovrai aggiungere %2 al tuo acquario di %3 per avere",
-    "target_solution": "Per ottenere il tuo obiettivo di %1 avrai bisogno di aggiungere %2 al tuo contenitore da %3.  Aggiungendo %4 di questa soluzione al tuo acquario di %5 per avere"
+    "dose": "Aggiungendo $1 al tuo acquario di $2 ti dà",
+    "dose_solution": "Aggiungendo $1 al tuo contenitore da $2 , con dosi da $3 al tuo acquario da $4 ti dà",
+    "target": "Per ottenere il tuo obiettivo di $1 dovrai aggiungere $2 al tuo acquario di $3 per avere",
+    "target_solution": "Per ottenere il tuo obiettivo di $1 avrai bisogno di aggiungere $2 al tuo contenitore da $3.  Aggiungendo $4 di questa soluzione al tuo acquario di $5 per avere"
   },
   "warnings": {
-    "solubility": "La solubilità di %1 a temperatura ambiente è di %2.  Dovresti modificare la tua dose.",
+    "solubility": "La solubilità di $1 a temperatura ambiente è di $2.  Dovresti modificare la tua dose.",
     "k3po4": "K3PO4 in soluzione tende ad alzare il pH a causa della natura del KOH, che è una base molto forte. ray-the-pilot spiega il perchè agli orticoltori Americani <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>",
     "eddha": "Far attenzione che l'EDDHA potrebbe colorare l'acqua di rosa-rosso, anche a basse dosi.  Guarda questo video in cui si dosano 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>qui</a>.",
     "urea": "Questo prodotto possiede alcune quantità non definite di N (azoto) come Urea e come NO3.  Il risultato della tabella sottostante è stato calcolato con l'equivalente di NO3.",
-    "cu": "La tua dose Cu (rame) è %1 % maggiore di quella raccomandata per pesci e invertebrati delicati. Considera di ridurre la tua %2 dose di %3 <a href='http://y.petalphile.com/cu' target='_blank'>Informazioni sulla tossicità del Cu (rame) qui</a>"
+    "cu": "La tua dose Cu (rame) è $1 % maggiore di quella raccomandata per pesci e invertebrati delicati. Considera di ridurre la tua $2 dose di $3 <a href='http://y.petalphile.com/cu' target='_blank'>Informazioni sulla tossicità del Cu (rame) qui</a>"
   },
   "chart": {
-    "text": "Concentrazione relativa %1 per",
+    "text": "Concentrazione relativa $1 per",
     "pmdd": "PMDD",
     "walstad": "Walstad",
     "pps": "PPS-Pro",
     "ei": "Estimative Index",
     "user": "la tua dose",
-    "long_term_chart": "Vuoi un modello grafico che visualizzi gli effetti a lungo termine dosando %1 ? Clicca %2 qui!"
+    "long_term_chart": "Vuoi un modello grafico che visualizzi gli effetti a lungo termine dosando $1 ? Clicca $2 qui!"
   },
   "methods_text": {
     "ei": "Dosa quanto suggerito 2-4 volte alla settimana per EI. Il metodo classico EI è basato su alte concentrazioni di CO2, buona circolazione e cambi regolari dell' acqua.  La quantità di luce oltre il livello moderato non è molto importante.",
     "ei_daily": "Metodo tradizionale EI ridotto a dosaggi giornalieri",
     "ei_low": "Metodo EI con dosi settimanali per acquari a bassa luce. Le dosi suggerite qui sotto sono intese a lungo termine (per la maggior parte degli acquari)",
     "pps": "Abbiamo calcolato per una dose PPS-Pro giornaliera. La dose sotto raccomandato è per acquari maturi e stabili.",
-    "pmdd": "PMDD non dosa %1. Ma forse dovresti.",
+    "pmdd": "PMDD non dosa $1. Ma forse dovresti.",
     "ada": "Il sistema di fertilizzazione ADA presuppone un substrato molto ricco di nutrienti. I loro fertilizzanti liquidi integrano la colonna d'acqua finchè le sostanze nel substrato non viene lentamente consumato. Le analisi degli elementi nei fertilizzanti ADA è una cortesia di Plantbrain/Tom Barr ed è disponibile su <a href='http://barrreport.com' target='_blank'>The Barr Report</a>"
   },
   "misc": {

@@ -39,33 +39,33 @@
     "submit_btn": "Apskaičiuoti"
   },
   "output": {
-    "dose": "Jūsų pasirinkimas nuo %1 iki %2 ką įnešti į akvariumą",
-    "dose_solution": "Jūsų pasirinkimas nuo 1% iki 2% tirpalo talpos, kad būtų paduodama nuo 3% iki 4% akvariumo reikmių.",
-    "target": "pasiekti %1 tikslo reikės įdėti nuo %2 iki %3 tirpalo išeigos",
-    "target_solution": "Kad pasiekti 1% tikslo reikės į tirpalą įdėti %2-3 esamam vandens kiekiui"
+    "dose": "Jūsų pasirinkimas nuo $1 iki $2 ką įnešti į akvariumą",
+    "dose_solution": "Jūsų pasirinkimas nuo $1 iki $2 tirpalo talpos, kad būtų paduodama nuo $3 iki $4 akvariumo reikmių.",
+    "target": "pasiekti $1 tikslo reikės įdėti nuo $2 iki $3 tirpalo išeigos",
+    "target_solution": "Kad pasiekti $1 tikslo reikės į tirpalą įdėti $2-3 esamam vandens kiekiui"
   },
   "warnings": {
-    "solubility": "%1 tirpumas kambario temperatūroje yra %2.  Jūs turite koreguoti dozavimą",
+    "solubility": "$1 tirpumas kambario temperatūroje yra $2.  Jūs turite koreguoti dozavimą",
     "k3po4": "K3PO4 tirpale linkęs kelti pH dėl KOH stiprios bazės. Čia paaiškinimas (angl.)  <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>",
     "eddha": "Reikia žinoti, kad EDTA gali paveikti vandens spalvą nuo pilkos iki rausvos net nuo vidutinių dozių. Jūs galite pasižiūrėti video su 0,2 ppm / mg/l dozavimu  <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.",
     "urea": "Šis produktas savo sudėtyje turi nežinomą kiekį N (azoto), URĖJOS formoje išreikštu atitikmeniu NO3 kiekiui.",
-    "cu": "Jūsų Cu (vario) dozė gali bųti %1 % didesnė nei rekomenduojama dozė jautriai akvariumo faunai. Pagalvokite apie dozės sumažinimą %2 iki %3 Your Cu dose is %1 % <a href='http://y.petalphile.com/cu' target='_blank'>Apie Cu (vario) daugiau galimama paskaityti čia </a>"
+    "cu": "Jūsų Cu (vario) dozė gali bųti $1 % didesnė nei rekomenduojama dozė jautriai akvariumo faunai. Pagalvokite apie dozės sumažinimą $2 iki $3 Your Cu dose is $1 % <a href='http://y.petalphile.com/cu' target='_blank'>Apie Cu (vario) daugiau galimama paskaityti čia </a>"
   },
   "chart": {
-    "text": "Panašus  %1",
+    "text": "Panašus  $1",
     "pmdd": "PMDD",
     "walstad": "Walstad",
     "pps": "PPS-Pro",
     "ei": "The Estimative Index /EI",
     "user": "naudotojas",
-    "long_term_chart": "Norite ilgo laikotarpio dozavimo efektingumo modeliavimo %1? Spauskite %2 čia!"
+    "long_term_chart": "Norite ilgo laikotarpio dozavimo efektingumo modeliavimo $1? Spauskite $2 čia!"
   },
   "methods_text": {
     "ei": "Klasikinis EI labai priklauso nuo subalansuoto CO2, geros vandens cirkuliacijos ir reguliarių vandens keitimų. Apšvietimo trukmės laikotarpis tampa ne toks svarbus.",
     "ei_daily": "Tradicinis sumažintas EI modelis kasdieniam dozavimui.",
     "ei_low": "Šis EI modelis subalansuotas dozavimui vieną kartą per savaitę, akvariumui su menku apšvietimu. Čia sumodeliuotos EI reikšmės tinka daugeliui akvariumų.",
     "pps": "Paskaičiuota PPS-Pro kasdieninė dozė. Rekomenduojami kiekiai tinka stabilizuotam – subrendusiam akvariumui.",
-    "pmdd": "PMDD nedozuojama %1. Bet gal ir verta.",
+    "pmdd": "PMDD nedozuojama $1. Bet gal ir verta.",
     "ada": "ADA tręšimo metodika susideda iš maistingo substrato, o jų trąšų skysčiai tik papildo visą sistemą, kol neišsieikvoja substratas.  ADA sudėtis yra pateikta ir analizuojama T. Barr puslapyje <a href='http://barrreport.com' target='_blank'>The Barr Report</a>"
   },
   "misc": {

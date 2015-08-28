@@ -16,6 +16,8 @@ var Container = React.createClass({
 	      success: function(data) {
 	      	this.setState({labels: data.labels});
 	        this.setState({units: data.units});
+	        this.setState({output: data.output});
+	        this.setState({methods: data.methods_text});
 	      }.bind(this),
 	      error: function(xhr, status, err) {
 	        console.error(this.state.url, status, err.toString());
@@ -26,6 +28,8 @@ var Container = React.createClass({
 	    return {
 	      labels : [],
 	      units : [],
+	      output: [],
+	      methods: [],
 	      url : "json/en.json"
 	    }
 	  },
@@ -36,7 +40,7 @@ var Container = React.createClass({
 		return (
 			<div>
 				<LangSelect onSelection={this.handleSelection} />
-				<NutrientCalculator labels={this.state.labels} units={this.state.units} />
+				<NutrientCalculator labels={this.state.labels} units={this.state.units} output={this.state.output} methods={this.state.methods} />
 			</div>
 			);
 	},

@@ -18,44 +18,63 @@ var NutrientCalculator = React.createClass({
             'dose_units' : $('input[name=dose_units]:checked').val(),
             'round_to' : $('#round_to').val()
         };
-        console.log("INPUT");
-        console.log(formData); //for testing
+        //console.log("INPUT");
+        //console.log(formData); //for testing
 	    $.ajax({
 	      type: 'POST',
 	      url: 'php/main.php',
 	      data: formData,
 	      dataType: 'json',
 	      success: function(data) {
-	      	console.log("OUTPUT");
-	      	console.log(data); //for testing
+	      	//console.log("OUTPUT");
+	      	//console.log(data); //for testing
 	      	var resultContainer = $('#result');
+	      	var outputString = '';
+	      	var outputOne = '';
+	      	var outputTwo = '';
+	      	var outputThree = '';
+	      	var outputFour = '';
+	      	var resultMessage = '';
 	      	resultContainer.empty();
 	      	
 	      	// create results message
-	      	var resultMessage = '<h3>Results:</h3>';
+	      	resultMessage = '<h3>Results:</h3>';
 	      	if(formData['calc_for'] === 'result') {
-	      	
-	      		resultMessage += 'Your addition of <strong>' + formData['dose_amount']+ ' ' + formData['dose_units'] + '</strong> to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium adds:';
-	      	
+
+	      		outputString = this.props.output.dose; 
+	      		outputOne = '<strong>' + formData['dose_amount']+ ' ' + formData['dose_units'] + '</strong>';
+	      		outputTwo = formData['tank_vol'] + formData['tank_units'];
+		      	outputString = outputString.replace(/\$1/g,outputOne).replace(/\$2/g,outputTwo);
+		      	resultMessage = outputString;
+	      		
 	      	} else if (formData['calc_for'] === 'target') {
-	      	
-	      		resultMessage += 'To reach your target of <strong>' + data['target_ppm']+ ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> '; 
+
+	      		outputString = this.props.output.target;
+	      		
+	      			outputOne = '<strong>' + data['target_ppm']+ 'ppm ' + data['target_element'] + '</strong>';
 	      		if (formData['compound'] !== undefined) {
-	      			resultMessage += formData['compound'];
+	      			outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['compound'];
 	      		} else {
-	      			resultMessage += formData['premix']; 
+	      			outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['premix']; 
 	      		}
-      			resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+	      			outputThree = formData['tank_vol'] + formData['tank_units']; 
+	      		
+	      		outputString = outputString.replace(/\$1/g,outputOne).replace(/\$2/g,outputTwo).replace(/\$3/g,outputThree);
+		      	resultMessage = outputString;
 	      	
 	      	} else {
-			
-				resultMessage += 'To reach your target of <strong>' + data['target_ppm']+ ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> '; 
-				if (formData['compound'] !== undefined) {
-	      			resultMessage += formData['compound'];
+
+	      		outputString = this.props.output.target;
+	      		
+	      			outputOne = '<strong>' + data['target_ppm']+ 'ppm ' + data['target_element'] + '</strong>';
+	      		if (formData['compound'] !== undefined) {
+	      			outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['compound'];
 	      		} else {
-	      			resultMessage += formData['premix']; 
-	      		} 
-				resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+	      			outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['premix']; 
+	      		}
+	      			outputThree = formData['tank_vol'] + formData['tank_units']; 
+	      		outputString = outputString.replace(/\$1/g,outputOne).replace(/\$2/g,outputTwo).replace(/\$3/g,outputThree);
+		      	resultMessage = outputString;
 	      	
 	      	}
 	      	
@@ -82,22 +101,22 @@ var NutrientCalculator = React.createClass({
 	      	if (formData['calc_for'] !== 'result' && formData['calc_for'] !== 'target') {	
 	      		switch (formData['calc_for']) {
 	      			case 'ei':
-		      			resultInfo = "Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.";
+		      			resultInfo = this.props.methods.ei;
 		      			break;
 	      			case 'ei_daily':
-	      				resultInfo = "This is traditional EI reduced to daily dosing levels.";
+	      				resultInfo = this.props.methods.ei_daily;
 	      				break;
       				case 'ei_low':
-      					resultInfo = "This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.";
+      					resultInfo = this.props.methods.ei_low;
       					break;
   					case 'pps':
-  						resultInfo = "We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.";
+  						resultInfo = this.props.methods.pps;
 						break;
 					case 'pmdd':
-						resultInfo = "PMDD does not dose %1. But maybe you should.";
+						resultInfo = this.props.methods.pmdd;
 						break;
 					case 'ada':
-						resultInfo = "The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>";
+						resultInfo = this.props.methods.ada;
 						break;
 					default:
 						break;
