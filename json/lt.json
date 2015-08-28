@@ -1,0 +1,81 @@
+{
+  "units": {
+    "element": "Elementai",
+    "ppm": "ppm",
+    "degree": "laispnis",
+    "us_gal": "JAV galonas",
+    "imp_gal": "UK galonas",
+    "Liter": "Litrai",
+    "milliliter": "ml",
+    "five_milliliter": "5 mililitrai",
+    "pump_bottle": "dozatorius",
+    "grams": "g",
+    "milligrams": "mg"
+  },
+  "labels": {
+    "aquarium": "Mano akvariumas yra:",
+    "type_of": "Mano trąšos:",
+    "diy": "DIY",
+    "commercial": "Prekybos",
+    "dose_with": "Esu dozuojama:",
+    "using": "Naudojant:",
+    "solution": "Sprendimas",
+    "solution_container": "Konteinerių dydis:",
+    "solution_dose": "Dozė dydis:",
+    "solution_tooltip": "Jei pasirinksite savo dozę žemiau rezultatą, tai dozė, kuri eina į šio tirpalo.",
+    "dry": "Sausas Dozavimo",
+    "method_label": "Aš apskaičiuoti:",
+    "method_target": "Dozės pasiekti tikslą",
+    "method_dose": "Rezultatas mano doze",
+    "method_ei": "The Estimative Index / EI",
+    "method_ei_daily": "EI kasdien",
+    "method_ei_low": "EI su menku apšvietimu / dozuojama kas savaitę",
+    "method_pps": "Perpetual Preservation System / PPS",
+    "method_pmdd": "PMDD",
+    "dose_calc_label": "Aš Įrašyta:",
+    "dose_calc_tooltip": "Pastaba: Jūs galite naudoti numerius, kaip \"1/8\", \"1.25\", \"2,50\", \"3\"",
+    "dose_target": "Mano tikslas yra:",
+    "round_to": "Turo skaitmenų praeityje dešimtųjų:",
+    "submit_btn": "Apskaičiuoti"
+  },
+  "output": {
+    "dose": "Jūsų pasirinkimas nuo $1 iki $2 ką įnešti į akvariumą",
+    "dose_solution": "Jūsų pasirinkimas nuo $1 iki $2 tirpalo talpos, kad būtų paduodama nuo $3 iki $4 akvariumo reikmių.",
+    "target": "pasiekti $1 tikslo reikės įdėti nuo $2 iki $3 tirpalo išeigos",
+    "target_solution": "Kad pasiekti $1 tikslo reikės į tirpalą įdėti $2-3 esamam vandens kiekiui"
+  },
+  "warnings": {
+    "solubility": "$1 tirpumas kambario temperatūroje yra $2.  Jūs turite koreguoti dozavimą",
+    "k3po4": "K3PO4 tirpale linkęs kelti pH dėl KOH stiprios bazės. Čia paaiškinimas (angl.)  <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>",
+    "eddha": "Reikia žinoti, kad EDTA gali paveikti vandens spalvą nuo pilkos iki rausvos net nuo vidutinių dozių. Jūs galite pasižiūrėti video su 0,2 ppm / mg/l dozavimu  <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.",
+    "urea": "Šis produktas savo sudėtyje turi nežinomą kiekį N (azoto), URĖJOS formoje išreikštu atitikmeniu NO3 kiekiui.",
+    "cu": "Jūsų Cu (vario) dozė gali bųti $1 % didesnė nei rekomenduojama dozė jautriai akvariumo faunai. Pagalvokite apie dozės sumažinimą $2 iki $3 Your Cu dose is $1 % <a href='http://y.petalphile.com/cu' target='_blank'>Apie Cu (vario) daugiau galimama paskaityti čia </a>"
+  },
+  "chart": {
+    "text": "Panašus  $1",
+    "pmdd": "PMDD",
+    "walstad": "Walstad",
+    "pps": "PPS-Pro",
+    "ei": "The Estimative Index /EI",
+    "user": "naudotojas",
+    "long_term_chart": "Norite ilgo laikotarpio dozavimo efektingumo modeliavimo $1? Spauskite $2 čia!"
+  },
+  "methods_text": {
+    "ei": "Klasikinis EI labai priklauso nuo subalansuoto CO2, geros vandens cirkuliacijos ir reguliarių vandens keitimų. Apšvietimo trukmės laikotarpis tampa ne toks svarbus.",
+    "ei_daily": "Tradicinis sumažintas EI modelis kasdieniam dozavimui.",
+    "ei_low": "Šis EI modelis subalansuotas dozavimui vieną kartą per savaitę, akvariumui su menku apšvietimu. Čia sumodeliuotos EI reikšmės tinka daugeliui akvariumų.",
+    "pps": "Paskaičiuota PPS-Pro kasdieninė dozė. Rekomenduojami kiekiai tinka stabilizuotam – subrendusiam akvariumui.",
+    "pmdd": "PMDD nedozuojama $1. Bet gal ir verta.",
+    "ada": "ADA tręšimo metodika susideda iš maistingo substrato, o jų trąšų skysčiai tik papildo visą sistemą, kol neišsieikvoja substratas.  ADA sudėtis yra pateikta ir analizuojama T. Barr puslapyje <a href='http://barrreport.com' target='_blank'>The Barr Report</a>"
+  },
+  "misc": {
+    "calc": "Kitokia trąšų skaičiuoklė",
+    "restart": "Restartas",
+    "submit_button": "Paskaičiuoti",
+    "translations": "Vertimai",
+    "contribute": "prisidėti prie vertimo",
+    "mobile_link": "Mobili svetainė",
+    "noscript": "Šis kalkuliarius, kad gerai funkcionuotų reikalauja Javascript",
+    "error": "Rasta klaida! Prašome naudoti tik šiuos skaičus (3, 3.0, 3/4, 0,75, ir t.t.) taip pat įsitikinkite, kad visi matomi klausimai jau atsakyti. Ačiū!"
+  }
+}

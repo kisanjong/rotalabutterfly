@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Rotala Butterfly</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Nutrient Calculator <span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="glossary.html">Glossary</a></li>
+			      <li><a href="contact-form.php">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="page-header clearfix">
+            <h1>Nutrient Calculator <small>This is an evolving project that is currently in beta. If you are interested in helping us test our calculations or refining our language translations, please use our <a href="contact-form.php">contact form</a> to get in touch with us.</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" id="calculator">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6" id="result">
+        </div>
+      </div>
+    </div>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="js_build/bootstrap.js"></script>
+    <script src="js_build/app.js"></script>
+  </body>
+</html>
