@@ -4,7 +4,7 @@ var InputDoseCalc = React.createClass({
 			<div className="form-group">
 				<label htmlFor="dose_amount" className="col-xs-12 col-sm-4 control-label">{this.props.labels.dose_calc_label}</label>
 				<div className="col-xs-6 col-sm-3">
-					<input type="number" name="dose_amount" id="dose_amount" className="form-control"></input>
+					<input type="number" step="0.01" name="dose_amount" id="dose_amount" className="form-control"></input>
 				</div>
 				<div className="col-xs-6 col-sm-5">
 			        <label className="radio-inline">

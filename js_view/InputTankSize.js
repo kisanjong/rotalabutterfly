@@ -4,7 +4,7 @@ var InputTankSize = React.createClass({
 			<div className="form-group">
 				<label htmlFor="tank_vol" className="col-xs-12 col-sm-4 control-label">{this.props.labels.aquarium}</label>
 				<div className="col-xs-6 col-sm-3">
-					<input type="number" name="tank_vol" id="tank_vol" className="form-control"></input>
+					<input type="number" step="0.01" name="tank_vol" id="tank_vol" className="form-control"></input>
 				</div>
 				<div className="col-xs-6 col-sm-5">
 			        <label className="radio-inline">

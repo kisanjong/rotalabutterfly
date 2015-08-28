@@ -3,18 +3,69 @@
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+var _js_viewLangSelect = require('../js_view/LangSelect');
+
+var _js_viewLangSelect2 = _interopRequireDefault(_js_viewLangSelect);
+
 var _js_viewNutrientCalculator = require('../js_view/NutrientCalculator');
 
 var _js_viewNutrientCalculator2 = _interopRequireDefault(_js_viewNutrientCalculator);
 
-React.render(React.createElement(_js_viewNutrientCalculator2['default'], { url: 'json/en.json' }), document.getElementById('calculator'));
+var Container = React.createClass({
+	displayName: 'Container',
 
-},{"../js_view/NutrientCalculator":6}],2:[function(require,module,exports){
+	handleSelection: function handleSelection() {
+		var newURL = "json/" + event.target.value + ".json";
+		this.setState({ url: newURL }, function () {
+			this.loadLabelsFromServer();
+		});
+	},
+	loadLabelsFromServer: function loadLabelsFromServer() {
+		$.ajax({
+			url: this.state.url,
+			dataType: 'json',
+			cache: false,
+			success: (function (data) {
+				this.setState({ labels: data.labels });
+				this.setState({ units: data.units });
+				this.setState({ output: data.output });
+				this.setState({ methods: data.methods_text });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.state.url, status, err.toString());
+			}).bind(this)
+		});
+	},
+	getInitialState: function getInitialState() {
+		return {
+			labels: [],
+			units: [],
+			output: [],
+			methods: [],
+			url: "json/en.json"
+		};
+	},
+	componentDidMount: function componentDidMount() {
+		this.loadLabelsFromServer();
+	},
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(_js_viewLangSelect2['default'], { onSelection: this.handleSelection }),
+			React.createElement(_js_viewNutrientCalculator2['default'], { labels: this.state.labels, units: this.state.units, output: this.state.output, methods: this.state.methods })
+		);
+	}
+});
+
+React.render(React.createElement(Container, null), document.getElementById('calculator'));
+
+},{"../js_view/LangSelect":6,"../js_view/NutrientCalculator":7}],2:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _js_viewSelectCalcFor = require("../js_view/SelectCalcFor");
+var _js_viewSelectCalcFor = require('../js_view/SelectCalcFor');
 
 var _js_viewSelectCalcFor2 = _interopRequireDefault(_js_viewSelectCalcFor);
 
@@ -42,7 +93,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"div",
 						{ className: "input-group" },
-						React.createElement("input", { type: "number", className: "form-control", id: "sol_volume", name: "sol_volume" }),
+						React.createElement("input", { type: "number", step: "0.01", className: "form-control", id: "sol_volume", name: "sol_volume" }),
 						React.createElement(
 							"div",
 							{ className: "input-group-addon" },
@@ -65,7 +116,7 @@ var InputDIYSolutionContainerDose = React.createClass({
 					React.createElement(
 						"div",
 						{ className: "input-group" },
-						React.createElement("input", { type: "number", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
+						React.createElement("input", { type: "number", step: "0.01", className: "form-control", id: "sol_dose", name: "sol_dose", onChange: this.hasValue }),
 						React.createElement(
 							"div",
 							{ className: "input-group-addon" },
@@ -109,7 +160,7 @@ var InputDIYSolutionContainerDoseContainer = React.createClass({
 
 module.exports = InputDIYSolutionContainerDoseContainer;
 
-},{"../js_view/SelectCalcFor":9}],3:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":10}],3:[function(require,module,exports){
 "use strict";
 
 var InputDoseCalc = React.createClass({
@@ -127,7 +178,7 @@ var InputDoseCalc = React.createClass({
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", name: "dose_amount", id: "dose_amount", className: "form-control" })
+				React.createElement("input", { type: "number", step: "0.01", name: "dose_amount", id: "dose_amount", className: "form-control" })
 			),
 			React.createElement(
 				"div",
@@ -186,7 +237,7 @@ var InputDoseTarget = React.createClass({
         React.createElement(
           "div",
           { className: "input-group" },
-          React.createElement("input", { type: "number", className: "form-control", name: "target_amount", id: "target_amount" }),
+          React.createElement("input", { type: "number", step: "0.01", className: "form-control", name: "target_amount", id: "target_amount" }),
           React.createElement(
             "div",
             { className: "input-group-addon" },
@@ -218,7 +269,7 @@ var InputTankSize = React.createClass({
 			React.createElement(
 				"div",
 				{ className: "col-xs-6 col-sm-3" },
-				React.createElement("input", { type: "number", name: "tank_vol", id: "tank_vol", className: "form-control" })
+				React.createElement("input", { type: "number", step: "0.01", name: "tank_vol", id: "tank_vol", className: "form-control" })
 			),
 			React.createElement(
 				"div",
@@ -245,6 +296,102 @@ var InputTankSize = React.createClass({
 module.exports = InputTankSize;
 
 },{}],6:[function(require,module,exports){
+"use strict";
+
+var LangSelect = React.createClass({
+	displayName: "LangSelect",
+
+	isSelected: function isSelected(event) {
+		this.props.onSelection(event);
+	},
+	getInitialState: function getInitialState() {
+		return {
+			lang: 'en'
+		};
+	},
+	render: function render() {
+		return React.createElement(
+			"form",
+			{ className: "form-horizontal" },
+			React.createElement(
+				"div",
+				{ className: "form-group" },
+				React.createElement(
+					"label",
+					{ htmlFor: "lang", className: "col-xs-12 col-sm-4 control-label" },
+					"Current Language:"
+				),
+				React.createElement(
+					"div",
+					{ className: "col-xs-12 col-sm-8" },
+					React.createElement(
+						"select",
+						{ defaultValue: "en", name: "lang", className: "form-control", onChange: this.isSelected },
+						React.createElement(
+							"option",
+							{ value: "cs" },
+							"Czech"
+						),
+						React.createElement(
+							"option",
+							{ value: "de" },
+							"Deutsch"
+						),
+						React.createElement(
+							"option",
+							{ value: "en" },
+							"English"
+						),
+						React.createElement(
+							"option",
+							{ value: "es" },
+							"Español"
+						),
+						React.createElement(
+							"option",
+							{ value: "it" },
+							"Italiano"
+						),
+						React.createElement(
+							"option",
+							{ value: "jp" },
+							"日本語"
+						),
+						React.createElement(
+							"option",
+							{ value: "lt" },
+							"Lietuvių kalba"
+						),
+						React.createElement(
+							"option",
+							{ value: "nl" },
+							"Nederlands"
+						),
+						React.createElement(
+							"option",
+							{ value: "pl" },
+							"Polski"
+						),
+						React.createElement(
+							"option",
+							{ value: "ptbr" },
+							"Português do Brasil"
+						),
+						React.createElement(
+							"option",
+							{ value: "ro" },
+							"Română"
+						)
+					)
+				)
+			)
+		);
+	}
+});
+
+module.exports = LangSelect;
+
+},{}],7:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -276,42 +423,61 @@ var NutrientCalculator = React.createClass({
 			'dose_units': $('input[name=dose_units]:checked').val(),
 			'round_to': $('#round_to').val()
 		};
-		console.log('INPUT');
-		console.log(formData); //for testing
+		//console.log("INPUT");
+		//console.log(formData); //for testing
 		$.ajax({
 			type: 'POST',
 			url: 'php/main.php',
 			data: formData,
 			dataType: 'json',
 			success: (function (data) {
-				console.log('OUTPUT');
-				console.log(data); //for testing
+				//console.log("OUTPUT");
+				//console.log(data); //for testing
 				var resultContainer = $('#result');
+				var outputString = '';
+				var outputOne = '';
+				var outputTwo = '';
+				var outputThree = '';
+				var outputFour = '';
+				var resultMessage = '';
 				resultContainer.empty();
 
 				// create results message
-				var resultMessage = '<h3>Results:</h3>';
+				resultMessage = '<h3>Results:</h3>';
 				if (formData['calc_for'] === 'result') {
 
-					resultMessage += 'Your addition of <strong>' + formData['dose_amount'] + ' ' + formData['dose_units'] + '</strong> to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium adds:';
+					outputString = this.props.output.dose;
+					outputOne = '<strong>' + formData['dose_amount'] + ' ' + formData['dose_units'] + '</strong>';
+					outputTwo = formData['tank_vol'] + formData['tank_units'];
+					outputString = outputString.replace(/\$1/g, outputOne).replace(/\$2/g, outputTwo);
+					resultMessage = outputString;
 				} else if (formData['calc_for'] === 'target') {
 
-					resultMessage += 'To reach your target of <strong>' + data['target_ppm'] + ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ';
+					outputString = this.props.output.target;
+
+					outputOne = '<strong>' + data['target_ppm'] + 'ppm ' + data['target_element'] + '</strong>';
 					if (formData['compound'] !== undefined) {
-						resultMessage += formData['compound'];
+						outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['compound'];
 					} else {
-						resultMessage += formData['premix'];
+						outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['premix'];
 					}
-					resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+					outputThree = formData['tank_vol'] + formData['tank_units'];
+
+					outputString = outputString.replace(/\$1/g, outputOne).replace(/\$2/g, outputTwo).replace(/\$3/g, outputThree);
+					resultMessage = outputString;
 				} else {
 
-					resultMessage += 'To reach your target of <strong>' + data['target_ppm'] + ' ' + data['target_element'] + '</strong> you will need to add <strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ';
+					outputString = this.props.output.target;
+
+					outputOne = '<strong>' + data['target_ppm'] + 'ppm ' + data['target_element'] + '</strong>';
 					if (formData['compound'] !== undefined) {
-						resultMessage += formData['compound'];
+						outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['compound'];
 					} else {
-						resultMessage += formData['premix'];
+						outputTwo = '<strong>' + data['dose_amount'] + ' ' + data['dose_units'] + '</strong> ' + formData['premix'];
 					}
-					resultMessage += ' to your ' + formData['tank_vol'] + formData['tank_units'] + ' aquarium to yield:';
+					outputThree = formData['tank_vol'] + formData['tank_units'];
+					outputString = outputString.replace(/\$1/g, outputOne).replace(/\$2/g, outputTwo).replace(/\$3/g, outputThree);
+					resultMessage = outputString;
 				}
 
 				// create results table
@@ -337,22 +503,22 @@ var NutrientCalculator = React.createClass({
 				if (formData['calc_for'] !== 'result' && formData['calc_for'] !== 'target') {
 					switch (formData['calc_for']) {
 						case 'ei':
-							resultInfo = 'Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.';
+							resultInfo = this.props.methods.ei;
 							break;
 						case 'ei_daily':
-							resultInfo = 'This is traditional EI reduced to daily dosing levels.';
+							resultInfo = this.props.methods.ei_daily;
 							break;
 						case 'ei_low':
-							resultInfo = 'This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.';
+							resultInfo = this.props.methods.ei_low;
 							break;
 						case 'pps':
-							resultInfo = 'We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.';
+							resultInfo = this.props.methods.pps;
 							break;
 						case 'pmdd':
-							resultInfo = 'PMDD does not dose %1. But maybe you should.';
+							resultInfo = this.props.methods.pmdd;
 							break;
 						case 'ada':
-							resultInfo = 'The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href=\'http://barrreport.com\' target=\'_blank\'>The Barr Report</a>';
+							resultInfo = this.props.methods.ada;
 							break;
 						default:
 							break;
@@ -381,43 +547,33 @@ var NutrientCalculator = React.createClass({
 		});
 		event.preventDefault();
 	},
-	loadLabelsFromServer: function loadLabelsFromServer() {
-		$.ajax({
-			url: this.props.url,
-			dataType: 'json',
-			cache: false,
-			success: (function (data) {
-				this.setState({ labels: data.labels });
-				this.setState({ units: data.units });
-			}).bind(this),
-			error: (function (xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}).bind(this)
-		});
-	},
 	getInitialState: function getInitialState() {
 		return {
-			labels: [],
-			units: [],
 			returnData: []
 		};
 	},
-	componentDidMount: function componentDidMount() {
-		this.loadLabelsFromServer();
-	},
 	render: function render() {
 		return React.createElement(
-			'form',
-			{ className: 'form-horizontal', onSubmit: this.handleSubmit },
-			React.createElement(_js_viewInputTankSize2['default'], { labels: this.state.labels, units: this.state.units }),
-			React.createElement(_js_viewRadioFertType2['default'], { labels: this.state.labels, units: this.state.units })
+			'div',
+			{ className: 'well' },
+			React.createElement(
+				'form',
+				{ className: 'form-horizontal', onSubmit: this.handleSubmit },
+				React.createElement(
+					'legend',
+					null,
+					'Your Information:'
+				),
+				React.createElement(_js_viewInputTankSize2['default'], { labels: this.props.labels, units: this.props.units }),
+				React.createElement(_js_viewRadioFertType2['default'], { labels: this.props.labels, units: this.props.units })
+			)
 		);
 	}
 });
 
 module.exports = NutrientCalculator;
 
-},{"../js_view/InputTankSize":5,"../js_view/RadioFertType":7}],7:[function(require,module,exports){
+},{"../js_view/InputTankSize":5,"../js_view/RadioFertType":8}],8:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -500,7 +656,9 @@ var Source = React.createClass({
 			options: []
 		};
 	},
-	componentDidMount: function componentDidMount() {},
+	componentDidMount: function componentDidMount() {
+		//console.log(Array.isArray(this.props.children));
+	},
 	render: function render() {
 		if (this.state.fertType === null) {
 			return React.createElement(
@@ -535,9 +693,7 @@ var Source = React.createClass({
 
 module.exports = Source;
 
-//console.log(Array.isArray(this.props.children));
-
-},{"../js_view/RadioSolutionDry":8,"../js_view/SelectFertType":10}],8:[function(require,module,exports){
+},{"../js_view/RadioSolutionDry":9,"../js_view/SelectFertType":11}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -631,7 +787,7 @@ var RadioSolutionDryContainer = React.createClass({
 
 module.exports = RadioSolutionDryContainer;
 
-},{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":9}],9:[function(require,module,exports){
+},{"../js_view/InputDIYSolutionContainerDose":2,"../js_view/SelectCalcFor":10}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -766,7 +922,7 @@ var SelectCalcForContainer = React.createClass({
 
 module.exports = SelectCalcForContainer;
 
-},{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":11,"../js_view/SubmitBtn":12}],10:[function(require,module,exports){
+},{"../js_view/InputDoseCalc":3,"../js_view/InputDoseTarget":4,"../js_view/SelectRounding":12,"../js_view/SubmitBtn":13}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -786,7 +942,9 @@ var SelectFertType = React.createClass({
 			selected: null
 		};
 	},
-	componentDidMount: function componentDidMount() {},
+	componentDidMount: function componentDidMount() {
+		//console.log(Array.isArray(this.props.children));
+	},
 	render: function render() {
 
 		var obj = this.props.options;
@@ -818,6 +976,11 @@ var SelectFertType = React.createClass({
 						React.createElement(
 							'select',
 							{ className: 'form-control', id: 'compound', name: 'compound', onChange: this.isSelected },
+							React.createElement(
+								'option',
+								{ value: 'null' },
+								'Select Your Compound'
+							),
 							selectOptions
 						)
 					)
@@ -842,6 +1005,11 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', id: 'premix', name: 'premix', onChange: this.isSelected },
+								React.createElement(
+									'option',
+									{ value: 'null' },
+									'Select Your Product'
+								),
 								selectOptions
 							)
 						)
@@ -866,6 +1034,11 @@ var SelectFertType = React.createClass({
 							React.createElement(
 								'select',
 								{ className: 'form-control', id: 'premix', name: 'premix', onChange: this.isSelected },
+								React.createElement(
+									'option',
+									{ value: 'null' },
+									'Select Your Product'
+								),
 								selectOptions
 							)
 						)
@@ -884,9 +1057,7 @@ var SelectFertType = React.createClass({
 
 module.exports = SelectFertType;
 
-//console.log(Array.isArray(this.props.children));
-
-},{"../js_view/SelectCalcFor":9}],11:[function(require,module,exports){
+},{"../js_view/SelectCalcFor":10}],12:[function(require,module,exports){
 "use strict";
 
 var SelectRounding = React.createClass({
@@ -960,7 +1131,7 @@ var SelectRounding = React.createClass({
 
 module.exports = SelectRounding;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 var SubmitBtn = React.createClass({

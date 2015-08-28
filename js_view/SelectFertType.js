@@ -31,6 +31,7 @@ var SelectFertType = React.createClass({
 			        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 				    <div className="col-sm-8">
 				        <select className="form-control" id="compound" name="compound" onChange={this.isSelected} >
+				          <option value="null">Select Your Compound</option>
 				          { selectOptions }
 				        </select>
 			        </div>
@@ -45,6 +46,7 @@ var SelectFertType = React.createClass({
 				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" id="premix" name="premix" onChange={this.isSelected}>
+					          <option value="null">Select Your Product</option>
 					          { selectOptions }
 					        </select>
 				        </div>
@@ -59,6 +61,7 @@ var SelectFertType = React.createClass({
 				        <label className="col-sm-4 control-label">{this.props.labels.dose_with}</label>
 					    <div className="col-sm-8">
 					        <select className="form-control" id="premix" name="premix" onChange={this.isSelected}>
+					          <option value="null">Select Your Product</option>
 					          { selectOptions }
 					        </select>
 				        </div>

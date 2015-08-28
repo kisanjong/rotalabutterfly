@@ -3,10 +3,12 @@
 
 //Path to the main/root rotala dir...
 
-$path = "/your/path/to/rotala";
+
+$path = "/Users/jennifer/Sites/rotalabutterfly";
 
 //Domain URL...
-$domain = "yourdomain.com";
+$domain = "rotala.dev";
+
 
 
 ?>

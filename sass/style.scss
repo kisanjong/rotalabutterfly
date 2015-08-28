@@ -36,7 +36,7 @@
 //@import "bootstrap/list-group";
 //@import "bootstrap/panels";
 //@import "bootstrap/responsive-embed";
-//@import "bootstrap/wells";
+@import "wells";
 //@import "bootstrap/close";
 
 // Components w/ JavaScript
@@ -51,3 +51,9 @@
 
 // Bootswatch
 @import "bootswatch";
+h1 {
+	small {
+		display: block;
+		line-height: 1.25;
+	}
+}
