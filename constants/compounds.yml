@@ -89,7 +89,7 @@ Ca(NO3)2.4H2O:
   dGH:    0.0237030956
   tsp:    12520
   sol:    121
-  target: Ca   
+  target: NO3   
 5Ca(NO3)2.NH4NO3.10H2O:
   Ca:     0.18543984009179916
   N as NH4 and NO3:    0.1555440395328608
