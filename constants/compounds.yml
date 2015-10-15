@@ -3,7 +3,7 @@
 # compound
   # elements = concencentration by mass
   # tsp = teaspoon (rounded to 5mL to avoid confusion) concentrations in milligrams
-  # sol = maximum solubility in terms of mg/mL
+  # sol = maximum solubility in terms of grams/Liter
   # target = most useful macro or micronutrient for our users
 ---
 KNO3:
