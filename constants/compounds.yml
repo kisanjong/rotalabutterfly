@@ -3,7 +3,7 @@
 # compound
   # elements = concencentration by mass
   # tsp = teaspoon (rounded to 5mL to avoid confusion) concentrations in milligrams
-  # sol = maximum solubility in terms of mg/mL
+  # sol = maximum solubility in terms of grams/Liter
   # target = most useful macro or micronutrient for our users
 ---
 KNO3:
@@ -250,3 +250,38 @@ Aquagreen's Amgrow Trace Mix:
   Cu:     0.003
   tsp:    4500
   target: Fe
+CaCO3:
+  Ca:     0.400432
+  CO3:    0.599568
+  dGH:    0.05608905310979140237536366726083
+  dKH:    0.05608905310979140237536366726083
+  # tsp unknown
+  tsp:    1
+  sol:    0.013
+  target: Ca
+
+NaHCO3:
+  Na:     0.273666
+  HCO3:   0.726333
+  dKH:    0.03337666305622575770039797866862
+  tsp:    5710
+  sol:    96
+  target: dKH
+
+KHCO3:
+  K:      0.390533
+  HCO3:   0.609467
+  dKH:    0.02800640298993539308882902864833
+  # tsp unknown
+  tsp:    1
+  sol:    337
+  target: dKH
+
+NaCl:
+  Na:     0.393372
+  Cl:     0.606628
+  TDS:    1.0000
+  tsp:    6790
+  sol:    359
+  # Total Dissolved Salt
+  target: TDS
